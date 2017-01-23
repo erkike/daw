@@ -1,4 +1,5 @@
-Nombre de la aplicación: Series Carpincho
+﻿Nombre de la aplicación: Series Carpincho
+Grupo 7
 
 Descripción: Se trata de una web para comentar y calificar series de tv, puedes añadir tus series favoritas y recomendarlas a tus amigos.
 
