@@ -1,5 +1,6 @@
 <h2 id="titulo">Práctica DAW</h2>
-Nombre de la aplicación: Series Carpincho
+<h3 id="titulo">Nombre de la aplicación</h3>
+Series Carpincho
 Grupo 7
 
 Descripción: Se trata de una web para comentar y calificar series de tv, puedes añadir tus series favoritas y recomendarlas a tus amigos.
