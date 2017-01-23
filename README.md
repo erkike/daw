@@ -1,8 +1,8 @@
 <h2 id="titulo">Práctica DAW</h2>
 <h3 id="titulo">Nombre de la aplicación</h3>
-Series Carpincho
+<p>Series Carpincho</p>
 <h3 id="titulo">Descripción</h3>
-Se trata de una web para comentar y calificar series de tv, puedes añadir tus series favoritas y recomendarlas a tus amigos.
+<p>Se trata de una web para comentar y calificar series de tv, puedes añadir tus series favoritas y recomendarlas a tus amigos.</p>
 <h3 id="titulo">Entidades</h3>
   -Serie: Conjunto de capítulos que constituyen la serie, se puede comentar, valorar y marcar como serie favorita
   -Capítulo: Partes en las que se divide una serie, al igual que la serie se puede comentar y valorar.
