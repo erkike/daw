@@ -3,7 +3,7 @@ Nombre de la aplicación: Series Carpincho
 Descripción: Se trata de una web para comentar y calificar series de tv, puedes añadir tus series favoritas y recomendarlas a tus amigos.
 
 Entidades:
-  -Series:
+  -Serie: es una obra audiovisual que se difunde en emisiones televisuales, manteniendo cada una de ellas una unidad argumental en sí misma y con continuidad, al menos temática, entre los diferentes episodios que la integran.
   -Capítulo:
   -Usuario: persona humana que utiliza la web.
   -Comentarios/Valoraciones: 
