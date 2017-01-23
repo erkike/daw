@@ -9,6 +9,7 @@ Se trata de una web para comentar y calificar series de tv, puedes añadir tus s
   - Usuario: Persona humana que utiliza la web.  
   - Comentarios/Valoraciones: Puntuación que se le da a una serie o capítulo. Esta compuesta de una puntuación del 1 al 10 y un cuadro de texto.  
   - Recomendación: Mensaje para recomendar una serie que se puede transmitir de dos formas: de un usuario a otro usuario, o de la propia aplicación web a un usuario (basandose en sus series favoritas y sus amigos).  
+  
 ###Integrantes                                                                                         
   - Enrique Sánchez-Migallón Porras, e.sanchezpo@alumnos.urjc.es, https://github.com/erkike  
   - Christian Alcaide Moreno, c.alcaidemor@alumnos.urjc.es, https://github.com/ChristianAm7  
