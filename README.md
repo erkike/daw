@@ -10,7 +10,7 @@ Entidades:
   -Recomendación: 
   
 Integrantes del equipo de desarrollo:
-  -Enrique Sánchez-Migallón Porras, e.sanchezpo@alumnos.urjc.es, https://github.com/erkike
+  -Enrique Sánchez-Migallón Porras, e.sanchezpo@alumnos.urjc.es, https://github.com/erkike \n
   -Christian Alcaide Moreno, c.alcaidemor@alumnos.urjc.es, https://github.com/ChristianAm7
   -Sergio Cerezuela González, s.cerezuela@alumnos.urjc.es, https://github.com/scgvk
   -Fernando Castro García, f.castrog@alumnos.urjc.es, https://github.com/fcastrog
