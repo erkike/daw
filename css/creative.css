@@ -62,6 +62,7 @@ p {
 
 .text-faded {
     color: white;
+    text-shadow: -1px -1px 1px #F05F40, 1px 1px 1px #F05F40, -1px 1px 1px #F05F40, 1px -1px 1px #F05F40;
 }
 
 section {
@@ -248,6 +249,7 @@ header .header-content .header-content-inner p {
 .section-heading {
     color: white;
     margin-top: 0;
+    text-shadow: -1px -1px 1px #F05F40, 1px 1px 1px #F05F40, -1px 1px 1px #F05F40, 1px -1px 1px #F05F40;
 }
 
 .service-box {
