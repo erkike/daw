@@ -86,10 +86,18 @@ aside {
 }
 
 .navbar-default .navbar-header .navbar-brand {
-    color: #F05F40;
+    color: rgb(240, 98, 66);
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
+    margin-left: -20px
+}
+
+.navbar-default .navbar-header .navbar-brand > img {
+    margin-top: -22px;
+    margin-left: -8px;
+    height: 65px
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -134,8 +142,7 @@ aside {
         border-color: rgba(255, 255, 255, 0.3);
     }
     .navbar-default .navbar-header .navbar-brand {
-        color: black;
-        text-shadow: -1px -1px 1px #F05F40, 1px 1px 1px #F05F40, -1px 1px 1px #F05F40, 1px -1px 1px #F05F40;
+        color: F05F40;
     }
     .navbar-default .navbar-header .navbar-brand:hover,
     .navbar-default .navbar-header .navbar-brand:focus {
@@ -155,7 +162,7 @@ aside {
     }
     .navbar-default.affix .navbar-header .navbar-brand {
         color: #F05F40;
-        font-size: 14px;
+        font-size: 18px;
     }
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
