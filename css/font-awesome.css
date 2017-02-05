@@ -369,7 +369,7 @@
 }
 .fa-edit:before,
 .fa-pencil-square-o:before {
-  content: "\f044";
+  content: "\f0c0";
 }
 .fa-share-square-o:before {
   content: "\f045";
@@ -1730,7 +1730,7 @@
   content: "\f21e";
 }
 .fa-venus:before {
-  content: "\f221";
+  content: "\f005";
 }
 .fa-mars:before {
   content: "\f222";
