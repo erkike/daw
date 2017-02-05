@@ -26,3 +26,7 @@ Se trata de una web para comentar y calificar series de tv, puedes añadir tus s
   - ![Sin titulo](pictures/100.png) Página Serie
   - ![Sin titulo](pictures/100+.png)
   - ![Sin titulo](pictures/100++.png)
+  
+  ###Fuentes:
+  - https://graygrids.com/item/free-bootstrap-admin-template-zontal-admin/ Plantilla CSS usada en la página de perfil de usuario
+  - https://startbootstrap.com/template-overviews/creative/ Plantilla CSS usada en el resto de páginas
