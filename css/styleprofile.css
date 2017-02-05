@@ -181,7 +181,7 @@ header {
 }
 
 .menu-section .dropdown-menu > li > a:hover,.menu-section .dropdown-menu > li > a:focus {
-    background-color: #F0677C!important;
+    background-color: #F05F40!important;
 }
 
 .navbar-inverse {
@@ -190,7 +190,7 @@ header {
 }
 
 .navbar-toggle {
-    background-color: #F0677C;
+    background-color: #F05F40;
     border: 1px solid #fff;
 }
 
@@ -273,14 +273,15 @@ footer {
     list-style: none;
 }
 
+
 .notice-board li {
     padding: 10px;
-    border-bottom: 1px solid #E5E5E5;
+    border-bottom: 1px solid #475EFF;
 }
 
     .notice-board li span {
         margin-right: 10px;
-        border: 1px solid #DBDBDB;
+        border: 1px solid #475EFF;
         padding: 5px;
     }
 
