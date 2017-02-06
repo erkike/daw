@@ -65,7 +65,7 @@ p {
     text-shadow: -1px -1px 1px #F05F40, 1px 1px 1px #F05F40, -1px 1px 1px #F05F40, 1px -1px 1px #F05F40;
 }
 
-.texto-naranja {
+.temporadas {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     border: none;
     border-radius: 300px;
@@ -79,6 +79,11 @@ p {
     text-align: center;
     text-transform: uppercase;
     font-size: 30px;
+}
+
+.temporadas:hover {
+    color: #F05F40;
+    background-color: white;
 }
 
 section {
@@ -514,12 +519,15 @@ img::-moz-selection {
     background: transparent;
 }
 
-fb-icon {
-    background-image: url('/img/logo-blanco.png');
+.icono {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: url("/img/logo-hover.png") no-repeat;
 }
 
-fb-icon:hover {
-    background-image: url('/img/logo.png');
+.icono:hover {
+    background-position: 0 -40px;
 }
 
 body {
