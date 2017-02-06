@@ -33,4 +33,6 @@ Se trata de una web para comentar y calificar series de tv, puedes añadir tus s
   
 ###Fuentes:
   - https://graygrids.com/item/free-bootstrap-admin-template-zontal-admin/ Plantilla CSS usada en la página de perfil de usuario
+  
   - https://startbootstrap.com/template-overviews/creative/ Plantilla CSS usada en el resto de páginas
+  De esta plantilla hemos mantenido la cabecera, y la sección de contacto. El resto lo hemos adaptado con el contenido que necesitamos para nuestra web con imágenes, vídeos y quitando alguna sección que sobraba.
