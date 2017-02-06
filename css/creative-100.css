@@ -101,6 +101,12 @@ aside {
     height: 65px
 }
 
+.page-scroll > img {
+    margin-top: -15px;
+    margin-left: -8px;
+    height: 50px
+}
+
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
     color: #eb3812;
