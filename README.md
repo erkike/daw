@@ -20,15 +20,19 @@ Se trata de una web para comentar y calificar series de tv, puedes añadir tus s
 ###Capturas
 ####Página Principal:
  ![Sin titulo](pictures/principal.png)
+####Carpincho: en la página principal
  ![Sin titulo](pictures/carpincho.png) 
+####Contacto: en todas las páginas
  ![Sin titulo](pictures/contacto.png)
 ####Login:
  ![Sin titulo](pictures/cuenta.png)
 ####Listado Series:
  ![Sin titulo](pictures/series.png)
-####Página de una Serie:
+####Página de una Serie: se llega con el botón ¡Carpincha en el listado de series
  ![Sin titulo](pictures/100.png)
+####Sinopsis de la serie:
  ![Sin titulo](pictures/100+.png)
+####Sección de comentarios:
  ![Sin titulo](pictures/100++.png)
   
 ###Fuentes:
