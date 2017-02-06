@@ -65,6 +65,10 @@ p {
     text-shadow: -1px -1px 1px #F05F40, 1px 1px 1px #F05F40, -1px 1px 1px #F05F40, 1px -1px 1px #F05F40;
 }
 
+texto-naranja {
+    color: #F05F40;
+}
+
 section {
     padding: 100px 0;
 }
@@ -496,6 +500,14 @@ img::selection {
 img::-moz-selection {
     color: white;
     background: transparent;
+}
+
+fb-icon {
+    background-image: url('/img/logo-blanco.png');
+}
+
+fb-icon:hover {
+    background-image: url('/img/logo.png');
 }
 
 body {

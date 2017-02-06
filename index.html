@@ -32,6 +32,12 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script>
+        function abrir(url) {
+            open(url, '', 'top=600,left=600,width=600,height=600');
+        }
+    </script>
+
 </head>
 
 <body id="page-top">
@@ -61,7 +67,7 @@
                         <a class="page-scroll" href="#contact">Contacto</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href='login.html'> Mi Cuenta</a>
+                        <a class="page-scroll" href="javascript:abrir('login.html')"> Mi Cuenta</a>
                     </li>
                 </ul>
             </div>
