@@ -18,14 +18,18 @@ Se trata de una web para comentar y calificar series de tv, puedes añadir tus s
 
 
 ###Capturas
-  - ![Sin titulo](pictures/principal.png) Página principal
-  - ![Sin titulo](pictures/carpincho.png) 
-  - ![Sin titulo](pictures/contacto.png)
-  - ![Sin titulo](pictures/cuenta.png) Login
-  - ![Sin titulo](pictures/series.png) Lista Series
-  - ![Sin titulo](pictures/100.png) Página Serie
-  - ![Sin titulo](pictures/100+.png)
-  - ![Sin titulo](pictures/100++.png)
+####Página Principal:
+ ![Sin titulo](pictures/principal.png)
+ ![Sin titulo](pictures/carpincho.png) 
+ ![Sin titulo](pictures/contacto.png)
+####Login:
+ ![Sin titulo](pictures/cuenta.png)
+####Listado Series:
+ ![Sin titulo](pictures/series.png)
+####Página de una Serie:
+ ![Sin titulo](pictures/100.png)
+ ![Sin titulo](pictures/100+.png)
+ ![Sin titulo](pictures/100++.png)
   
   ###Fuentes:
   - https://graygrids.com/item/free-bootstrap-admin-template-zontal-admin/ Plantilla CSS usada en la página de perfil de usuario
