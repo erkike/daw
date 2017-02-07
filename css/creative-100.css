@@ -65,27 +65,6 @@ p {
     text-shadow: -1px -1px 1px #F05F40, 1px 1px 1px #F05F40, -1px 1px 1px #F05F40, 1px -1px 1px #F05F40;
 }
 
-.temporadas {
-    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-    border: none;
-    border-radius: 300px;
-    font-weight: 700;
-    color: white;
-    background-color: #F05F40;
-    width: 300px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 30px;
-}
-
-.temporadas:hover {
-    color: #F05F40;
-    background-color: white;
-}
-
 section {
     padding: 100px 0;
 }
@@ -524,10 +503,55 @@ img::-moz-selection {
     height: 40px;
     display: inline-block;
     background: url("/img/logo-hover.png") no-repeat;
+    border: none;
 }
 
 .icono:hover {
     background-position: 0 -40px;
+}
+
+.estrella {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: url("/img/favorito-blanco.png") no-repeat;
+    border: none;
+}
+
+.estrella:hover {
+    background-position: 0 -30px;
+}
+
+.recomendar {
+    width: 30px;
+    height: 30px;
+    background: url("/img/recomendar.png");
+    border: none;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.temporadas {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: #F05F40;
+    list-style: none;
+}
+
+.capitulos {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    background: none;
+}
+
+.capitulos:hover{
+    color:black;
+    background: #F05F40;
+}
+
+.blanco {
+    color: white;
 }
 
 body {
