@@ -25,6 +25,13 @@
     <!-- Theme CSS -->
     <link href="css/new_index.css" rel="stylesheet">
 
+    <!-- Script login -->
+    <script>
+        function abrir(url) {
+            open(url, '', 'top=600,left=600,width=600,height=600');
+        }
+    </script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -61,7 +68,7 @@
                         <a class="page-scroll" href="#contact">Contacto</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Mi cuenta</a>
+                        <a class="page-scroll" href="javascript:abrir('login.html')">Mi cuenta</a>
                     </li>
                 </ul>
             </div>
@@ -87,7 +94,7 @@
                     <p class="text-faded">Sigue de cerca tus series favoritas.</p>
                     <p class="text-faded">En Series Carpincho podrás comentar, ver los comentarios de las series más de moda y valorarlas con puntuaciones de 1 a 5 carpinchos.</p>
                     <p class="text-faded">Además, si te registras podrás disfrutar de los comentarios libres de spoilers, añadir a tu perfil tus series favoritas y recomendarlas a tus amigos.</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">¡Únete ya!</a>
+                    <a href="javascript:abrir('login.html')" class="page-scroll btn btn-default btn-xl sr-button">¡Únete ya!</a>
                 </div>
             </div>
         </div>
