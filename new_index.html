@@ -23,7 +23,14 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/creative.css" rel="stylesheet">
+    <link href="css/new_index.css" rel="stylesheet">
+
+    <!-- Script login -->
+    <script>
+        function abrir(url) {
+            open(url, '', 'top=600,left=600,width=600,height=600');
+        }
+    </script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,7 +50,9 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Series Carpincho</a>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <img class="navbar-brand page-scroll" src="img/logo.png"> Series Carpincho
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -59,7 +68,7 @@
                         <a class="page-scroll" href="#contact">Contacto</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Mi cuenta</a>
+                        <a class="page-scroll" href="javascript:abrir('login.html')">Mi cuenta</a>
                     </li>
                 </ul>
             </div>
@@ -85,7 +94,7 @@
                     <p class="text-faded">Sigue de cerca tus series favoritas.</p>
                     <p class="text-faded">En Series Carpincho podrás comentar, ver los comentarios de las series más de moda y valorarlas con puntuaciones de 1 a 5 carpinchos.</p>
                     <p class="text-faded">Además, si te registras podrás disfrutar de los comentarios libres de spoilers, añadir a tu perfil tus series favoritas y recomendarlas a tus amigos.</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">¡Únete ya!</a>
+                    <a href="javascript:abrir('login.html')" class="page-scroll btn btn-default btn-xl sr-button">¡Únete ya!</a>
                 </div>
             </div>
         </div>
@@ -112,62 +121,102 @@
             <div class="row">
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Juego de Tronos</h2>
-                    <img src="img/juego_de_tronos.jpg" widht='200' height='200'>
-                    <img class="favourite" href="#series" src="img/favorito.png" widht='35' height='35'>
-                    <img class="valoration" src="img/puntuacion_5.png" height='25'>
+                    <img src="img/series_icon/juego_de_tronos.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
                     <hr class="light">
                 </div>
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Breaking Bad</h2>
-                    <img src="img/breaking_bad.jpg" widht='200' height='200'>
-                    <img class="favourite" href="#series" src="img/favorito.png" widht='35' height='35'>
-                    <img class="valoration" src="img/puntuacion_5.png" height='25'>
+                    <img src="img/series_icon/breaking_bad.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
                     <hr class="light">
                 </div>
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">The Walking Dead</h2>
-                    <img src="img/the_walking_dead.jpg" widht='200' height='200'>
-                    <img class="favourite" href="#series" src="img/favorito.png" widht='35' height='35'>
-                    <img class="valoration" src="img/puntuacion_5.png" height='25'>
+                    <img src="img/series_icon/the_walking_dead.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
                     <hr class="light">
                 </div>
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Narcos</h2>
-                    <img src="img/narcos.jpg" widht='200' height='200'>
-                    <img class="favourite" href="#series" src="img/favorito.png" widht='35' height='35'>
-                    <img class="valoration" src="img/puntuacion_4,5.png" height='25'>
+                    <img src="img/series_icon/narcos.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
                     <hr class="light">
                 </div>
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Westworld</h2>
-                    <img src="img/westworld.jpg" widht='200' height='200'>
-                    <img class="favourite" href="#series" src="img/favorito.png" widht='35' height='35'>
-                    <img class="valoration" src="img/puntuacion_4,5.png" height='25'>
+                    <img src="img/series_icon/westworld.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
                     <hr class="light">
                 </div>
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Stranger Things</h2>
-                    <img src="img/stranger_things.jpg" widht='200' height='200'>
-                    <img class="favourite" href="#series" src="img/favorito.png" widht='35' height='35'>
-                    <img class="valoration" src="img/puntuacion_4,5.png" height='25'>
+                    <img src="img/series_icon/stranger_things.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
                     <hr class="light">
                 </div>
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Vikingos</h2>
-                    <img src="img/vikingos.jpg" widht='200' height='200'>
-                    <img class="favourite" href="#series" src="img/favorito.png" widht='35' height='35'>
-                    <img class="valoration" src="img/puntuacion_4.png" height='25'>
+                    <img src="img/series_icon/vikingos.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4.png" height='25'>
                     <hr class="light">
                 </div>
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Los 100</h2>
-                    <img src="img/los_100.jpg" widht='200' height='200'>
-                    <img class="favourite" href="#series" src="img/no_favorito.png" widht='35' height='35'>
-                    <img class="valoration" src="img/puntuacion_4.png" height='25'>
+                    <img src="img/series_icon/los_100.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info" href="pagina-100.html">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4.png" height='25'>
                     <hr class="light">
                 </div>
             </div>
-            <nav class="series-navegation">
+            <div class="col-lg-12 text-center">
                 <ul class="pagination">
                     <li>
                         <a href="#series" aria-label="Previous">
@@ -185,7 +234,7 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
+            </div>
         </div>
     </section>
 

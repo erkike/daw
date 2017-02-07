@@ -88,8 +88,10 @@ aside {
 .navbar-default .navbar-header .navbar-brand {
     color: #F05F40;
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 25px;
     font-weight: 700;
     text-transform: uppercase;
+    margin-left: -20px;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -134,7 +136,7 @@ aside {
         border-color: rgba(255, 255, 255, 0.3);
     }
     .navbar-default .navbar-header .navbar-brand {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgb(240, 98, 66);
     }
     .navbar-default .navbar-header .navbar-brand:hover,
     .navbar-default .navbar-header .navbar-brand:focus {
@@ -154,7 +156,7 @@ aside {
     }
     .navbar-default.affix .navbar-header .navbar-brand {
         color: #F05F40;
-        font-size: 14px;
+        font-size: 18px;
     }
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
@@ -481,6 +483,12 @@ body {
 
 /*----------Añadido----------*/
 
+.navbar-default .navbar-header .navbar-brand > img {
+    margin-top: -22px;
+    margin-left: -8px;
+    height: 65px
+}
+
 .order-by {
     width: 84%;
     margin-top: -40px;
@@ -508,5 +516,42 @@ body {
 }
 
 .pagination {
+    margin-top: 60px;
+    margin-bottom: -40px;
+}
+
+.favorito {
     position: absolute;
+    color: gray;
+    margin-top: 2px;
+    margin-left: -36px;
+    background: transparent;
+    border: 0px;
+}
+
+.glyphicon-star {
+    color: gray;
+    position: absolute;
+    font-size: 30px;
+}
+
+.glyphicon-star:hover {
+    color: #ffeb00;
+}
+
+.mas-info {
+    position: absolute;
+    margin-top: 167px;
+    margin-left: -35px;
+    color: #F05F40;
+    background: transparent;
+    border: 0px;
+}
+
+.glyphicon-plus {
+    font-size: 28px;
+}
+
+.glyphicon-plus:hover {
+    color: white
 }
