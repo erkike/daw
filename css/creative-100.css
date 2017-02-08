@@ -517,6 +517,7 @@ img::-moz-selection {
     background: url("/img/favorito-blanco.png") no-repeat;
     border: none;
     position: absolute;
+    margin-left: 5px;
 }
 
 .estrella:hover {
@@ -524,14 +525,17 @@ img::-moz-selection {
 }
 
 .recomendar {
-    border: none;
-    background: transparent;
+    width: 30px;
     height: 30px;
-    margin-left: 35px;
+    display: inline-block;
+    background: url("/img/recomendar.png") no-repeat;
+    border: none;
+    position: absolute;
+    margin-left: 40px;
 }
 
 .recomendar:hover {
-    text-decoration: underline;
+    background-position: 0 -30px;
 }
 
 .temporadas {
@@ -554,10 +558,30 @@ img::-moz-selection {
     background: #F05F40;
 }
 
-.foto-perfil {
+.perfil-tripis {
     width: 100px;
     height: 100px;
-    background-image: url(/img/foto-perfil.png);
+    background-image: url(/img/carpincho-tripis.png);
+    border-radius: 50px;
+    border-style: solid;
+    border-color: #F05F40;
+    position: absolute;
+}
+
+.perfil-cabezon {
+    width: 100px;
+    height: 100px;
+    background-image: url(/img/carpincho-cabezon.png);
+    border-radius: 50px;
+    border-style: solid;
+    border-color: #F05F40;
+    position: absolute;
+}
+
+.nombre-perfil {
+    width: 100px;
+    text-align: center;
+    float: left;
 }
 
 .comentarios {
@@ -568,6 +592,12 @@ img::-moz-selection {
     border-style: solid;
     border-color: #F05F40;
     color: black;
+    resize: none;
+}
+
+.div-comentarios {
+    position: relative;
+    margin-left: 110px;
 }
 
 .comentar {
@@ -576,20 +606,16 @@ img::-moz-selection {
     height: 50px;
     margin-top: 10px;
     margin-left: 10px;
+    margin-bottom: 10px;
     background: transparent;
     border-style: solid;
     border-color: #F05F40;
     color: black;
+    float: right;
 }
 
 .comentar:hover {
     color: #F05F40;
-}
-
-.comentarios-titulo {
-    color: black;
-    margin-left: 15px;
-    text-align: center;
 }
 
 .blanco {
