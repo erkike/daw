@@ -557,15 +557,13 @@ img::-moz-selection {
 .foto-perfil {
     width: 100px;
     height: 100px;
-    background-image: url(/img/carpincho-tripis.png);
+    background-image: url(/img/foto-perfil.png);
 }
 
 .comentarios {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-    width: 520px;
+    width: 100%;
     height: 100px;
-    margin-left: 10px;
-    margin-right: 15px;
     background: transparent;
     border-style: solid;
     border-color: #F05F40;
@@ -577,7 +575,7 @@ img::-moz-selection {
     width: 100px;
     height: 50px;
     margin-top: 10px;
-    margin-right: 15px;
+    margin-left: 10px;
     background: transparent;
     border-style: solid;
     border-color: #F05F40;
@@ -591,6 +589,7 @@ img::-moz-selection {
 .comentarios-titulo {
     color: black;
     margin-left: 15px;
+    text-align: center;
 }
 
 .blanco {
