@@ -6,18 +6,22 @@
 
 .navbar-default,
 a {
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+    color: #F05F40;
 }
 
-header,
-header .header-content {
-    position: relative;
+a:hover,
+a:focus {
+    color: #eb3812;
+}
+
+
+body{
+    height: 100%;
     width: 100%;
-    text-align: center
 }
-
-body,
 html {
     height: 100%;
     width: 100%
@@ -50,15 +54,7 @@ hr.light {
     border-color: #fff
 }
 
-a {
-    transition: all .35s;
-    color: #F05F40
-}
 
-a:focus,
-a:hover {
-    color: #eb3812
-}
 
 p {
     font-size: 16px;
@@ -78,6 +74,42 @@ p {
 .text-faded {
     color: rgba(255, 255, 255, .7)
 }
+.title-section {
+    font-size: 45px;
+    padding: em 2em;
+    margin: 1em 29%;
+     margin-top: 0;
+}
+.Capitulos {
+  background: #ff6f00;
+  background-image: -webkit-linear-gradient(top, #ff6f00, #ff6f00);
+  background-image: -moz-linear-gradient(top, #ff6f00, #ff6f00);
+  background-image: -ms-linear-gradient(top, #ff6f00, #ff6f00);
+  background-image: -o-linear-gradient(top, #ff6f00, #ff6f00);
+  background-image: linear-gradient(to bottom, #ff6f00, #ff6f00);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 1px 1px 3px #666666;
+  -webkit-box-shadow: 0px 1px 3px #ffffff;
+  -moz-box-shadow: 0px 1px 3px #ffffff;
+  box-shadow: 0px 1px 3px #ffffff;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.Capitulo:hover {
+  background: #18242b;
+  background-image: -webkit-linear-gradient(top, #18242b, #3498db);
+  background-image: -moz-linear-gradient(top, #18242b, #3498db);
+  background-image: -ms-linear-gradient(top, #18242b, #3498db);
+  background-image: -o-linear-gradient(top, #18242b, #3498db);
+  background-image: linear-gradient(to bottom, #18242b, #3498db);
+  text-decoration: none;
+}
 
 section {
     padding: 100px 0
@@ -92,9 +124,12 @@ aside {
 }
 
 .navbar-default {
-    background-color: #fff;
-    border-color: rgba(34, 34, 34, .05);
-    transition: all .35s
+    background-color: white;
+    border-color: rgba(34, 34, 34, 0.05);
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
 }
 
 .btn-default,
@@ -104,9 +139,22 @@ aside {
 }
 
 .navbar-default .navbar-header .navbar-brand {
-    color: #F05F40;
+    color: rgb(240, 98, 66);
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 25px;
     font-weight: 700;
-    text-transform: uppercase
+    text-transform: uppercase;
+    margin-left: -20px
+}
+.navbar-default .navbar-header .navbar-brand > img {
+    margin-top: -22px;
+    margin-left: -8px;
+    height: 65px
+}
+.page-scroll > img {
+    margin-top: -15px;
+    margin-left: -8px;
+    height: 50px
 }
 
 .navbar-default .navbar-header .navbar-brand:focus,
@@ -188,42 +236,43 @@ aside {
 }
 
 header {
+    position: relative;
+    width: 100%;
     min-height: auto;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-image: url(../img/header.jpg);
-    color: #fff
+    background-image: url('../img/100.jpg');
+    text-align: center;
+    color: white;
 }
 
 header .header-content {
-    padding: 100px 15px
+    position: relative;
+    text-align: center;
+    padding: 100px 15px 100px;
+    width: 100%;
 }
-
 header .header-content .header-content-inner h1 {
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 30px
+    font-size: 30px;
 }
+
 
 header .header-content .header-content-inner hr {
     margin: 30px auto
 }
 
-header .header-content .header-content-inner p {
-    font-weight: 300;
-    color: rgba(255, 255, 255, .7);
-    font-size: 16px;
-    margin-bottom: 50px
-}
+
 
 @media (min-width:768px) {
-    header {
-        min-height: 100%
+   header {
+        min-height: 100%;
     }
     header .header-content {
         position: absolute;
@@ -231,21 +280,21 @@ header .header-content .header-content-inner p {
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-        padding: 0 50px
+        padding: 0 50px;
     }
     header .header-content .header-content-inner {
         max-width: 1000px;
         margin-left: auto;
-        margin-right: auto
+        margin-right: auto;
     }
     header .header-content .header-content-inner h1 {
-        font-size: 50px
+        font-size: 50px;
     }
     header .header-content .header-content-inner p {
         font-size: 18px;
         max-width: 80%;
         margin-left: auto;
-        margin-right: auto
+        margin-right: auto;
     }
 }
 
