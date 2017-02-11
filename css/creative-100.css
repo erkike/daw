@@ -618,10 +618,6 @@ img::-moz-selection {
     color: #F05F40;
 }
 
-.blanco {
-    color: white;
-}
-
 body {
     webkit-tap-highlight-color: #222222;
 }
