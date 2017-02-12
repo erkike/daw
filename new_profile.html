@@ -23,7 +23,7 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/new_index.css" rel="stylesheet">
+    <link href="css/new_profile.css" rel="stylesheet">
 
     <!-- Script login -->
     <script>
@@ -50,7 +50,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="new_index.html">
                     <img class="navbar-brand page-scroll" src="img/logo.png"> Series Carpincho
                 </a>
             </div>
@@ -59,16 +59,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">Información</a>
+                        <a class="page-scroll" href="#friends">Mis Amigos</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#series">Series</a>
+                        <a class="page-scroll" href="#series">Mis series</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contacto</a>
+                        <a class="page-scroll" href="#mail">Mensajes</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:abrir('login.html')">Mi cuenta</a>
+                        <a class="page-scroll" href="#page-top">Mi cuenta</a>
                     </li>
                 </ul>
             </div>
@@ -79,35 +79,56 @@
 
     <header>
         <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Comenta, valora, recomienda</h1>
+            <div class="col-lg-12 text-center" id="info-profile">
+                <h1>@carpincho7</h1>
+                <img src="img/img-profile.jpg">
+                <a href="login.html" class="btn btn-primary btn-xl">Editar perfil</a>
             </div>
         </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section class="bg-primary" id="friends">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">¡Bienvenido a Series Carpincho!</h2>
+                <div class="col-lg-12 text-center" id="friend">
+                    <h1>Mis amigos</h1>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">@jonsnow</h2>
+                    <img src="img/perfil_jon.jpg" widht='200' height='200'>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
                     <hr class="light">
-                    <p class="text-faded">Sigue de cerca tus series favoritas.</p>
-                    <p class="text-faded">En Series Carpincho podrás comentar, ver los comentarios de las series más de moda y valorarlas con puntuaciones de 1 a 5 carpinchos.</p>
-                    <p class="text-faded">Además, si te registras podrás disfrutar de los comentarios libres de spoilers, añadir a tu perfil tus series favoritas y recomendarlas a tus amigos.</p>
-                    <a href="javascript:abrir('login.html')" class="page-scroll btn btn-default btn-xl sr-button">¡Únete ya!</a>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">@walterwhite</h2>
+                    <img src="img/perfil_ww.jpg" widht='200' height='200'>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <hr class="light">
+                </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">@eleven</h2>
+                    <img src="img/perfil_eleven.png" widht='200' height='200'>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <hr class="light">
                 </div>
             </div>
         </div>
     </section>
 
     <section class="bg-dark" id="series">
+        <div class="col-lg-12 text-center" id="friend">
+            <h1>Series favoritas</h1>
+        </div>
         <div class="order-by">
             <ul class="nav nav-tabs">
                 <li>
                     <p>Ordenar por:</p>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#series">Recomendadas</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#series">Nombre</a>
@@ -159,18 +180,6 @@
                     <hr class="light">
                 </div>
                 <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">Narcos</h2>
-                    <img src="img/series_icon/narcos.jpg" widht='200' height='200'>
-                    <a type="button" class="favorito">
-                        <span class="glyphicon glyphicon-star"></span>
-                    </a>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
-                    <hr class="light">
-                </div>
-                <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Westworld</h2>
                     <img src="img/series_icon/westworld.jpg" widht='200' height='200'>
                     <a type="button" class="favorito">
@@ -206,56 +215,59 @@
                     <img class="valoration" src="img/valorations/puntuacion_4.png" height='25'>
                     <hr class="light">
                 </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">Los 100</h2>
-                    <img src="img/series_icon/los_100.jpg" widht='200' height='200'>
-                    <a type="button" class="favorito">
-                        <span class="glyphicon glyphicon-star"></span>
-                    </a>
-                    <a type="button" class="mas-info" href="pagina-100.html">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <img class="valoration" src="img/valorations/puntuacion_4.png" height='25'>
-                    <hr class="light">
-                </div>
-            </div>
-            <div class="col-lg-12 text-center">
-                <ul class="pagination">
-                    <li>
-                        <a href="#series" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="#series">1</a></li>
-                    <li><a href="#series">2</a></li>
-                    <li><a href="#series">3</a></li>
-                    <li><a href="#series">4</a></li>
-                    <li><a href="#series">5</a></li>
-                    <li>
-                        <a href="#series" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <section id="mail">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12 text-center" id="friend">
+                    <h1>Mensajes</h1>
+                </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Contacta con nosotros</h2>
-                    <hr class="primary">
-                    <p>Comunícanos cualquier duda o cualquier problema por teléfono o e-mail.</p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">contacto@seriescarpincho.com</a></p>
+                    <ul class="nav nav-tabs" id="mail_carp">
+                        <li>
+                            <img src="img/logo.png" widht='40' height="40">
+                        </li>
+                        <li class="from">
+                            <h1>@staff_carpincheria</h1>
+                        </li>
+                        <li>
+                            <p>¡Bienvenido a Series Carpincho! Comenta, valora y...</p>
+                        </li>
+                        <li>
+                            <p align="right">7 de ene, 15:42</p>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-tabs" id="mail_jon">
+                        <li>
+                            <img src="img/perfil_jon.jpg" widht='40' height="40">
+                        </li>
+                        <li class="from">
+                            <h1>@jonsnow</h1>
+                        </li>
+                        <li>
+                            <p>@jonsnow te recomendó Juego de Tronos</p>
+                        </li>
+                        <li>
+                            <p align="right">7 de ene, 19:17</p>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-tabs" id="mail_ww">
+                        <li>
+                            <img src="img/perfil_ww.jpg" widht='40' height="40">
+                        </li>
+                        <li class="from">
+                            <h1>@walterwhite</h1>
+                        </li>
+                        <li>
+                            <p>¿Has visto el nuevo capítulo de Breackig Bad?</p>
+                        </li>
+                        <li>
+                            <p align="right">9 de ene, 11:02</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -264,7 +276,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    &copy; 2017 SeriesCarpincho 
+                    &copy; 2017 SeriesCarpincho
                 </div>
 
             </div>
