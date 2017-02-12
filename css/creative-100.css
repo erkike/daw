@@ -538,6 +538,21 @@ img::-moz-selection {
     background-position: 0 -30px;
 }
 
+.visto {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    color: white;
+    background: transparent;
+}
+
+.visto:hover {
+    background: white;
+    color: #F05F40;
+    text-decoration: none;
+}
+
 .temporadas {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     color: #F05F40;
@@ -556,6 +571,7 @@ img::-moz-selection {
 .capitulos:hover {
     color: black;
     background: #F05F40;
+    text-decoration: none;
 }
 
 .perfil-tripis {
