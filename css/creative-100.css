@@ -219,6 +219,9 @@ header .header-content .header-content-inner h1 {
   height: 250px;
 
 }
+.title {
+    font-size: 40px
+}
 
 header .header-content .header-content-inner hr {
     margin: 30px auto;
