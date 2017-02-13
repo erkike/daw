@@ -23,7 +23,14 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/creative.css" rel="stylesheet">
+    <link href="css/new_index.css" rel="stylesheet">
+
+    <!-- Script login -->
+    <script>
+        function abrir(url) {
+            open(url, '', 'top=600,left=600,width=600,height=600');
+        }
+    </script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,12 +38,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script>
-        function abrir(url) {
-            open(url, '', 'top=600,left=600,width=600,height=600');
-        }
-    </script>
 
 </head>
 
@@ -58,16 +59,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">¿Por qué un carpincho?</a>
+                        <a class="page-scroll" href="#about">Información</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href='series.html'>Series</a>
+                        <a class="page-scroll" href="#series">Series</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contacto</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:abrir('login.html')"> Mi Cuenta</a>
+                        <a class="page-scroll" href="javascript:abrir('login.html')">Mi cuenta</a>
                     </li>
                 </ul>
             </div>
@@ -79,10 +80,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h2 class="section-heading"><strong>¡Bienvenid@ a la red social de series mas roedora del mundo!</strong></h2>
-                <hr class="light">
-                <p class="text-faded"><strong>Podrás ver las valoraciones de otros carpinchos y los comentarios libres de spoilers, así como recomendar series a tus amigos.</strong></p>
-                <a href="login.html" class="btn btn-primary btn-xl page-scroll">¡Empieza ahora!</a>
+                <h1 id="homeHeading">Comenta, valora, recomienda</h1>
             </div>
         </div>
     </header>
@@ -90,44 +88,155 @@
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">El carpincho es el roedor viviente de mayor tamaño y peso del mundo.</h2>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">¡Bienvenido a Series Carpincho!</h2>
                     <hr class="light">
-                    <img src='img/logo-blanco.png' />
-                    <h3>¿Por qué un carpincho?</h3>
-                    <p class="text-faded">El carpincho es un animal incomprendido que nadie quiere como mascota, pero en esta página le damos una oportunidad y le hemos adoptado.</p>
-                    <hr class="light">
+                    <p class="text-faded">Sigue de cerca tus series favoritas.</p>
+                    <p class="text-faded">En Series Carpincho podrás comentar, ver los comentarios de las series más de moda y valorarlas con puntuaciones de 1 a 5 carpinchos.</p>
+                    <p class="text-faded">Además, si te registras podrás disfrutar de los comentarios libres de spoilers, añadir a tu perfil tus series favoritas y recomendarlas a tus amigos.</p>
+                    <a href="javascript:abrir('login.html')" class="page-scroll btn btn-default btn-xl sr-button">¡Únete ya!</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter popup-gallery">
-
-                <div class="col-lg-4 col-sm-6">
-                    <iframe width="450" height="315" src="https://www.youtube.com/embed/ceqOTZnhgY8" frameborder="0" allowfullscreen></iframe>
+    <section class="bg-dark" id="series">
+        <div class="order-by">
+            <ul class="nav nav-tabs">
+                <li>
+                    <p>Ordenar por:</p>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#series">Recomendadas</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#series">Nombre</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#series">Valoración</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#series">Año</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Juego de Tronos</h2>
+                    <img src="img/series_icon/juego_de_tronos.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
+                    <hr class="light">
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <iframe width="450" height="315" src="https://www.youtube.com/embed/mg2xtVYgQhI" frameborder="0" allowfullscreen></iframe>
-
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Breaking Bad</h2>
+                    <img src="img/series_icon/breaking_bad.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
+                    <hr class="light">
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <iframe width="450" height="315" src="https://www.youtube.com/embed/lXDDjg11yX0" frameborder="0" allowfullscreen></iframe>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">The Walking Dead</h2>
+                    <img src="img/series_icon/the_walking_dead.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
+                    <hr class="light">
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <iframe width="450" height="315" src="https://www.youtube.com/embed/z3koIh0Izwk" frameborder="0" allowfullscreen></iframe>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Narcos</h2>
+                    <img src="img/series_icon/narcos.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
+                    <hr class="light">
                 </div>
-                   <div class="col-lg-4 col-sm-6">
-                    <iframe width="450" height="315" src="https://www.youtube.com/embed/wGm2zwg_-NY" frameborder="0" allowfullscreen></iframe>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Westworld</h2>
+                    <img src="img/series_icon/westworld.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
+                    <hr class="light">
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <iframe width="450" height="315" src="https://www.youtube.com/embed/5HspqJ9ef5Q" frameborder="0" allowfullscreen></iframe>
-            
-              
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Stranger Things</h2>
+                    <img src="img/series_icon/stranger_things.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
+                    <hr class="light">
                 </div>
-              
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Vikingos</h2>
+                    <img src="img/series_icon/vikingos.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4.png" height='25'>
+                    <hr class="light">
+                </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Los 100</h2>
+                    <img src="img/series_icon/los_100.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info" href="pagina-100.html">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4.png" height='25'>
+                    <hr class="light">
+                </div>
+            </div>
+            <div class="col-lg-12 text-center">
+                <ul class="pagination">
+                    <li>
+                        <a href="#series" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#series">1</a></li>
+                    <li><a href="#series">2</a></li>
+                    <li><a href="#series">3</a></li>
+                    <li><a href="#series">4</a></li>
+                    <li><a href="#series">5</a></li>
+                    <li>
+                        <a href="#series" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
@@ -142,16 +251,25 @@
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>697-851-842</p>
+                    <p>123-456-6789</p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">series@carpinchería.es</a></p>
+                    <p><a href="mailto:your-email@your-domain.com">contacto@seriescarpincho.com</a></p>
                 </div>
             </div>
         </div>
     </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2017 SeriesCarpincho 
+                </div>
 
+            </div>
+        </div>
+    </footer>
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
