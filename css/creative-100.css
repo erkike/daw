@@ -213,6 +213,12 @@ header .header-content .header-content-inner h1 {
     margin-bottom: 0;
     font-size: 30px;
 }
+#destacada {
+    margin-top: 60px;
+     width: px;
+  height: 250px;
+
+}
 
 header .header-content .header-content-inner hr {
     margin: 30px auto;
