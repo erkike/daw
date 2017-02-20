@@ -5,10 +5,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-
-public class GreetingController {
+public class Inicio_Controller {
+	
 	@RequestMapping("/")
-	public String greeting(Model model) {
-	return "index";
+	public String indice(Model model){
+		return "index";
+	}
+	
+	@RequestMapping("/login")
+	public String login(Model model){
+		return "login";
 	}
 }
