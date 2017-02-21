@@ -3,7 +3,7 @@
 
 <head>
 
-    <meta charset="utf-8">
+    <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -116,7 +116,7 @@
                         <ul class='temporadas'>
                             <h2 style="color:white">Temporada 1</h2>
                             <li>
-                                <a class='capitulos' href='/capitulo'>Capítulo 1: Pilot <span class="glyphicon glyphicon-eye-open"></span></a>
+                                <a class='capitulos' href='/the100/capitulo1'>Capítulo 1: Pilot <span class="glyphicon glyphicon-eye-open"></span></a>
                             </li>
                             <li>
                                 <a class='capitulos'>Capítulo 2: Earth Skills <span class="glyphicon glyphicon-eye-open"></span></a>
@@ -297,13 +297,28 @@
 
     <section id="comentarios">
         <div class="container">
+        <form action="/the100/comentarios" method="post">
             <div class="row">
-                <textarea placeholder='Deja tu comentario...' class='comentarios'></textarea>
+                <textarea placeholder='Deja tu comentario...' class='comentarios' name='texto'></textarea>
             </div>
             <div class="row">
-                <button class='comentar'>Comentar</button>
-                <button class='comentar'>Cancelar</button>
+            <input class='comentar' type='submit' value='Comentar'/>
+                <!--  <button class='comentar' id='comentar'>Comentar</button> -->
+             <button class='comentar' id='cancelar'>Cancelar</button>
             </div>
+            </form>
+            {{#comentarios}}
+	<div class="row">
+                <div class='perfil-tripis'></div>
+                <div class='div-comentarios'>
+                    <textarea readonly class='comentarios'> {{texto}}</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <h5 class='nombre-perfil'>XxcarpinchoxX</h5>
+                <button class='comentar'>Responder</button>
+            </div>
+	{{/comentarios}} 
             <div class="row">
                 <div class='perfil-cabezon'></div>
                 <div class='div-comentarios'>
