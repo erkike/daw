@@ -81,7 +81,7 @@
                                 Nombre*
                             </td>
                             <td>
-                                <input type="text" size="25" maxlength="20" value="Carpincho" name="nombre">
+                                <input type="text" size="25" maxlength="20" value="{{nombre}}" name="nombre">
                             </td>
                         </tr>
                         <tr>
@@ -89,7 +89,7 @@
                                 Apellidos
                             </td>
                             <td>
-                                <input type="text" size="25" maxlength="30" value="" name="nombre">
+                                <input type="text" size="25" maxlength="30" value="{{apellido}}" name="nombre">
                             </td>
                         </tr>
                         <tr>
@@ -97,7 +97,7 @@
                                 Usuario*
                             </td>
                             <td>
-                                <input type="text" size="25" maxlength="20" value="@carpincho7" name="nombre">
+                                <input type="text" size="25" maxlength="20" value="{{usuario}}" name="nombre">
                             </td>
                         </tr>
                         <tr>
@@ -105,7 +105,7 @@
                                 Email*
                             </td>
                             <td>
-                                <input type="text" size="25" maxlength="20" value="carpincho7@gmail.com" name="nombre">
+                                <input type="text" size="25" maxlength="20" value="{{email}}" name="nombre">
                             </td>
                         </tr>
                         <tr>
@@ -113,14 +113,14 @@
                                 Fecha de nacimiento
                             </td>
                             <td>
-                                <input type="text" size="4" maxlength="2" value="" name="nombre">
-                                <input type="text" size="4" maxlength="2" value="" name="nombre">
-                                <input type="text" size="8" maxlength="4" value="" name="nombre">
+                            	{{#fecha}}
+                                <input type="text" size="4" maxlength="2" value="{{.}}" name="nombre">
+								{{/fecha}}
                             </td>
                         </tr>
                     </table>
-                    <a href="new_profile.html" class="btn btn-primary btn-xl">Guardar</a>
-                    <a href="new_profile.html" class="btn btn-primary btn-xl">Cancelar</a>
+                    <a href="/perfil/editar" class="btn btn-primary btn-xl">Guardar</a>
+                    <a href="/perfil/editar" class="btn btn-primary btn-xl">Cancelar</a>
                 </div>
             </div>
         </div>
