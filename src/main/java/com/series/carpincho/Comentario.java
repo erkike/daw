@@ -1,15 +1,19 @@
 package com.series.carpincho;
 
 public class Comentario {
-	
+
 	private String texto;
-	
-	public Comentario(){
-		
+
+	public Comentario() {
+
 	}
-	
-	public Comentario(String texto){
-			this.texto = texto;
+
+	public Comentario(String texto) {
+		this.texto = texto;
+	}
+
+	public boolean esVacio() {
+		return (this.texto == null || this.texto.trim().isEmpty());
 	}
 
 	public String getTexto() {
@@ -17,7 +21,7 @@ public class Comentario {
 	}
 
 	public void setTexto(String texto) {
-			this.texto = texto;
+		this.texto = texto;
 	}
 
 }
