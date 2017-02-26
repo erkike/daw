@@ -329,6 +329,7 @@
                 <h5 class='nombre-perfil'>Carpancha</h5>
                 <button class='comentar'>Responder</button>
             </div>
+            <div id="1" style="display:none"> 
             <div class="row">
                 <div class='perfil-tripis'></div>
                 <div class='div-comentarios'>
@@ -339,7 +340,12 @@
                 <h5 class='nombre-perfil'>XxcarpinchoxX</h5>
                 <button class='comentar'>Responder</button>
             </div>
+            </div>
+            
         </div>
+        
+        <a id="verMas" onclick="vermas()"  href="javascript:click();" >Ver Más</a>
+        
     </section>
 
     <footer>
@@ -367,7 +373,28 @@
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
     <!--<script id="dsq-count-scr" src="//seriescarpincho.disqus.com/count.js" async></script>-->
-
+	
+	
+	<script >
+    var i = 0
+    
+    function click() {
+        i++;
+        if (i == 1) {
+            document.getElementById("clicks").innerHTML = i;
+        }
+        else
+        {
+            document.getElementById("clicks").innerHTML = i;
+        }
+        
+    }
+        function vermas() {
+       			var eldiv =document.getElementById(i+1);
+        		eldiv.style.display="block";
+        		
+        }
+    </script>  
 </body>
 
 </html>

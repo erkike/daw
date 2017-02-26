@@ -170,6 +170,7 @@
                     <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
                     <hr class="light">
                 </div>
+            <div id="1" style="display:none"> 
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">Westworld</h2>
                     <img src="img/series_icon/westworld.jpg" widht='200' height='200'>
@@ -219,26 +220,16 @@
                     <hr class="light">
                 </div>
             </div>
-            <div class="col-lg-12 text-center">
-                <ul class="pagination">
-                    <li>
-                        <a href="#series" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="#series">1</a></li>
-                    <li><a href="#series">2</a></li>
-                    <li><a href="#series">3</a></li>
-                    <li><a href="#series">4</a></li>
-                    <li><a href="#series">5</a></li>
-                    <li>
-                        <a href="#series" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
+            <div id="2" style="display:none">
+            	asddqdsadasd
+            
             </div>
+            
+                <a id="verMas" onclick="vermas()"  href="javascript:click();" >Ver Más</a>
+
         </div>
+ 
+
     </section>
 
     <section id="contact">
@@ -283,7 +274,28 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
+   
 
+    <script >
+    var i = 0
+    
+    function click() {
+        i++;
+        if (i == 1) {
+            document.getElementById("clicks").innerHTML = i;
+        }
+        else
+        {
+            document.getElementById("clicks").innerHTML = i;
+        }
+        
+    }
+        function vermas() {
+       			var eldiv =document.getElementById(i+1);
+        		eldiv.style.display="block";
+        		
+        }
+    </script>  
 </body>
 
 </html>
