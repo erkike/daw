@@ -2,6 +2,7 @@ package com.series.carpincho;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Inicio_Controller {
 
 	private List<Comentario> comentarios = new ArrayList<>();
+	private AtomicLong lastId = new AtomicLong();
 	private List<Usuario> usuarios = new ArrayList<>();
 
 	@RequestMapping("/")
@@ -21,6 +23,7 @@ public class Inicio_Controller {
 
 	@RequestMapping("/login")
 	public String login(Model model) {
+
 		return "login";
 	}
 
@@ -36,6 +39,8 @@ public class Inicio_Controller {
 	public String comentarios(Model model, Comentario comentario) {
 
 		if (!comentario.esVacio()) {
+			long id = lastId.incrementAndGet();
+			comentario.setId(id);
 			comentarios.add(comentario);
 		}
 
