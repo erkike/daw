@@ -75,6 +75,7 @@
                     <a href="#page-top" class="btn btn-primary btn-xl">Cambiar imagen</a>
                 </div>
                 <div class="col-lg-6 text-center" id="info-profile">
+                	<form action="/perfil/editar/guardar" method="put">
                     <table class="edit">
                         <tr>
                             <td>
@@ -119,7 +120,8 @@
                             </td>
                         </tr>
                     </table>
-                    <a href="/perfil/editar" class="btn btn-primary btn-xl">Guardar</a>
+                    <input type="submit" value="Guardar" href="/perfil/editar" class="btn btn-primary btn-xl"/>
+                    </form>
                     <a href="/perfil/editar" class="btn btn-primary btn-xl">Cancelar</a>
                 </div>
             </div>
