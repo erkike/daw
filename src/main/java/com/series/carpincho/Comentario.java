@@ -5,7 +5,7 @@ public class Comentario {
 	private String texto;
 	private Usuario usuario;
 	private long id = -1;
-	private String display = "fixed";
+	private String display = "block";
 
 	public Comentario() {
 

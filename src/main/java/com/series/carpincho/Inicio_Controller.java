@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Inicio_Controller {
 
 	private List<Comentario> comentarios = new ArrayList<>();
-	private AtomicLong lastId = new AtomicLong();
+	private AtomicLong comentarioId = new AtomicLong();
 	private List<Usuario> usuarios = new ArrayList<>();
 
 	@RequestMapping("/")
@@ -39,7 +39,7 @@ public class Inicio_Controller {
 	public String comentarios(Model model, Comentario comentario) {
 
 		if (!comentario.esVacio()) {
-			long id = lastId.incrementAndGet();
+			long id = comentarioId.incrementAndGet();
 			comentario.setId(id);
 			comentarios.add(comentario);
 		}
@@ -58,18 +58,16 @@ public class Inicio_Controller {
 	@RequestMapping("/perfil")
 	public String perfil(Model model, Usuario u) {
 
-		model.addAttribute("usuario", u.getUsuario());
+		model.addAttribute("usuarios", usuarios);
+
 		return "new_profile";
 	}
 
 	@RequestMapping("/perfil/editar")
 	public String editar(Model model, Usuario u) {
-		model.addAttribute("nombre", u.getNombre());
-		model.addAttribute("apellido", u.getApellido());
-		model.addAttribute("email", u.getEmail());
-		model.addAttribute("usuario", u.getUsuario());
-		// List<String> fecha= Arrays.asList("01","01","1999");
-		model.addAttribute("fecha", u.getFecha());
+
+		model.addAttribute("usuarios", usuarios);
+
 		return "edit_profile";
 	}
 }

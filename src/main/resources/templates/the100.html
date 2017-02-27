@@ -275,7 +275,7 @@
 				</div>
 			</form>
 			{{#comentarios}}
-			<div id="{{id}}" style="display: {{display">
+			<div id="{{id}}" style="display: {{display}}">
 				<div class="row">
 					<div class='perfil-tripis'></div>
 					<div class='div-comentarios'>
@@ -348,9 +348,10 @@
 
 		}
 		function vermas() {
-			var eldiv = document.getElementById(i + 1);
-			eldiv.style.display = "block";
-
+			for (var j = 1; j <= 3; j++) {
+				var eldiv = document.getElementById(i + j);
+				eldiv.style.display = "block";
+			}
 		}
 	</script>
 </body>
