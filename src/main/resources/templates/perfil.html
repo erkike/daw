@@ -23,40 +23,46 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/creative-perfil.css" rel="stylesheet">
-    </head>
-    
-    <body id="page-top">
-           <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <link href="css/new_profile.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="index.html">
                     <img class="navbar-brand page-scroll" src="img/logo.png"> Series Carpincho
                 </a>
             </div>
-            
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="/">
-                            <img class="navbar-brand page-scroll" src="img/home.png">
-                        </a>
+                        <a class="page-scroll" href="#friends">Mis Amigos</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href='#page-top'>Series</a>
+                        <a class="page-scroll" href="#series">Mis series</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contacto</a>
+                        <a class="page-scroll" href="#mail">Mensajes</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href='/login'> Mi Cuenta</a>
+                        <a class="page-scroll" href="#page-top">Mi cuenta</a>
                     </li>
                 </ul>
             </div>
@@ -64,162 +70,213 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-     <header>
-    <section class="menu-section" height= 50%;>
-    
-   
-    <div class="col-md-3" align=left>
-        
-           
-            <div class="col-md">
-                <a class="navbar-brand" href="perfil.html">
-                    <strong>Nombre apellido</strong>
-                    
-                </a>
 
+    <header>
+        <div class="header-content">
+            <div class="col-lg-12 text-center" id="info-profile">
+                <h1>{{usuario}}</h1>
+                <img src="img/img-profile.jpg">
+                <a href="/perfil/editar" class="btn btn-primary btn-xl">Editar perfil</a>
             </div>
-
-            <div class="left-div">
-                <div class="user-settings-wrapper" >                                 
-                        <img src="img/carpincho.jpg" class="img-rounded" margin-top=20px/>
-                </div>
-            </div>
-            
         </div>
-    
-    
+    </header>
+
+    <section class="bg-primary" id="friends">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="navbar-collapse collapse ">
-                        
-                    </div>
+                <div class="col-lg-12 text-center" id="friend">
+                    <h1>Mis amigos</h1>
                 </div>
-
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">@jonsnow</h2>
+                    <img src="img/perfil_jon.jpg" widht='200' height='200'>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <hr class="light">
+                </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">@walterwhite</h2>
+                    <img src="img/perfil_ww.jpg" widht='200' height='200'>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <hr class="light">
+                </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">@eleven</h2>
+                    <img src="img/perfil_eleven.png" widht='200' height='200'>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <hr class="light">
+                </div>
             </div>
         </div>
     </section>
-</header>
-        <div class="content-wrapper">
+
+    <section class="bg-dark" id="series">
+        <div class="col-lg-12 text-center" id="friend">
+            <h1>Series favoritas</h1>
+        </div>
+        <div class="order-by">
+            <ul class="nav nav-tabs">
+                <li>
+                    <p>Ordenar por:</p>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#series">Nombre</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#series">Valoración</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#series">Año</a>
+                </li>
+            </ul>
+        </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h4 class="page-head-line">Perfil de usuario</h4>
-
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Juego de Tronos</h2>
+                    <img src="img/series_icon/juego_de_tronos.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
+                    <hr class="light">
                 </div>
-
-            </div>
-
-            <div class="row">
-                 <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="dashboard-div-wrapper bk-clr-one">
-                        <i  class="fa fa-star dashboard-div-icon" ></i>
-                        
-                           
-
-                         <h5>Series </h5>
-                    </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Breaking Bad</h2>
+                    <img src="img/series_icon/breaking_bad.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
+                    <hr class="light">
                 </div>
-                 <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="dashboard-div-wrapper bk-clr-two">
-                        <i  class="fa fa-users dashboard-div-icon" ></i>
-
-                         <h5>Amigos </h5>
-                    </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">The Walking Dead</h2>
+                    <img src="img/series_icon/the_walking_dead.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
+                    <hr class="light">
                 </div>
-                 <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="dashboard-div-wrapper bk-clr-three" href='/editarPerfil'>
-                        <i  class="fa fa-cogs dashboard-div-icon" ></i><br>
-                        <input type=button onClick="location.href='editarPerfil.html'" style=" background-color: transparent; border-color: transparent; cursor: default;" value='Editar perfil'>
-                    </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Westworld</h2>
+                    <img src="img/series_icon/westworld.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
+                    <hr class="light">
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="dashboard-div-wrapper bk-clr-four">
-                        <i  class="fa fa-bell-o dashboard-div-icon" ></i>
-           
-                         <h5>Notificaciones </h5>
-                    </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Stranger Things</h2>
+                    <img src="img/series_icon/stranger_things.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
+                    <hr class="light">
                 </div>
-
-            </div>
-           
-            <div class="row">
-                <div class="col-md-12">
-                      <div class="notice-board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                           Actividad reciente
-                                <div class="pull-right" >
-                                    <div class="dropdown">
-  <button class="btn btn-success dropdown-toggle btn-xs" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    <span class="glyphicon glyphicon-cog"></span>
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Refresh</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
-  </ul>
-</div>
-                                </div>
-                                
-                            </div>
-                          </div>
-                            <div class="panel-body">
-                               
-                                <ul >
-                                   
-                                     <li>
-                                            <a href="#">
-                                     <span class="glyphicon glyphicon-align-left text-success" ></span> 
-                                                  Lorem ipsum dolor sit amet ipsum dolor sit amet
-                                                 <span class="label label-warning" > Just now </span>
-                                            </a>
-                                    </li>
-                                     <li>
-                                          <a href="#">
-                                     <span class="glyphicon glyphicon-info-sign text-danger" ></span>  
-                                          Lorem ipsum dolor sit amet ipsum dolor sit amet
-                                          <span class="label label-info" > 2 min chat</span>
-                                            </a>
-                                    </li>
-                                     <li>
-                                          <a href="#">
-                                     <span class="glyphicon glyphicon-comment  text-warning" ></span>  
-                                          Lorem ipsum dolor sit amet ipsum dolor sit amet
-                                          <span class="label label-success" >GO ! </span>
-                                            </a>
-                                    </li>
-                                    <li>
-                                          <a href="#">
-                                     <span class="glyphicon glyphicon-edit  text-danger" ></span>  
-                                          Lorem ipsum dolor sit amet ipsum dolor sit amet
-                                          <span class="label label-success" >Let's have it </span>
-                                            </a>
-                                    </li>
-                                   
-                                    
-                                </ul>
-                            </div>
-                            <div class="panel-footer">
-                                <a href="#" class="btn btn-default btn-block"> <i class="glyphicon glyphicon-repeat"></i> Recargar</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-3 text-center">
+                    <h2 class="section-heading">Vikingos</h2>
+                    <img src="img/series_icon/vikingos.jpg" widht='200' height='200'>
+                    <a type="button" class="favorito">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </a>
+                    <a type="button" class="mas-info">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <img class="valoration" src="img/valorations/puntuacion_4.png" height='25'>
+                    <hr class="light">
                 </div>
             </div>
         </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
+    </section>
+
+    <section id="mail">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" id="friend">
+                    <h1>Mensajes</h1>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <ul class="nav nav-tabs" id="mail_carp">
+                        <li>
+                            <img src="img/logo.png" widht='40' height="40">
+                        </li>
+                        <li class="from">
+                            <h1>@staff_carpincheria</h1>
+                        </li>
+                        <li>
+                            <p>¡Bienvenido a Series Carpincho! Comenta, valora y...</p>
+                        </li>
+                        <li>
+                            <p align="right">7 de ene, 15:42</p>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-tabs" id="mail_jon">
+                        <li>
+                            <img src="img/perfil_jon.jpg" widht='40' height="40">
+                        </li>
+                        <li class="from">
+                            <h1>@jonsnow</h1>
+                        </li>
+                        <li>
+                            <p>@jonsnow te recomendó Juego de Tronos</p>
+                        </li>
+                        <li>
+                            <p align="right">7 de ene, 19:17</p>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-tabs" id="mail_ww">
+                        <li>
+                            <img src="img/perfil_ww.jpg" widht='40' height="40">
+                        </li>
+                        <li class="from">
+                            <h1>@walterwhite</h1>
+                        </li>
+                        <li>
+                            <p>¿Has visto el nuevo capítulo de Breackig Bad?</p>
+                        </li>
+                        <li>
+                            <p align="right">9 de ene, 11:02</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    &copy; 2017 SeriesCarpincho 
+                    &copy; 2017 SeriesCarpincho
                 </div>
 
             </div>
         </div>
     </footer>
-         <!-- jQuery -->
+    <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -232,5 +289,7 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
-    </body>
+
+</body>
+
 </html>

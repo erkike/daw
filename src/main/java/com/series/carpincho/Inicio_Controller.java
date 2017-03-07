@@ -71,9 +71,9 @@ public class Inicio_Controller {
 
 	}
 
-	@RequestMapping("/the100/capitulo1")
-	public String capitulo(Model model) {
-		return "Capitulo";
+	@RequestMapping("/{nombre}/capitulo1")
+	public String capitulo(Model model, @PathVariable String nombre) {
+		return "capitulo";
 	}
 
 	@RequestMapping("/perfil")
@@ -81,7 +81,7 @@ public class Inicio_Controller {
 
 		model.addAttribute("usuarios", usuarios);
 
-		return "new_profile";
+		return "perfil";
 	}
 
 	@RequestMapping("/perfil/editar")
@@ -89,6 +89,6 @@ public class Inicio_Controller {
 
 		model.addAttribute("usuarios", usuarios);
 
-		return "edit_profile";
+		return "editar-perfil";
 	}
 }
