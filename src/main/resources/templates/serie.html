@@ -79,16 +79,18 @@
 		</div>
 	</header>
 
+	{{#serie}}
 	<section class="bg-primary" id="informacion">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="col-lg-6 text-center">
 						<h1 class="section-heading">
-							Los 100
+							{{nombre}}
 							<button class='estrella'></button>
 							<button class='recomendar'></button>
 						</h1>
+						<p class="text-faded">{{descripcion}}</p>
 						<p class="text-faded">'Los 100' es un drama post apocalíptico
 							escrito por Jason Rothenberg (Body Politic), basado en los libros
 							de Kass Morgan. La historia está centrada en lo que ocurre con la
@@ -105,8 +107,7 @@
 							existen de volver a colonizar la tierra.</p>
 					</div>
 					<div class="col-lg-6 text-center">
-						<iframe width="560" height="315"
-							src="https://www.youtube.com/embed/ia1Fbg96vL0" frameborder="0"
+						<iframe width="560" height="315" src="{{trailer}}" frameborder="0"
 							allowfullscreen></iframe>
 						<div class="col-lg-12 text-center">
 							<hr class="light">
@@ -264,7 +265,7 @@
 
 	<section id="comentarios">
 		<div class="container">
-			<form action="/the100/comentarios" method="post">
+			<form action="/{{nombre}}/comentarios" method="post">
 				<div class="row">
 					<textarea placeholder='Deja tu comentario...' class='comentarios'
 						name='texto'></textarea>
@@ -274,6 +275,7 @@
 					<!-- <button class='comentar' id='cancelar'>Cancelar</button> -->
 				</div>
 			</form>
+			{{/serie}} 
 			{{#comentarios}}
 			<div id="{{id}}" style="display: {{display}}">
 				<div class="row">
