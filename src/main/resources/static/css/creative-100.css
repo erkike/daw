@@ -607,17 +607,19 @@ img::-moz-selection {
     width: 100px;
     text-align: center;
     float: left;
+    margin-top: 105px;
 }
 
 .comentarios {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background: transparent;
     border-style: solid;
     border-color: #F05F40;
     color: black;
     resize: none;
+    margin-bottom: 10px;
 }
 
 .div-comentarios {

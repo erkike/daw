@@ -18,8 +18,20 @@ public class Inicio_Controller {
 	private List<Serie> series = new ArrayList<>();
 
 	public Inicio_Controller() {
-		series.add(new Serie("Los-100", "descripcion de pruebas"));
+		series.add(new Serie("Los-100",
+				"'Los 100' es un drama post apocalíptico escrito por Jason Rothenberg (Body Politic), basado en los libros de Kass Morgan. La historia está centrada en lo que ocurre con la civilización casi cien años después de que una guerra nuclear la haya devastado."));
 		series.add(new Serie("Cacota", "sin descripcion"));
+		for (Serie serie : series) {
+			for (int i = 1; i < 4; i++) {
+				Temporada nueva = new Temporada(i, new ArrayList<>());
+				List<Capitulo> capitulos = new ArrayList<>();
+				for (int j = 1; j < 15; j++) {
+					capitulos.add(new Capitulo(j, "Prueba"));
+				}
+				nueva.setCapitulos(capitulos);
+				serie.añadirTemporada(nueva);
+			}
+		}
 	}
 
 	@RequestMapping("/")
@@ -43,7 +55,6 @@ public class Inicio_Controller {
 			if (busqueda.getNombre().equals(nombre)) {
 				Serie encontrada = busqueda;
 				model.addAttribute("serie", encontrada);
-				model.addAttribute("comentarios", encontrada.getComentarios());
 			}
 		}
 
@@ -64,8 +75,6 @@ public class Inicio_Controller {
 				}
 			}
 		}
-
-		// model.addAttribute("comentarios", comentarios);
 
 		return "redirect:/{nombre}#comentarios";
 

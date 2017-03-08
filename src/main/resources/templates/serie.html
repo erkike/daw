@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -65,7 +65,7 @@
 					<li><a class="page-scroll" href="#capitulos">Capítulos</a></li>
 					<li><a class="page-scroll" href="#comentarios">Comentarios</a>
 					</li>
-					<li><a class="page-scroll" href="/login">Mi cuenta</a></li>
+					<li><a class="page-scroll" href="/perfil">Mi cuenta</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -91,20 +91,6 @@
 							<button class='recomendar'></button>
 						</h1>
 						<p class="text-faded">{{descripcion}}</p>
-						<p class="text-faded">'Los 100' es un drama post apocalíptico
-							escrito por Jason Rothenberg (Body Politic), basado en los libros
-							de Kass Morgan. La historia está centrada en lo que ocurre con la
-							civilización casi cien años después de que una guerra nuclear la
-							haya devastado.</p>
-						<p class="text-faded">Después de que ocurriese esa
-							catastrófica guerra nuclear, se produjo una huida de los humanos
-							que consiguieron sobrevivir. El futuro de la supervivencia de la
-							raza humana está en manos de unos jóvenes delincuentes que
-							consiguieron huir y salvarse de la guerra. Éstos viven desde
-							entonces en una nave espacial. Desde la estación espacial The
-							Ark, cien de los supervivientes son enviados de vuelta al planeta
-							tierra para investigarlo y poder estudiar las posibilidades que
-							existen de volver a colonizar la tierra.</p>
 					</div>
 					<div class="col-lg-6 text-center">
 						<iframe width="560" height="315" src="{{trailer}}" frameborder="0"
@@ -127,141 +113,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
+					{{#temporadas}}
 					<div class="col-lg-4 text-center">
 						<ul class='temporadas'>
-							<h2 style="color: white">Temporada 1</h2>
-							<li><a class='capitulos' href='/the100/capitulo1'>Capítulo
-									1: Pilot <span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 2: Earth Skills <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 3: Earth Kills <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 4: Murphy's Law <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 5: Twilight's Last
-									Gleaming <span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 6: His Sister's Keeper
-									<span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 7: Contents Under
-									Pressure <span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 8: Day Trip <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 9: Unity Day <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 10: I Am Become Death
-									<span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 11: The Calm <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 12: We Are Gounders -
-									Part 1 <span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 13: We Are Grounders -
-									Part 2 <span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
+							<h2 style="color: white">Temporada {{id}}</h2>
+							{{#capitulos}}
+							<li><a class='capitulos' href='/'>
+									Capítulo {{id}}: {{titulo}} <span
+									class="glyphicon glyphicon-eye-open"></span>
+							</a></li> 
+							{{/capitulos}}
 						</ul>
 					</div>
-					<div class="col-lg-4 text-center">
-						<ul class='temporadas'>
-							<h2 style="color: white">Temporada 2</h2>
-							<li><a class='capitulos'>Capítulo 1: The 48 <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 2: Inclement Weather <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 3: Reapercussions <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 4: Many Happy Returns
-									<span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 5: Human Trials <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 6: Fog of War <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 7: Long Into an Abyss
-									<span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 8: Spacewalker <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 9: Remember Me <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 10: Survival of the
-									Fittest <span class="glyphicon glyphicon-eye-open"></span>
-							</a></li>
-							<li><a class='capitulos'>Capítulo 11: Coup de Grace <span
-									class="glyphicon glyphicon-eye-open"></span></a></li>
-							<li><a class='capitulos'>Capítulo 12: Rubicon </a></li>
-							<li><a class='capitulos'>Capítulo 13: Resurrection </a></li>
-							<li><a class='capitulos'>Capítulo 14: Bodyguard of Lies
-							</a></li>
-							<li><a class='capitulos'>Capítulo 15: Blood Must Have
-									Blood - Part 1 </a></li>
-							<li><a class='capitulos'>Capítulo 16: Blood Must Have
-									Blood - Part 2 </a></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 text-center">
-						<ul class='temporadas'>
-							<h2 style="color: white">Temporada 3</h2>
-							<li><a class='capitulos'>Capítulo 1: Wanheda - Part 1 </a></li>
-							<li><a class='capitulos'>Capítulo 2: Wanheda - Part 2 </a></li>
-							<li><a class='capitulos'>Capítulo 3: Ye Who Enter Here </a>
-							</li>
-							<li><a class='capitulos'>Capítulo 4: Watch the Thrones </a>
-							</li>
-							<li><a class='capitulos'>Capítulo 5: Hakeldama </a></li>
-							<li><a class='capitulos'>Capítulo 6: Bitter Harvest </a></li>
-							<li><a class='capitulos'>Capítulo 7: Thirteen </a></li>
-							<li><a class='capitulos'>Capítulo 8: Terms and
-									Conditions </a></li>
-							<li><a class='capitulos'>Capítulo 9: Stealing Fire </a></li>
-							<li><a class='capitulos'>Capítulo 10: Fallen </a></li>
-							<li><a class='capitulos'>Capítulo 11: Nevermore </a></li>
-							<li><a class='capitulos'>Capítulo 12: Demons </a></li>
-							<li><a class='capitulos'>Capítulo 13: Join or Die </a></li>
-							<li><a class='capitulos'>Capítulo 14: Red Sky at Morning
-							</a></li>
-							<li><a class='capitulos'>Capítulo 15: Perverse
-									Instantiation - Part 1 </a></li>
-							<li><a class='capitulos'>Capítulo 16: Perverse
-									Instantiation - Part 2 </a></li>
-						</ul>
-					</div>
+					{{/temporadas}}
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<!--<section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="col-lg-12 text-center">
-                <div id="disqus_thread"></div>
-                <script>
-                    /**
-                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-                    /*
-                    var disqus_config = function () {
-                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                    };
-                    */
-                    (function () { // DON'T EDIT BELOW THIS LINE
-                        var d = document,
-                            s = d.createElement('script');
-                        s.src = '//seriescarpincho.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-            </div>
-        </div>
-    </section>-->
 
 	<section id="comentarios">
 		<div class="container">
@@ -275,41 +143,21 @@
 					<!-- <button class='comentar' id='cancelar'>Cancelar</button> -->
 				</div>
 			</form>
-			{{/serie}} 
+
 			{{#comentarios}}
-			<div id="{{id}}" style="display: {{display}}">
+			<div id="{{id}}" style="display:">
 				<div class="row">
 					<div class='perfil-tripis'></div>
+					<h5 class='nombre-perfil'>XxcarpinchoxX</h5>
 					<div class='div-comentarios'>
 						<textarea readonly class='comentarios'>{{texto}}</textarea>
 					</div>
 				</div>
-				<div class="row">
-					<h5 class='nombre-perfil'>XxcarpinchoxX</h5>
-					<button class='comentar'>Responder</button>
-				</div>
 			</div>
 			{{/comentarios}}
-			<!--   <div class="row">
-				<div class='perfil-cabezon'></div>
-				<div class='div-comentarios'>
-					<textarea readonly class='comentarios'> ¡Esta serie merece una valoración de 5 carpinchos!</textarea>
-				</div>
-			</div>
-			<div class="row">
-				<h5 class='nombre-perfil'>Carpancha</h5>
-				<button class='comentar'>Responder</button>
-			</div> -->
-
 		</div>
-
-		<div class="col-lg-12 text-center">
-			<a id="verMas" onclick="vermas()"
-				class="page-scroll btn btn-default btn-xl sr-button"
-				href="javascript:click();">Ver Más</a>
-		</div>
-
 	</section>
+	{{/serie}}
 
 	<footer>
 		<div class="container">
@@ -336,26 +184,6 @@
 	<script src="js/creative.min.js"></script>
 	<!--<script id="dsq-count-scr" src="//seriescarpincho.disqus.com/count.js" async></script>-->
 
-
-	<script>
-		var i = 3
-
-		function click() {
-			i++;
-			if (i == 1) {
-				document.getElementById("clicks").innerHTML = i;
-			} else {
-				document.getElementById("clicks").innerHTML = i;
-			}
-
-		}
-		function vermas() {
-			for (var j = 1; j <= 3; j++) {
-				var eldiv = document.getElementById(i + j);
-				eldiv.style.display = "block";
-			}
-		}
-	</script>
 </body>
 
 </html>

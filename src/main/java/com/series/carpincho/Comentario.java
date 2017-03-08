@@ -5,7 +5,7 @@ public class Comentario {
 	private String texto;
 	private Usuario usuario;
 	private long id = -1;
-	private String display = "block";
+	// private String display = "block";
 
 	public Comentario() {
 
@@ -25,8 +25,9 @@ public class Comentario {
 
 	public void setId(long id) {
 		this.id = id;
-		if (id > 3)
-			this.display = "none";
+		/*
+		 * if (id > 3) this.display = "none";
+		 */
 	}
 
 	public boolean esVacio() {

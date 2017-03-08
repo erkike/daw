@@ -8,7 +8,7 @@ public class Serie {
 	private String nombre;
 	private String descripcion;
 	private String trailer = "https://www.youtube.com/embed/ia1Fbg96vL0";
-	private List<Capitulo> capitulos = new ArrayList();
+	private List<Temporada> temporadas = new ArrayList();
 	private List<Comentario> comentarios = new ArrayList();
 
 	public Serie() {
@@ -44,12 +44,12 @@ public class Serie {
 		this.trailer = trailer;
 	}
 
-	public List<Capitulo> getCapitulos() {
-		return capitulos;
+	public List<Temporada> getTemporadas() {
+		return temporadas;
 	}
 
-	public void setCapitulos(List<Capitulo> capitulos) {
-		this.capitulos = capitulos;
+	public void setTemporadas(List<Temporada> temporadas) {
+		this.temporadas = temporadas;
 	}
 
 	public List<Comentario> getComentarios() {
@@ -62,6 +62,10 @@ public class Serie {
 
 	public void añadirComentario(Comentario comentario) {
 		this.comentarios.add(comentario);
+	}
+
+	public void añadirTemporada(Temporada temporada) {
+		this.temporadas.add(temporada);
 	}
 
 }
