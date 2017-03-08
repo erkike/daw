@@ -3,13 +3,29 @@ package com.series.carpincho;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Serie {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 
 	private String nombre;
 	private String descripcion;
 	private String trailer = "https://www.youtube.com/embed/ia1Fbg96vL0";
-	private List<Temporada> temporadas = new ArrayList();
-	private List<Comentario> comentarios = new ArrayList();
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Temporada> temporadas = new ArrayList<>();
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Comentario> comentarios = new ArrayList<>();
 
 	public Serie() {
 
@@ -58,14 +74,6 @@ public class Serie {
 
 	public void setComentarios(List<Comentario> comentarios) {
 		this.comentarios = comentarios;
-	}
-
-	public void añadirComentario(Comentario comentario) {
-		this.comentarios.add(comentario);
-	}
-
-	public void añadirTemporada(Temporada temporada) {
-		this.temporadas.add(temporada);
 	}
 
 }

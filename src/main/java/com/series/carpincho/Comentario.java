@@ -1,14 +1,30 @@
 package com.series.carpincho;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Comentario {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
 	private String texto;
+
+	@OneToOne
 	private Usuario usuario;
-	private long id = -1;
-	// private String display = "block";
 
 	public Comentario() {
 
+	}
+
+	public Comentario(String texto, Usuario usuario) {
+		this.texto = texto;
+		this.usuario = usuario;
 	}
 
 	public Usuario getUsuario() {
@@ -21,13 +37,6 @@ public class Comentario {
 
 	public long getId() {
 		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-		/*
-		 * if (id > 3) this.display = "none";
-		 */
 	}
 
 	public boolean esVacio() {
