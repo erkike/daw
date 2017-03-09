@@ -18,6 +18,7 @@ public class Serie {
 	private long id;
 
 	private String nombre;
+	private String url;
 	private String descripcion;
 	private String trailer = "https://www.youtube.com/embed/ia1Fbg96vL0";
 
@@ -33,7 +34,12 @@ public class Serie {
 
 	public Serie(String nombre, String descripcion) {
 		this.nombre = nombre;
+		this.url = nombre.replace(" ", "-");
 		this.descripcion = descripcion;
+	}
+
+	public long getId() {
+		return this.id;
 	}
 
 	public String getNombre() {
@@ -42,6 +48,11 @@ public class Serie {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+		this.url = nombre.replace(" ", "-");
+	}
+
+	public String getUrl() {
+		return url;
 	}
 
 	public String getDescripcion() {

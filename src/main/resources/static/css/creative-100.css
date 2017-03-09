@@ -583,20 +583,9 @@ img::-moz-selection {
     text-decoration: none;
 }
 
-.perfil-tripis {
+.perfil {
     width: 100px;
     height: 100px;
-    background-image: url(/img/carpincho-tripis.png);
-    border-radius: 50px;
-    border-style: solid;
-    border-color: #F05F40;
-    position: absolute;
-}
-
-.perfil-cabezon {
-    width: 100px;
-    height: 100px;
-    background-image: url(/img/carpincho-cabezon.png);
     border-radius: 50px;
     border-style: solid;
     border-color: #F05F40;

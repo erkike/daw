@@ -122,110 +122,21 @@
 		</div>
 		<div class="container">
 			<div class="row">
+				{{#series}}
 				<div class="col-lg-3 text-center">
-					<h2 class="section-heading">Juego de Tronos</h2>
-					<img src="img/series_icon/juego_de_tronos.jpg" width='200'
-						height='200'> <a type="button" class="favorito"> <span
+					<h2 class="section-heading">{{nombre}}</h2>
+					<img src="img/series_icon/{{nombre}}.jpg" width='200' height='200'> <a
+						type="button" class="favorito"> <span
 						class="glyphicon glyphicon-star"></span>
-					</a> <a type="button" class="mas-info"> <span
+					</a> <a type="button" class="mas-info" href="/{{id}}"> <span
 						class="glyphicon glyphicon-plus"></span>
-					</a> <img class="valoration" src="img/valorations/puntuacion_5.png"
+					</a> <img class="valoration" src="img/valorations/puntuacion_4.png"
 						height='25'>
 					<hr class="light">
 				</div>
-				<div class="col-lg-3 text-center">
-					<h2 class="section-heading">Breaking Bad</h2>
-					<img src="img/series_icon/breaking_bad.jpg" width='200'
-						height='200'> <a type="button" class="favorito"> <span
-						class="glyphicon glyphicon-star"></span>
-					</a> <a type="button" class="mas-info"> <span
-						class="glyphicon glyphicon-plus"></span>
-					</a> <img class="valoration" src="img/valorations/puntuacion_5.png"
-						height='25'>
-					<hr class="light">
-				</div>
-				<div class="col-lg-3 text-center">
-					<h2 class="section-heading">The Walking Dead</h2>
-					<img src="img/series_icon/the_walking_dead.jpg" width='200'
-						height='200'> <a type="button" class="favorito"> <span
-						class="glyphicon glyphicon-star"></span>
-					</a> <a type="button" class="mas-info"> <span
-						class="glyphicon glyphicon-plus"></span>
-					</a> <img class="valoration" src="img/valorations/puntuacion_5.png"
-						height='25'>
-					<hr class="light">
-				</div>
-				<div class="col-lg-3 text-center">
-					<h2 class="section-heading">Narcos</h2>
-					<img src="img/series_icon/narcos.jpg" width='200' height='200'>
-					<a type="button" class="favorito"> <span
-						class="glyphicon glyphicon-star"></span>
-					</a> <a type="button" class="mas-info"> <span
-						class="glyphicon glyphicon-plus"></span>
-					</a> <img class="valoration" src="img/valorations/puntuacion_4,5.png"
-						height='25'>
-					<hr class="light">
-				</div>
-				<div id="1" style="display: none">
-					<div class="col-lg-3 text-center">
-						<h2 class="section-heading">Westworld</h2>
-						<img src="img/series_icon/westworld.jpg" width='200' height='200'>
-						<a type="button" class="favorito"> <span
-							class="glyphicon glyphicon-star"></span>
-						</a> <a type="button" class="mas-info"> <span
-							class="glyphicon glyphicon-plus"></span>
-						</a> <img class="valoration" src="img/valorations/puntuacion_4,5.png"
-							height='25'>
-						<hr class="light">
-					</div>
-					<div class="col-lg-3 text-center">
-						<h2 class="section-heading">Stranger Things</h2>
-						<img src="img/series_icon/stranger_things.jpg" width='200'
-							height='200'> <a type="button" class="favorito"> <span
-							class="glyphicon glyphicon-star"></span>
-						</a> <a type="button" class="mas-info"> <span
-							class="glyphicon glyphicon-plus"></span>
-						</a> <img class="valoration" src="img/valorations/puntuacion_4,5.png"
-							height='25'>
-						<hr class="light">
-					</div>
-					<div class="col-lg-3 text-center">
-						<h2 class="section-heading">Vikingos</h2>
-						<img src="img/series_icon/vikingos.jpg" width='200' height='200'>
-						<a type="button" class="favorito"> <span
-							class="glyphicon glyphicon-star"></span>
-						</a> <a type="button" class="mas-info"> <span
-							class="glyphicon glyphicon-plus"></span>
-						</a> <img class="valoration" src="img/valorations/puntuacion_4.png"
-							height='25'>
-						<hr class="light">
-					</div>
-					{{#series}}
-					<div class="col-lg-3 text-center">
-						<h2 class="section-heading">{{nombre}}</h2>
-						<img src="img/series_icon/los_100.jpg" width='200' height='200'>
-						<a type="button" class="favorito"> <span
-							class="glyphicon glyphicon-star"></span>
-						</a> <a type="button" class="mas-info" href="/{{id}}"> <span
-							class="glyphicon glyphicon-plus"></span>
-						</a> <img class="valoration" src="img/valorations/puntuacion_4.png"
-							height='25'>
-						<hr class="light">
-					</div>
-					{{/series}}
-				</div>
-				<div id="2" style="display: none">asddqdsadasd</div>
-
-				<div class="col-lg-12 text-center">
-
-					<a id="verMas" onclick="vermas()"
-						class="page-scroll btn btn-default btn-xl sr-button" href="javascript:click();">Ver
-						Más</a>
-				</div>
-
+				{{/series}}
 			</div>
 		</div>
-
 	</section>
 
 	<section id="contact">
@@ -272,26 +183,6 @@
 
 	<!-- Theme JavaScript -->
 	<script src="js/creative.min.js"></script>
-
-
-	<script>
-		var i = 0
-
-		function click() {
-			i++;
-			if (i == 1) {
-				document.getElementById("clicks").innerHTML = i;
-			} else {
-				document.getElementById("clicks").innerHTML = i;
-			}
-
-		}
-		function vermas() {
-			var eldiv = document.getElementById(i + 1);
-			eldiv.style.display = "block";
-
-		}
-	</script>
 </body>
 
 </html>

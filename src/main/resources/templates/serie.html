@@ -108,6 +108,28 @@
 			</div>
 		</div>
 	</section>
+	
+	<section class="bg-dark" id="capitulos">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					{{#temporadas}}
+					<div class="col-lg-4 text-center">
+						<ul class='temporadas'>
+							<h2 style="color: white">Temporada {{id}}</h2>
+							{{#capitulos}}
+							<li><a class='capitulos' href='/'>
+									Capítulo {{id}}: {{titulo}} <span
+									class="glyphicon glyphicon-eye-open"></span>
+							</a></li> 
+							{{/capitulos}}
+						</ul>
+					</div>
+					{{/temporadas}}
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<section id="comentarios">
 		<div class="container">
@@ -123,9 +145,9 @@
 			</form>
 
 			{{#comentarios}}
-			<div id="{{id}}" style="display:">
+			<div id="{{id}}">
 				<div class="row">
-					<div class='perfil-tripis'></div>
+					<div class='perfil' style="background-image: url(/img/Carpinchote.png)"></div>
 					<h5 class='nombre-perfil'>{{usuario.nombre}}</h5>
 					<div class='div-comentarios'>
 						<textarea readonly class='comentarios'>{{texto}}</textarea>
