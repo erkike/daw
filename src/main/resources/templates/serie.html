@@ -73,13 +73,11 @@
 		<!-- /.container-fluid -->
 	</nav>
 
+	{{#serie}}
 	<header>
-		<div class="header-content">
-			<div class="header-content-inner"></div>
-		</div>
+		<img class='fondos' src='img/fondos/{{nombre}}.jpg' />
 	</header>
 
-	{{#serie}}
 	<section class="bg-primary" id="informacion">
 		<div class="container">
 			<div class="row">
@@ -91,6 +89,7 @@
 							<button class='recomendar'></button>
 						</h1>
 						<p class="text-faded">{{descripcion}}</p>
+						<hr class="light">
 					</div>
 					<div class="col-lg-6 text-center">
 						<iframe width="560" height="315" src="{{trailer}}" frameborder="0"
@@ -147,7 +146,7 @@
 			{{#comentarios}}
 			<div id="{{id}}">
 				<div class="row">
-					<div class='perfil' style="background-image: url(/img/Carpinchote.png)"></div>
+					<div class='perfil' style="background-image: url(/img/{{usuario.nombre}}.png)"></div>
 					<h5 class='nombre-perfil'>{{usuario.nombre}}</h5>
 					<div class='div-comentarios'>
 						<textarea readonly class='comentarios'>{{texto}}</textarea>

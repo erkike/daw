@@ -194,7 +194,6 @@ header {
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-image: url('../img/100.jpg');
     text-align: center;
     color: white;
 }
@@ -631,6 +630,17 @@ img::-moz-selection {
 
 .comentar:hover {
     color: #F05F40;
+}
+
+.fondos {
+	width: 100%;
+    min-height: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    text-align: center;
 }
 
 body {

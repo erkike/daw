@@ -27,18 +27,19 @@ public class Inicio_Controller {
 	@PostConstruct
 	public void init() {
 
+		String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis euismod pretium. Sed aliquet risus sed ante laoreet luctus. In dapibus massa eu mauris euismod gravida. Donec tempus, orci eu tempor viverra, ex metus vulputate leo, et sodales odio nisi nec massa. Proin quis neque nec sem finibus elementum. Praesent ultrices ante sit amet suscipit blandit. Praesent vulputate nibh est, vitae fringilla odio mattis eget. Aenean congue orci et leo placerat, nec semper ipsum convallis. Cras vestibulum volutpat lectus sed efficitur.";
 		Usuario carpinchote = new Usuario("Carpinchote");
 		usuarios.save(carpinchote);
 
 		Comentario caca = new Comentario("Vaya caca", carpinchote);
 
-		Serie cien = new Serie("Los 100", "XXXX");
+		Serie cien = new Serie("Los 100", descripcion);
 		cien.getComentarios().add(caca);
 
 		series.save(cien);
-		series.save(new Serie("Breaking Bad", "Hola caracola"));
-		series.save(new Serie("Juego de Tronos", "Hola caracola"));
-		series.save(new Serie("Narcos", "Hola caracola"));
+		series.save(new Serie("Breaking Bad", descripcion));
+		series.save(new Serie("Juego de Tronos", descripcion));
+		series.save(new Serie("Narcos", descripcion));
 	}
 
 	@RequestMapping("/")
@@ -82,13 +83,15 @@ public class Inicio_Controller {
 		return "login";
 	}
 
+	@RequestMapping("/perfil")
+	public String perfil(Model model, Usuario u) {
+
+		model.addAttribute("usuarios", usuarios);
+
+		return "perfil";
+	}
+
 	/*
-	 * @RequestMapping("/perfil") public String perfil(Model model, Usuario u) {
-	 * 
-	 * model.addAttribute("usuarios", usuarios);
-	 * 
-	 * return "perfil"; }
-	 * 
 	 * @RequestMapping("/perfil/editar") public String editar(Model model,
 	 * Usuario u) {
 	 * 
