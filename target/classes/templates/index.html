@@ -70,8 +70,7 @@
 					<li><a class="page-scroll" href="#about">Información</a></li>
 					<li><a class="page-scroll" href="#series">Series</a></li>
 					<li><a class="page-scroll" href="#contact">Contacto</a></li>
-					<li><a class="page-scroll"
-						href="javascript:abrir('login.html')">Mi cuenta</a></li>
+					<li><a class="page-scroll" href="/perfil">Mi cuenta</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -100,7 +99,7 @@
 					<p class="text-faded">Además, si te registras podrás disfrutar
 						de los comentarios libres de spoilers, añadir a tu perfil tus
 						series favoritas y recomendarlas a tus amigos.</p>
-					<a href="javascript:abrir('login.html')"
+					<a href="/perfil"
 						class="page-scroll btn btn-default btn-xl sr-button">¡Únete
 						ya!</a>
 				</div>
@@ -115,9 +114,9 @@
 					<p>Ordenar por:</p>
 				</li>
 				<li><a class="page-scroll" href="#series">Recomendadas</a></li>
-				<li><a class="page-scroll" href="#series">Nombre</a></li>
-				<li><a class="page-scroll" href="#series">Valoración</a></li>
-				<li><a class="page-scroll" href="#series">Año</a></li>
+				<li><a class="page-scroll" href="/?page={{actual}}&sort=nombre#series">Nombre</a></li>
+				<li><a class="page-scroll" href="/?page={{actual}}&sort=nombre#valoracion">Valoración</a></li>
+				<li><a class="page-scroll" href="/?page={{actual}}&sort=nombre#año">Año</a></li>
 			</ul>
 		</div>
 		<div class="container">
@@ -128,12 +127,20 @@
 					<img src="img/series_icon/{{nombre}}.jpg" width='200' height='200'> <a
 						type="button" class="favorito"> <span
 						class="glyphicon glyphicon-star"></span>
-					</a> <a type="button" class="mas-info" href="/{{id}}"> <span
+					</a> <a type="button" class="mas-info" href="/{{url}}"> <span
 						class="glyphicon glyphicon-plus"></span>
 					</a>
 					<hr class="light">
 				</div>
 				{{/series}}
+				<div class="col-lg-12 text-center">
+				{{#siguiente}}
+				<a href="/?page={{next}}#series" class="page-scroll btn btn-default btn-xl sr-button">Siguiente</a>
+				{{/siguiente}}
+				{{#anterior}}
+				<a href="/?page={{prev}}#series" class="page-scroll btn btn-default btn-xl sr-button">Anterior</a>
+				{{/anterior}}
+				</div>
 			</div>
 		</div>
 	</section>
