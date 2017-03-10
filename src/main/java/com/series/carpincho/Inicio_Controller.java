@@ -26,20 +26,29 @@ public class Inicio_Controller {
 
 	@PostConstruct
 	public void init() {
-
 		String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis euismod pretium. Sed aliquet risus sed ante laoreet luctus. In dapibus massa eu mauris euismod gravida. Donec tempus, orci eu tempor viverra, ex metus vulputate leo, et sodales odio nisi nec massa. Proin quis neque nec sem finibus elementum. Praesent ultrices ante sit amet suscipit blandit. Praesent vulputate nibh est, vitae fringilla odio mattis eget. Aenean congue orci et leo placerat, nec semper ipsum convallis. Cras vestibulum volutpat lectus sed efficitur.";
 		Usuario carpinchote = new Usuario("Carpinchote");
+		Usuario carpinchi=new Usuario("Carpinchi");
+		Usuario carpancha=new Usuario("Carpancha");
+		carpinchote.añadirAmigo(carpinchi);
+		carpinchote.añadirAmigo(carpancha);
+		
 		usuarios.save(carpinchote);
 
 		Comentario caca = new Comentario("Vaya caca", carpinchote);
 
 		Serie cien = new Serie("Los 100", descripcion);
 		cien.getComentarios().add(caca);
-
+		Serie juegoTronos=new Serie("Juego de Tronos", descripcion);
 		series.save(cien);
 		series.save(new Serie("Breaking Bad", descripcion));
-		series.save(new Serie("Juego de Tronos", descripcion));
+		series.save(juegoTronos);
 		series.save(new Serie("Narcos", descripcion));
+		
+		carpinchote.añadirSerieFavorita(cien);
+		carpinchote.añadirSerieFavorita(juegoTronos);
+		usuarios.save(carpinchote);
+		
 	}
 
 	@RequestMapping("/")
@@ -83,20 +92,16 @@ public class Inicio_Controller {
 		return "login";
 	}
 
-	@RequestMapping("/perfil")
-	public String perfil(Model model, Usuario u) {
-
-		model.addAttribute("usuarios", usuarios);
-
+	@RequestMapping("/perfil/{id}")
+	public String usuario(Model model,@PathVariable long id){
+		model.addAttribute("usuario", usuarios.findOne(id));
 		return "perfil";
 	}
+	@RequestMapping("/perfil/{id}/editar")
+	public String editar(Model model,Usuario u,@PathVariable long id){
 
-	/*
-	 * @RequestMapping("/perfil/editar") public String editar(Model model,
-	 * Usuario u) {
-	 * 
-	 * model.addAttribute("usuarios", usuarios);
-	 * 
-	 * return "editar-perfil"; }
-	 */
+		model.addAttribute("usuario", usuarios.findOne(id));
+		return "editar-perfil";
+	}
+	
 }

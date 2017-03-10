@@ -12,26 +12,19 @@
     <title>Series Carpincho</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/new_profile.css" rel="stylesheet">
+    <link href="../css/new_profile.css" rel="stylesheet">
 
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -44,8 +37,8 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.html">
-                    <img class="navbar-brand page-scroll" src="img/logo.png"> Series Carpincho
+                <a class="navbar-brand page-scroll" href="/">
+                    <img class="navbar-brand page-scroll" src="../img/logo.png"> Series Carpincho
                 </a>
             </div>
 
@@ -72,11 +65,12 @@
     </nav>
 
     <header>
+    {{#usuario}}
         <div class="header-content">
             <div class="col-lg-12 text-center" id="info-profile">
-                <h1>{{usuario}}</h1>
-                <img src="img/img-profile.jpg">
-                <a href="/perfil/editar" class="btn btn-primary btn-xl">Editar perfil</a>
+                <h1>{{user}}</h1>
+                <img src={{img}}>
+                <a href="/perfil/{{id}}/editar" class="btn btn-primary btn-xl">Editar perfil</a>
             </div>
         </div>
     </header>
@@ -87,30 +81,18 @@
                 <div class="col-lg-12 text-center" id="friend">
                     <h1>Mis amigos</h1>
                 </div>
+                {{#amigos}}
                 <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">@jonsnow</h2>
+                    <h2 class="section-heading">{{user}}</h2>
                     <img src="img/perfil_jon.jpg" widht='200' height='200'>
                     <a type="button" class="mas-info">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                     <hr class="light">
                 </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">@walterwhite</h2>
-                    <img src="img/perfil_ww.jpg" widht='200' height='200'>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <hr class="light">
-                </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">@eleven</h2>
-                    <img src="img/perfil_eleven.png" widht='200' height='200'>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <hr class="light">
-                </div>
+                
+                {{/amigos}}
+             
             </div>
         </div>
     </section>
@@ -137,8 +119,9 @@
         </div>
         <div class="container">
             <div class="row">
+            {{#seriesFavoritas}}
                 <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">Juego de Tronos</h2>
+                    <h2 class="section-heading">{{nombre}}</h2>
                     <img src="img/series_icon/juego_de_tronos.jpg" widht='200' height='200'>
                     <a type="button" class="favorito">
                         <span class="glyphicon glyphicon-star"></span>
@@ -146,69 +129,11 @@
                     <a type="button" class="mas-info">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
-                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
+                    <img class="valoration" src="../img/valorations/puntuacion_5.png" height='25'>
                     <hr class="light">
                 </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">Breaking Bad</h2>
-                    <img src="img/series_icon/breaking_bad.jpg" widht='200' height='200'>
-                    <a type="button" class="favorito">
-                        <span class="glyphicon glyphicon-star"></span>
-                    </a>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
-                    <hr class="light">
-                </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">The Walking Dead</h2>
-                    <img src="img/series_icon/the_walking_dead.jpg" widht='200' height='200'>
-                    <a type="button" class="favorito">
-                        <span class="glyphicon glyphicon-star"></span>
-                    </a>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <img class="valoration" src="img/valorations/puntuacion_5.png" height='25'>
-                    <hr class="light">
-                </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">Westworld</h2>
-                    <img src="img/series_icon/westworld.jpg" widht='200' height='200'>
-                    <a type="button" class="favorito">
-                        <span class="glyphicon glyphicon-star"></span>
-                    </a>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
-                    <hr class="light">
-                </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">Stranger Things</h2>
-                    <img src="img/series_icon/stranger_things.jpg" widht='200' height='200'>
-                    <a type="button" class="favorito">
-                        <span class="glyphicon glyphicon-star"></span>
-                    </a>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <img class="valoration" src="img/valorations/puntuacion_4,5.png" height='25'>
-                    <hr class="light">
-                </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="section-heading">Vikingos</h2>
-                    <img src="img/series_icon/vikingos.jpg" widht='200' height='200'>
-                    <a type="button" class="favorito">
-                        <span class="glyphicon glyphicon-star"></span>
-                    </a>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                    <img class="valoration" src="img/valorations/puntuacion_4.png" height='25'>
-                    <hr class="light">
-                </div>
+            {{/seriesFavoritas}}
+
             </div>
         </div>
     </section>
@@ -222,7 +147,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <ul class="nav nav-tabs" id="mail_carp">
                         <li>
-                            <img src="img/logo.png" widht='40' height="40">
+                            <img src="../img/logo.png" widht='40' height="40">
                         </li>
                         <li class="from">
                             <h1>@staff_carpincheria</h1>
@@ -256,7 +181,7 @@
                             <h1>@walterwhite</h1>
                         </li>
                         <li>
-                            <p>¿Has visto el nuevo capítulo de Breackig Bad?</p>
+                            <p>¿Has visto el nuevo capítulo de Breaking Bad?</p>
                         </li>
                         <li>
                             <p align="right">9 de ene, 11:02</p>
@@ -266,6 +191,7 @@
             </div>
         </div>
     </section>
+    {{/usuario}}
     <footer>
         <div class="container">
             <div class="row">
@@ -277,18 +203,18 @@
         </div>
     </footer>
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="../vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="js/creative.min.js"></script>
+    <script src="../js/creative.min.js"></script>
 
 </body>
 

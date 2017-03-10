@@ -12,7 +12,6 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Type;
-
 @Entity
 public class Serie {
 
@@ -23,11 +22,11 @@ public class Serie {
 	private String nombre;
 	private String url;
 	private String trailer = "https://www.youtube.com/embed/ia1Fbg96vL0";
-
-	@Lob
+    
+    @Lob
 	@Type(type = "org.hibernate.type.TextType")
 	private String descripcion;
-
+    
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Temporada> temporadas = new ArrayList<>();
 
