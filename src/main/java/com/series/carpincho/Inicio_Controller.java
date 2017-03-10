@@ -56,23 +56,13 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/")
-	public String indice(Model model, @PageableDefault(value = 8) Pageable page) {
+	public String indice(Model model, @PageableDefault(value = 4) Pageable page) {
 
 		Page<Serie> paginas = series.findAll(page);
 
-		String ordenar;
-		if (page.getSort() != null) {
-			ordenar = paginas.getSort().iterator().next().getProperty();
-		} else {
-			ordenar = "Sin orden";
-		}
-		model.addAttribute("ordenar", ordenar);
 		model.addAttribute("series", paginas);
 		model.addAttribute("siguiente", !paginas.isLast());
-		model.addAttribute("anterior", !paginas.isFirst());
-		model.addAttribute("actual", paginas.getNumber());
-		model.addAttribute("next", paginas.getNumber() + 1);
-		model.addAttribute("prev", paginas.getNumber() - 1);
+		model.addAttribute("next", 8);
 
 		return "index";
 	}
@@ -81,7 +71,13 @@ public class Inicio_Controller {
 	public String serie(Model model, @PathVariable String url) {
 
 		model.addAttribute("serie", series.findByUrl(url));
-
+		Integer[] indices = { 1, 2, 3, 4, 5 };
+		String[] valoracion = { "desmarcado", "desmarcado", "desmarcado", "desmarcado", "desmarcado" };
+		for (int i = 0; i < series.findByUrl(url).getValoracion(); i++) {
+			valoracion[i] = "marcado";
+		}
+		model.addAttribute("valoraciones", valoracion);
+		model.addAttribute("indices", indices);
 		return "serie";
 	}
 
@@ -96,6 +92,22 @@ public class Inicio_Controller {
 		}
 
 		return "redirect:/{url}#comentarios";
+
+	}
+
+	@RequestMapping("/{url}/valoracion")
+	public String valoracion(Model model, int n, @PathVariable String url) {
+
+		Serie serie = series.findByUrl(url);
+		serie.Valorar(n);
+		series.save(serie);
+		String[] valoracion = { "desmarcado", "desmarcado", "desmarcado", "desmarcado", "desmarcado" };
+		for (int i = 0; i < series.findByUrl(url).getValoracion(); i++) {
+			valoracion[i] = "marcado";
+		}
+		model.addAttribute("valoraciones", valoracion);
+
+		return "redirect:/{url}#valoracion";
 
 	}
 

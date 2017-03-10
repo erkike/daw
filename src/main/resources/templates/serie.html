@@ -94,13 +94,18 @@
 					<div class="col-lg-6 text-center">
 						<iframe width="560" height="315" src="{{trailer}}" frameborder="0"
 							allowfullscreen></iframe>
-						<div class="col-lg-12 text-center">
+						<div id="valoracion" class="col-lg-12 text-center">
 							<hr class="light">
-							<button class='icono'></button>
-							<button class='icono'></button>
-							<button class='icono'></button>
-							<button class='icono'></button>
-							<button class='icono'></button>
+							<form action="/{{url}}/valoracion" method="post">
+							{{#valoraciones}}
+								<div class='{{.}}'></div>
+								
+							{{/valoraciones}}
+							<div class="col-lg-12 text-center">
+							<button value ='1' name='n' class='valorar'><span class='glyphicon glyphicon-thumbs-down'></span></button>
+							<button value ='6' name='n' class='valorar'><span class='glyphicon glyphicon-thumbs-up'></span></button>
+							</div>
+							</form>
 						</div>
 					</div>
 				</div>

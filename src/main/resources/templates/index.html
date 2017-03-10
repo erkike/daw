@@ -30,20 +30,6 @@
 <!-- Theme CSS -->
 <link href="css/new_index.css" rel="stylesheet">
 
-<!-- Script login 
-    <script>
-        function abrir(url) {
-            open(url, '', 'top=600,left=600,width=600,height=600');
-        }
-    </script> -->
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body id="page-top">
@@ -114,9 +100,9 @@
 					<p>Ordenar por:</p>
 				</li>
 				<li><a class="page-scroll" href="#series">Recomendadas</a></li>
-				<li><a class="page-scroll" href="/?page={{actual}}&sort=nombre#series">Nombre</a></li>
-				<li><a class="page-scroll" href="/?page={{actual}}&sort=nombre#valoracion">Valoración</a></li>
-				<li><a class="page-scroll" href="/?page={{actual}}&sort=nombre#año">Año</a></li>
+				<li><a class="page-scroll" href="/?sort=nombre#series">Nombre</a></li>
+				<li><a class="page-scroll" href="/?sort=valoracion,desc#series">Valoración</a></li>
+				<li><a class="page-scroll" href="/?sort=año,desc#series">Año</a></li>
 			</ul>
 		</div>
 		<div class="container">
@@ -127,19 +113,17 @@
 					<img src="img/series_icon/{{nombre}}.jpg" width='200' height='200'> <a
 						type="button" class="favorito"> <span
 						class="glyphicon glyphicon-star"></span>
-					</a> <a type="button" class="mas-info" href="/{{url}}"> <span
+					</a> <a type="button" class="mas-info" href="/{{url}}" > <span
 						class="glyphicon glyphicon-plus"></span>
 					</a>
 					<hr class="light">
+					<img src="img/{{valoracion}}.png" width='200' height='40'>
 				</div>
 				{{/series}}
 				<div class="col-lg-12 text-center">
 				{{#siguiente}}
-				<a href="/?page={{next}}#series" class="page-scroll btn btn-default btn-xl sr-button">Siguiente</a>
+				<a href="/?size={{next}}#series" class="page-scroll btn btn-default btn-xl sr-button">Ver más</a>
 				{{/siguiente}}
-				{{#anterior}}
-				<a href="/?page={{prev}}#series" class="page-scroll btn btn-default btn-xl sr-button">Anterior</a>
-				{{/anterior}}
 				</div>
 			</div>
 		</div>

@@ -12,6 +12,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Type;
+
 @Entity
 public class Serie {
 
@@ -22,11 +23,12 @@ public class Serie {
 	private String nombre;
 	private String url;
 	private String trailer = "https://www.youtube.com/embed/ia1Fbg96vL0";
-    
-    @Lob
+	private int valoracion;
+
+	@Lob
 	@Type(type = "org.hibernate.type.TextType")
 	private String descripcion;
-    
+
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Temporada> temporadas = new ArrayList<>();
 
@@ -41,6 +43,15 @@ public class Serie {
 		this.nombre = nombre;
 		this.url = nombre.replace(" ", "-");
 		this.descripcion = descripcion;
+		this.valoracion = 5 / 2;
+	}
+
+	public void Valorar(int valoracion) {
+		this.valoracion = (valoracion + this.valoracion) / 2;
+	}
+
+	public int getValoracion() {
+		return this.valoracion;
 	}
 
 	public long getId() {

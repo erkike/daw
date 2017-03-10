@@ -506,7 +506,7 @@ img::-moz-selection {
     background: transparent;
 }
 
-.icono {
+.desmarcado {
     width: 40px;
     height: 40px;
     display: inline-block;
@@ -514,8 +514,26 @@ img::-moz-selection {
     border: none;
 }
 
-.icono:hover {
+.desmarcado:hover {
     background-position: 0 -40px;
+}
+
+.marcado{
+	width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: url("/img/logo-hover.png") no-repeat;
+    border: none;
+    background-position: 0 -40px;
+}
+
+.valorar{
+	
+	width: 50px;
+}
+
+.valorar:hover{
+	color: white;
 }
 
 .estrella {
