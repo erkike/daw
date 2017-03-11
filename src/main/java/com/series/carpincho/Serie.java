@@ -24,6 +24,7 @@ public class Serie {
 	private String url;
 	private String trailer = "https://www.youtube.com/embed/ia1Fbg96vL0";
 	private int valoracion;
+	private int año;
 
 	@Lob
 	@Type(type = "org.hibernate.type.TextType")
@@ -39,11 +40,12 @@ public class Serie {
 
 	}
 
-	public Serie(String nombre, String descripcion) {
+	public Serie(String nombre, String descripcion, int valoracion, int año) {
 		this.nombre = nombre;
 		this.url = nombre.replace(" ", "-");
 		this.descripcion = descripcion;
-		this.valoracion = 5 / 2;
+		this.valoracion = valoracion;
+		this.año = año;
 	}
 
 	public void Valorar(int valoracion) {

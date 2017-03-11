@@ -40,14 +40,14 @@ public class Inicio_Controller {
 
 		Comentario caca = new Comentario("Vaya caca", carpinchote);
 
-		Serie cien = new Serie("Los 100", descripcion);
+		Serie cien = new Serie("Los 100", descripcion, 5, 2014);
 		cien.getComentarios().add(caca);
-		Serie juegoTronos = new Serie("Juego de Tronos", descripcion);
+		Serie juegoTronos = new Serie("Juego de Tronos", descripcion, 4, 2011);
 		series.save(cien);
-		series.save(new Serie("Breaking Bad", descripcion));
+		series.save(new Serie("Breaking Bad", descripcion, 4, 2008));
 		series.save(juegoTronos);
-		series.save(new Serie("Narcos", descripcion));
-		series.save(new Serie("Westworld", descripcion));
+		series.save(new Serie("Narcos", descripcion, 3, 2015));
+		series.save(new Serie("Westworld", descripcion, 2, 2016));
 
 		carpinchote.añadirSerieFavorita(cien);
 		carpinchote.añadirSerieFavorita(juegoTronos);
@@ -56,15 +56,22 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/")
-	public String indice(Model model, @PageableDefault(value = 4) Pageable page) {
+	public String indice(Model model, @PageableDefault(value = 2) Pageable page) {
 
 		Page<Serie> paginas = series.findAll(page);
 
 		model.addAttribute("series", paginas);
 		model.addAttribute("siguiente", !paginas.isLast());
-		model.addAttribute("next", 8);
+		model.addAttribute("numero", paginas.getNumberOfElements());
+		model.addAttribute("next", paginas.getNumberOfElements() + 2);
 
 		return "index";
+	}
+
+	@RequestMapping("/{n}")
+	public String pagina(Model model, @PathVariable int n) {
+
+		return "redirect:/#series";
 	}
 
 	@RequestMapping("/{url}")
