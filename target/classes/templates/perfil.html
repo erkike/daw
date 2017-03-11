@@ -84,7 +84,7 @@
                 {{#amigos}}
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">{{user}}</h2>
-                    <img src="img/perfil_jon.jpg" widht='200' height='200'>
+                    <img src={{img}} widht='200' height='200'>
                     <a type="button" class="mas-info">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
@@ -122,15 +122,14 @@
             {{#seriesFavoritas}}
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">{{nombre}}</h2>
-                    <img src="img/series_icon/juego_de_tronos.jpg" widht='200' height='200'>
+                    <img src="../img/series_icon/{{nombre}}.jpg" widht='200' height='200'>
                     <a type="button" class="favorito">
                         <span class="glyphicon glyphicon-star"></span>
                     </a>
                     <a type="button" class="mas-info">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
-                    <img class="valoration" src="../img/valorations/puntuacion_5.png" height='25'>
-                    <hr class="light">
+
                 </div>
             {{/seriesFavoritas}}
 
@@ -161,7 +160,7 @@
                     </ul>
                     <ul class="nav nav-tabs" id="mail_jon">
                         <li>
-                            <img src="img/perfil_jon.jpg" widht='40' height="40">
+                            <img src="../img/perfil_jon.jpg" widht='40' height="40">
                         </li>
                         <li class="from">
                             <h1>@jonsnow</h1>
@@ -175,7 +174,7 @@
                     </ul>
                     <ul class="nav nav-tabs" id="mail_ww">
                         <li>
-                            <img src="img/perfil_ww.jpg" widht='40' height="40">
+                            <img src="../img/perfil_ww.jpg" widht='40' height="40">
                         </li>
                         <li class="from">
                             <h1>@walterwhite</h1>

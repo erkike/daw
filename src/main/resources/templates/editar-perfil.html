@@ -62,15 +62,15 @@
                     <img src=../{{img}}>
                     <a href="#page-top" class="btn btn-primary btn-xl">Cambiar imagen</a>
                 </div>
-                <div class="col-lg-6 text-center" id="info-profile">
-                	<form action="/perfil/editar/guardar" method="put">
+                <div class="col-lg-6 text-center" id="{{id}}">
+                	<form action="/perfil/{{id}}/editar/guardar" method="post">
                     <table class="edit">
                         <tr>
                             <td>
                                 Nombre
                             </td>
                             <td>
-                                <input type="text" size="25" maxlength="20" value="" name="nombre">
+                                <input type="text" size="25" maxlength="20" value="" name='nombre'>
                             </td>
                         </tr>
                         <tr>
@@ -78,7 +78,7 @@
                                 Apellidos
                             </td>
                             <td>
-                                <input type="text" size="25" maxlength="30" value="" name="nombre">
+                                <input type="text" size="25" maxlength="30" value="" name='apellido'>
                             </td>
                         </tr>
                         <tr>
@@ -86,7 +86,7 @@
                                 Usuario*
                             </td>
                             <td>
-                                <input type="text" size="25" maxlength="20" value="{{user}}" name="nombre">
+                                <input type="text" size="25" maxlength="20" value="{{user}}" name='user'>
                             </td>
                         </tr>
                         <tr>
@@ -94,7 +94,7 @@
                                 Email*
                             </td>
                             <td>
-                                <input type="text" size="25" maxlength="20" value="" name="nombre">
+                                <input type="text" size="25" maxlength="20" value="" name='email'>
                             </td>
                         </tr>
                         <!--  

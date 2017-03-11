@@ -133,5 +133,10 @@ public class Inicio_Controller {
 		model.addAttribute("usuario", usuarios.findOne(id));
 		return "editar-perfil";
 	}
+	@RequestMapping("/perfil/{id}/editar/guardar")
+	public String guardar(Model model,Usuario usuario,@PathVariable long id){
+		usuarios.save(usuario);
+		return "redirect:/perfil/{id}";
+	}
 
 }
