@@ -39,15 +39,18 @@ public class Inicio_Controller {
 		usuarios.save(carpinchote);
 
 		Comentario caca = new Comentario("Vaya caca", carpinchote);
+		Comentario buena = new Comentario("wowowowowwowowowowowowowwowo", carpinchi);
 
-		Serie cien = new Serie("Los 100", descripcion, 5, 2014);
+		Serie cien = new Serie("Los 100", descripcion, 5, 2014, "https://www.youtube.com/embed/ia1Fbg96vL0");
 		cien.getComentarios().add(caca);
-		Serie juegoTronos = new Serie("Juego de Tronos", descripcion, 4, 2011);
+		cien.getComentarios().add(buena);
+		Serie juegoTronos = new Serie("Juego de Tronos", descripcion, 4, 2011,
+				"https://www.youtube.com/embed/iGp_N3Ir7Do");
 		series.save(cien);
-		series.save(new Serie("Breaking Bad", descripcion, 4, 2008));
+		series.save(new Serie("Breaking Bad", descripcion, 4, 2008, "https://www.youtube.com/embed/ceqOTZnhgY8"));
 		series.save(juegoTronos);
-		series.save(new Serie("Narcos", descripcion, 3, 2015));
-		series.save(new Serie("Westworld", descripcion, 2, 2016));
+		series.save(new Serie("Narcos", descripcion, 3, 2015, "https://www.youtube.com/embed/U7elNhHwgBU"));
+		series.save(new Serie("Westworld", descripcion, 2, 2016, "https://www.youtube.com/embed/IuS5huqOND4"));
 
 		carpinchote.añadirSerieFavorita(cien);
 		carpinchote.añadirSerieFavorita(juegoTronos);

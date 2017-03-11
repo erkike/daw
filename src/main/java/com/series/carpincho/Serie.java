@@ -22,7 +22,7 @@ public class Serie {
 
 	private String nombre;
 	private String url;
-	private String trailer = "https://www.youtube.com/embed/ia1Fbg96vL0";
+	private String trailer;
 	private int valoracion;
 	private int año;
 
@@ -40,12 +40,13 @@ public class Serie {
 
 	}
 
-	public Serie(String nombre, String descripcion, int valoracion, int año) {
+	public Serie(String nombre, String descripcion, int valoracion, int año, String trailer) {
 		this.nombre = nombre;
 		this.url = nombre.replace(" ", "-");
 		this.descripcion = descripcion;
 		this.valoracion = valoracion;
 		this.año = año;
+		this.trailer = trailer;
 	}
 
 	public void Valorar(int valoracion) {
