@@ -75,13 +75,13 @@ public class Inicio_Controller {
 	public String serie(Model model, @PathVariable String url) {
 
 		model.addAttribute("serie", series.findByUrl(url));
-		Integer[] indices = { 1, 2, 3, 4, 5 };
+
 		String[] valoracion = { "desmarcado", "desmarcado", "desmarcado", "desmarcado", "desmarcado" };
 		for (int i = 0; i < series.findByUrl(url).getValoracion(); i++) {
 			valoracion[i] = "marcado";
 		}
 		model.addAttribute("valoraciones", valoracion);
-		model.addAttribute("indices", indices);
+
 		return "serie";
 	}
 
@@ -111,13 +111,8 @@ public class Inicio_Controller {
 		}
 		model.addAttribute("valoraciones", valoracion);
 
-		return "redirect:/{url}#valoracion";
+		return "redirect:/{url}#informacion";
 
-	}
-
-	@RequestMapping("/{id}/capitulo1")
-	public String capitulo(Model model, @PathVariable long id) {
-		return "capitulo";
 	}
 
 	@RequestMapping("/login")
