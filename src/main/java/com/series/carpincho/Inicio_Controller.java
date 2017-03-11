@@ -68,12 +68,6 @@ public class Inicio_Controller {
 		return "index";
 	}
 
-	@RequestMapping("/{n}")
-	public String pagina(Model model, @PathVariable int n) {
-
-		return "redirect:/#series";
-	}
-
 	@RequestMapping("/{url}")
 	public String serie(Model model, @PathVariable String url) {
 

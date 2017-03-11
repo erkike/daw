@@ -514,10 +514,6 @@ img::-moz-selection {
     border: none;
 }
 
-.desmarcado:hover {
-    background-position: 0 -40px;
-}
-
 .marcado{
 	width: 40px;
     height: 40px;
@@ -528,12 +524,18 @@ img::-moz-selection {
 }
 
 .valorar{
-	
-	width: 50px;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    color: white;
+    background: transparent;
 }
 
 .valorar:hover{
-	color: white;
+	background: white;
+    color: #F05F40;
+    text-decoration: none;
 }
 
 .estrella {
