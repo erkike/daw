@@ -136,23 +136,23 @@ public class Inicio_Controller {
 		return "login";
 	}
 
-	@RequestMapping("/perfil/{id}")
-	public String usuario(Model model, @PathVariable long id) {
-		model.addAttribute("usuario", usuarios.findOne(id));
+	@RequestMapping("/perfil/{user}")
+	public String usuario(Model model, @PathVariable String user) {
+		model.addAttribute("usuario", usuarios.findByUser(user));
 		return "perfil";
 	}
 
-	@RequestMapping("/perfil/{id}/editar")
-	public String editar(Model model, Usuario u, @PathVariable long id) {
+	@RequestMapping("/perfil/{user}/editar")
+	public String editar(Model model, Usuario u, @PathVariable String user) {
 
-		model.addAttribute("usuario", usuarios.findOne(id));
+		model.addAttribute("usuario", usuarios.findByUser(user));
 		return "editar-perfil";
 	}
 
-	@RequestMapping("/perfil/{id}/editar/guardar")
-	public String guardar(Model model, Usuario usuario, @PathVariable long id) {
+	@RequestMapping("/perfil/{user}/editar/guardar")
+	public String guardar(Model model, Usuario usuario, @PathVariable String user) {
 		usuarios.save(usuario);
-		return "redirect:/perfil/{id}";
+		return "redirect:/perfil/{user}";
 	}
 
 }

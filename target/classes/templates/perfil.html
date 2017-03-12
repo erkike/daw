@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="/perfil/{{id}}">Mi cuenta</a>
+                        <a class="page-scroll" href="/perfil/{{user}}">Mi cuenta</a>
                     </li>
                 </ul>
             </div>
@@ -62,8 +62,8 @@
                     <img src=../{{img}}>
                     <a href="#page-top" class="btn btn-primary btn-xl">Cambiar imagen</a>
                 </div>
-                <div class="col-lg-6 text-center" id="{{id}}">
-                	<form action="/perfil/{{id}}/editar/guardar" method="post">
+                <div class="col-lg-6 text-center" id="{{user}}">
+                	<form action="/perfil/{{user}}/editar/guardar" method="post">
                     <table class="edit">
                         <tr>
                             <td>
@@ -110,9 +110,9 @@
                         </tr>
                         -->	
                     </table>
-                    <input type="submit" value="Guardar" href="/perfil/{{id}}/editar" class="btn btn-primary btn-xl"/>
+                    <input type="submit" value="Guardar" href="/perfil/{{user}}/editar" class="btn btn-primary btn-xl"/>
                     </form>
-                    <a href="/perfil/{{id}}" class="btn btn-primary btn-xl">Cancelar</a>
+                    <a href="/perfil/{{user}}" class="btn btn-primary btn-xl">Cancelar</a>
                 </div>
             </div>
         </div>
