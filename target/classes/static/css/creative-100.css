@@ -512,6 +512,11 @@ img::-moz-selection {
     display: inline-block;
     background: url("/img/logo-hover.png") no-repeat;
     border: none;
+    color: transparent;
+}
+
+.desmarcado:hover{
+	background-position: 0 -40px;
 }
 
 .marcado{
@@ -521,6 +526,7 @@ img::-moz-selection {
     background: url("/img/logo-hover.png") no-repeat;
     border: none;
     background-position: 0 -40px;
+    color: transparent;
 }
 
 .valorar{

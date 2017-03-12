@@ -57,7 +57,7 @@
                         <input type="password" required autocomplete="off" />
                     </div>
 
-                    <button type="submit" class="button button-block">Carpinchéame</button>
+                    <button type="submit" class="button button-block">Confirmar</button>
 
                 </form>
 
@@ -66,25 +66,26 @@
             <div id="login">
                 <h1>Bienvenido a Series Carpincho</h1>
 
-                <form action="/" method="post">
+                <form action="/login" method="post">
 
                     <div class="field-wrap">
                         <label>
-                            Email<span class="req">*</span>
+                            Usuario<span class="req">*</span>
                         </label>
-                        <input type="email" required autocomplete="off" />
+                        <input type="text" name="user" />
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Contraseña<span class="req">*</span>
                         </label>
-                        <input type="password" required autocomplete="off" />
+                        <input type="password" name="password" />
                     </div>
 
-                    <p class="forgot"><a href="#">¿Olvidaste la contraseña?</a></p>
+                    <!-- <p class="forgot"><a href="#">¿Olvidaste la contraseña?</a></p> -->
 
-                    <button class="button button-block">Carpinchéame</button>
+                    <input class="button button-block" type='submit' value='Confirmar'></input>
+                    <input type='hidden' name='_csrf' value='{{token}}'/>
 
                 </form>
 
