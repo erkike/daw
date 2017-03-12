@@ -26,9 +26,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// Private pages
 		http.authorizeRequests().antMatchers("/{url}/comentarios").authenticated();
 		http.authorizeRequests().antMatchers("/{url}/valoracion").authenticated();
-		http.authorizeRequests().antMatchers("/perfil/{id}").authenticated();
-		http.authorizeRequests().antMatchers("/perfil/{id}/editar").authenticated();
-		http.authorizeRequests().antMatchers("/perfil/{id}/editar/guardar").authenticated();
+		http.authorizeRequests().antMatchers("/perfil/{user}").authenticated();
+		http.authorizeRequests().antMatchers("/perfil/{user}/editar").authenticated();
+		http.authorizeRequests().antMatchers("/perfil/{user}/editar/guardar").authenticated();
 
 		// Login form
 		http.formLogin().loginPage("/login");
