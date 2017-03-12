@@ -72,7 +72,7 @@
         <div class="header-content">
             <div class="col-lg-12 text-center" id="info-profile">
                 <h1>{{user}}</h1>
-                <img src="../img/Carpinchote.jpg">
+                <img style="border-radius:100%" src="../img/perfil/{{user}}.png">
                 <a href="/perfil/{{user}}/editar" class="btn btn-primary btn-xl">Editar perfil</a>
             </div>
         </div>
@@ -87,7 +87,7 @@
                 {{#amigos}}
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">{{user}}</h2>
-                    <img src={{img}} width='200' height='200'>
+                    <img style="border-radius:100%" src="../img/perfil/{{user}}.png" width='200' height='200'>
                     <a type="button" class="mas-info">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
@@ -126,9 +126,6 @@
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">{{nombre}}</h2>
                     <img src="../img/series_icon/{{nombre}}.jpg" width='200' height='200'>
-                    <a type="button" class="favorito">
-                        <span class="glyphicon glyphicon-star"></span>
-                    </a>
                     <a type="button" class="mas-info">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
