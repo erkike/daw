@@ -20,6 +20,9 @@ public class Inicio_Controller {
 	@Autowired
 	private UsuariosRepository usuarios;
 
+	@Autowired
+	private UserComponent userComponent;
+
 	@PostConstruct
 	public void init() {
 		String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis euismod pretium. Sed aliquet risus sed ante laoreet luctus. In dapibus massa eu mauris euismod gravida. Donec tempus, orci eu tempor viverra, ex metus vulputate leo, et sodales odio nisi nec massa. Proin quis neque nec sem finibus elementum. Praesent ultrices ante sit amet suscipit blandit. Praesent vulputate nibh est, vitae fringilla odio mattis eget. Aenean congue orci et leo placerat, nec semper ipsum convallis. Cras vestibulum volutpat lectus sed efficitur.";
@@ -85,7 +88,7 @@ public class Inicio_Controller {
 
 		if (!comentario.esVacio()) {
 			Serie serie = series.findByUrl(url);
-			comentario.setUsuario(usuarios.findOne((long) 1));
+			comentario.setUsuario(userComponent.getLoggedUser());
 			serie.getComentarios().add(comentario);
 			series.save(serie);
 		}
@@ -118,7 +121,9 @@ public class Inicio_Controller {
 
 	@RequestMapping("/perfil/{user}")
 	public String usuario(Model model, @PathVariable String user) {
+
 		model.addAttribute("usuario", usuarios.findByUser(user));
+
 		return "perfil";
 	}
 
@@ -126,12 +131,15 @@ public class Inicio_Controller {
 	public String editar(Model model, Usuario u, @PathVariable String user) {
 
 		model.addAttribute("usuario", usuarios.findByUser(user));
+
 		return "editar-perfil";
 	}
 
 	@RequestMapping("/perfil/{user}/editar/guardar")
 	public String guardar(Model model, Usuario usuario, @PathVariable String user) {
+
 		usuarios.save(usuario);
+
 		return "redirect:/perfil/{user}";
 	}
 

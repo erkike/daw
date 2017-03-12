@@ -20,6 +20,9 @@ public class UsuarioRepositoryAuthenticationProvider implements AuthenticationPr
 	@Autowired
 	private UsuariosRepository userRepository;
 
+	@Autowired
+	private UserComponent userComponent;
+
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 
@@ -33,6 +36,8 @@ public class UsuarioRepositoryAuthenticationProvider implements AuthenticationPr
 		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
 			throw new BadCredentialsException("Wrong password");
 		}
+
+		userComponent.setLoggedUser(user);
 
 		List<GrantedAuthority> roles = new ArrayList<>();
 		for (String role : user.getRoles()) {

@@ -111,6 +111,7 @@
                         -->	
                     </table>
                     <input type="submit" value="Guardar" href="/perfil/{{user}}/editar" class="btn btn-primary btn-xl"/>
+                    <input type='hidden' name='_csrf' value='{{token}}'/>
                     </form>
                     <a href="/perfil/{{user}}" class="btn btn-primary btn-xl">Cancelar</a>
                 </div>
