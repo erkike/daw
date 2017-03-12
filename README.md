@@ -12,8 +12,8 @@ Se trata de una web para comentar y calificar series de tv, puedes añadir tus s
   
 ###Integrantes                                                                                         
   - Enrique Sánchez-Migallón Porras, e.sanchezpo@alumnos.urjc.es, https://github.com/erkike  
-  - Christian Alcaide Moreno, c.alcaidemor@alumnos.urjc.es, https://github.com/ChristianAm7  
   - Sergio Cerezuela González, s.cerezuela@alumnos.urjc.es, https://github.com/scgvk  
+  - Christian Alcaide Moreno, c.alcaidemor@alumnos.urjc.es, https://github.com/ChristianAm7  
   - Fernando Castro García, f.castrog@alumnos.urjc.es, https://github.com/fcastrog  
 
 
@@ -34,11 +34,7 @@ Se trata de una web para comentar y calificar series de tv, puedes añadir tus s
  ![Sin titulo](pictures/100+.png)
 ####Página de una Serie: comentarios
  ![Sin titulo](pictures/100++.png)
-####Página de un capítulo:
- ![Sin titulo](pictures/capitulo1.png)
   
 ###Fuentes:
-  - https://graygrids.com/item/free-bootstrap-admin-template-zontal-admin/ Plantilla CSS usada en la página de perfil de usuario
-  
   - https://startbootstrap.com/template-overviews/creative/ Plantilla utilizada para toda la página.
   De esta plantilla hemos mantenido la cabecera, y la estructura. El resto lo hemos adaptado con el contenido que necesitamos para nuestra web.

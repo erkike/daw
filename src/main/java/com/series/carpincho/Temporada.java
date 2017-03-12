@@ -24,8 +24,7 @@ public class Temporada {
 
 	}
 
-	public Temporada(int id, List<Capitulo> capitulos) {
-		this.id = id;
+	public Temporada(List<Capitulo> capitulos) {
 		this.capitulos = capitulos;
 	}
 

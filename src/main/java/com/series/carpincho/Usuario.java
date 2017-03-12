@@ -25,7 +25,6 @@ public class Usuario {
 	private String apellido;
 	private String user;
 	private String email;
-	private String img;
 	private String passwordHash;
 
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -43,20 +42,12 @@ public class Usuario {
 
 	public Usuario(String user) {
 		this.user = user;
-		this.img = "../img/" + user + ".jpg";
 	}
 
 	public Usuario(String nombre, String user, String email, String password) {
 		this.nombre = nombre;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.user = user;
-		this.email = email;
-		this.img = "../img/" + user + ".jpg";
-	}
-
-	public Usuario(String nombre, String usuario, String email) {
-		this.nombre = nombre;
-		this.user = usuario;
 		this.email = email;
 	}
 
@@ -73,7 +64,7 @@ public class Usuario {
 	}
 
 	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
 	}
 
 	public List<Serie> getSeriesFavoritas() {
@@ -106,14 +97,6 @@ public class Usuario {
 
 	public void setAmigos(List<Usuario> amigos) {
 		this.amigos = amigos;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 	public String getNombre() {

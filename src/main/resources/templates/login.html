@@ -25,21 +25,20 @@
             <div id="signup">
                 <h1>Regístrate en Series Carpincho</h1>
 
-                <form action="/" method="post">
-
+                <form action="/registro" method="post">
                     <div class="top-row">
                         <div class="field-wrap">
                             <label>
                                 Nombre<span class="req">*</span>
                             </label>
-                            <input type="text" required autocomplete="off" />
+                            <input type="text" name='nombre'/>
                         </div>
 
                         <div class="field-wrap">
                             <label>
                                 Username<span class="req">*</span>
                             </label>
-                            <input type="text" required autocomplete="off" />
+                            <input type="text" name='user'/>
                         </div>
                     </div>
 
@@ -47,18 +46,18 @@
                         <label>
                             Email<span class="req">*</span>
                         </label>
-                        <input type="email" required autocomplete="off" />
+                        <input type="text" name='email'/>
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Contraseña<span class="req">*</span>
                         </label>
-                        <input type="password" required autocomplete="off" />
+                        <input type="text" name='passwordHash'/>
                     </div>
 
-                    <button type="submit" class="button button-block">Confirmar</button>
-
+                    <input class="button button-block" type='submit' value='Confirmar'></input>
+					<input type='hidden' name='_csrf' value='{{token}}'/>
                 </form>
 
             </div>
