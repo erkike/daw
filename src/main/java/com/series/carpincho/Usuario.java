@@ -1,14 +1,18 @@
 package com.series.carpincho;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class Usuario {
@@ -22,28 +26,32 @@ public class Usuario {
 	private String user;
 	private String email;
 	private String img;
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Usuario> amigos=new ArrayList<>();
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Serie> seriesFavoritas=new ArrayList<>();
-	
-	
+	private String passwordHash;
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
+
+	@OneToMany
+	private List<Usuario> amigos = new ArrayList<>();
+
+	@OneToMany
+	private List<Serie> seriesFavoritas = new ArrayList<>();
 
 	public Usuario() {
-		this.img= "../img/img-profile.jpg";
+
 	}
 
 	public Usuario(String user) {
 		this.user = user;
-		this.img= "../img/img-profile.jpg";
+		this.img = "../img/" + user + ".jpg";
 	}
-	public Usuario(String nombre, String apellido, String user, String email) {
+
+	public Usuario(String nombre, String user, String email, String password) {
 		this.nombre = nombre;
-		this.apellido = apellido;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.user = user;
 		this.email = email;
-		this.img= "../img/img-profile.jpg";
+		this.img = "../img/" + user + ".jpg";
 	}
 
 	public Usuario(String nombre, String usuario, String email) {
@@ -51,7 +59,23 @@ public class Usuario {
 		this.user = usuario;
 		this.email = email;
 	}
-	
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
+	public String getPasswordHash() {
+		return passwordHash;
+	}
+
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
+	}
+
 	public List<Serie> getSeriesFavoritas() {
 		return seriesFavoritas;
 	}
@@ -63,10 +87,11 @@ public class Usuario {
 	public void añadirAmigo(Usuario u) {
 		this.amigos.add(u);
 	}
-	
+
 	public void añadirSerieFavorita(Serie serie) {
 		this.seriesFavoritas.add(serie);
 	}
+
 	public long getId() {
 		return id;
 	}
@@ -90,8 +115,6 @@ public class Usuario {
 	public void setImg(String img) {
 		this.img = img;
 	}
-
-
 
 	public String getNombre() {
 		return nombre;

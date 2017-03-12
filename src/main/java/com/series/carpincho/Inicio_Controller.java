@@ -1,13 +1,11 @@
 package com.series.carpincho;
 
 import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,12 +30,14 @@ public class Inicio_Controller {
 	@PostConstruct
 	public void init() {
 		String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis euismod pretium. Sed aliquet risus sed ante laoreet luctus. In dapibus massa eu mauris euismod gravida. Donec tempus, orci eu tempor viverra, ex metus vulputate leo, et sodales odio nisi nec massa. Proin quis neque nec sem finibus elementum. Praesent ultrices ante sit amet suscipit blandit. Praesent vulputate nibh est, vitae fringilla odio mattis eget. Aenean congue orci et leo placerat, nec semper ipsum convallis. Cras vestibulum volutpat lectus sed efficitur.";
-		Usuario carpinchote = new Usuario("Carpinchote");
+		Usuario carpinchote = new Usuario("Enrique", "Carpinchote", "budweisert0102@gmail.com", "pass");
 		Usuario carpinchi = new Usuario("Carpinchi");
 		Usuario carpancha = new Usuario("Carpancha");
 		carpinchote.añadirAmigo(carpinchi);
 		carpinchote.añadirAmigo(carpancha);
 
+		usuarios.save(carpinchi);
+		usuarios.save(carpancha);
 		usuarios.save(carpinchote);
 
 		Comentario caca = new Comentario("Vaya caca", carpinchote);
@@ -74,12 +74,9 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/{url}")
-	public String serie(Model model, @PathVariable String url, HttpServletRequest request) {
+	public String serie(Model model, @PathVariable String url) {
 
 		model.addAttribute("serie", series.findByUrl(url));
-
-		CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-		model.addAttribute("token", token.getToken());
 
 		String[] valoracion = { "desmarcado", "desmarcado", "desmarcado", "desmarcado", "desmarcado" };
 		for (int i = 0; i < series.findByUrl(url).getValoracion(); i++) {
@@ -91,11 +88,7 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/{url}/comentarios")
-	public String comentarios(Model model, Comentario comentario, @PathVariable String url,
-			HttpServletRequest request) {
-
-		CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-		model.addAttribute("token", token.getToken());
+	public String comentarios(Model model, Comentario comentario, @PathVariable String url) {
 
 		if (!comentario.esVacio()) {
 			Serie serie = series.findByUrl(url);
@@ -109,10 +102,7 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/{url}/valoracion")
-	public String valoracion(Model model, int n, @PathVariable String url, HttpServletRequest request) {
-
-		CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-		model.addAttribute("token", token.getToken());
+	public String valoracion(Model model, int n, @PathVariable String url) {
 
 		Serie serie = series.findByUrl(url);
 		serie.Valorar(n);
@@ -128,10 +118,7 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/login")
-	public String login(Model model, HttpServletRequest request) {
-
-		CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-		model.addAttribute("token", token.getToken());
+	public String login(Model model) {
 
 		return "login";
 	}

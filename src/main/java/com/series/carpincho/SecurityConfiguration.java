@@ -1,12 +1,18 @@
 package com.series.carpincho;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+	@Autowired
+	public UsuarioRepositoryAuthenticationProvider authenticationProvider;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -22,11 +28,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/{url}/valoracion").authenticated();
 		http.authorizeRequests().antMatchers("/perfil/{id}").authenticated();
 		http.authorizeRequests().antMatchers("/perfil/{id}/editar").authenticated();
+		http.authorizeRequests().antMatchers("/perfil/{id}/editar/guardar").authenticated();
 
 		// Login form
 		http.formLogin().loginPage("/login");
 		http.formLogin().usernameParameter("user");
-		http.formLogin().passwordParameter("password");
+		http.formLogin().passwordParameter("passwordHash");
 		http.formLogin().defaultSuccessUrl("/");
 		http.formLogin().failureUrl("/login");
 
@@ -38,8 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-		// User
-		auth.inMemoryAuthentication().withUser("Carpinchote").password("pass").roles("USER");
+		// Database authentication provider
+		auth.authenticationProvider(authenticationProvider);
 	}
 }
