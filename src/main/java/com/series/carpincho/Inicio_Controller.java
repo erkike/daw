@@ -119,6 +119,15 @@ public class Inicio_Controller {
 		}
 		model.addAttribute("valoraciones", valoracion);
 
+		String favorito = "nofavorito";
+		if (userComponent.getLoggedUser() != null) {
+			if (usuarios.findByUser(userComponent.getLoggedUser().getUser()).getSeriesFavoritas()
+					.contains(series.findByUrl(url))) {
+				favorito = "favorito";
+			}
+		}
+		model.addAttribute("favorito", favorito);
+
 		return "serie";
 	}
 
@@ -147,6 +156,26 @@ public class Inicio_Controller {
 			valoracion[i] = "marcado";
 		}
 		model.addAttribute("valoraciones", valoracion);
+
+		return "redirect:/{url}#informacion";
+
+	}
+
+	@RequestMapping("/{url}/favorito")
+	public String favorito(Model model, @PathVariable String url) {
+
+		if (userComponent.getLoggedUser() != null) {
+			Usuario usuario = usuarios.findByUser(userComponent.getLoggedUser().getUser());
+			Serie serie = series.findByUrl(url);
+			if (usuario.getSeriesFavoritas().contains(serie)) {
+				usuario.getSeriesFavoritas().remove(serie);
+			} else {
+				usuario.getSeriesFavoritas().add(serie);
+			}
+
+			usuarios.save(usuario);
+			userComponent.setLoggedUser(usuario);
+		}
 
 		return "redirect:/{url}#informacion";
 

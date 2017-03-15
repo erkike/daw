@@ -544,7 +544,7 @@ img::-moz-selection {
     text-decoration: none;
 }
 
-.estrella {
+.favorito {
     width: 30px;
     height: 30px;
     display: inline-block;
@@ -552,9 +552,22 @@ img::-moz-selection {
     border: none;
     position: absolute;
     margin-left: 5px;
+    background-position: 0 -30px;
+    color: transparent;
 }
 
-.estrella:hover {
+.nofavorito {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: url("/img/favorito-blanco.png") no-repeat;
+    border: none;
+    position: absolute;
+    margin-left: 5px;
+    color: transparent;
+}
+
+.nofavorito:hover {
     background-position: 0 -30px;
 }
 

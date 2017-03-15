@@ -83,11 +83,15 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="col-lg-6 text-center">
+					<form action="/{{url}}/favorito" method="post">
 						<h1 class="section-heading">
 							{{nombre}}
-							<button class='estrella'></button>
+							<input type='submit' name='fav' class='{{favorito}}'>
+							<input type='hidden' name='_csrf' value='{{token}}'/>
+							
 							<button class='recomendar'></button>
 						</h1>
+						</form>
 						<p class="text-faded">{{descripcion}}</p>
 						<hr class="light">
 					</div>
@@ -120,9 +124,9 @@
 						<ul class='temporadas'>
 							<h2 style="color: white">Temporada {{id}}</h2>
 							{{#capitulos}}
-							<li><a class='capitulos' href='/'>
+							<li><div class='capitulos' href='/'>
 									Capítulo: {{titulo}}
-							</a></li> 
+							</div></li> 
 							{{/capitulos}}
 						</ul>
 					</div>
