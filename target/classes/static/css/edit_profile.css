@@ -529,3 +529,16 @@ input {
     background-color: transparent;
     border-color: #F05F40;
 }
+
+textarea {
+    background-color: transparent;
+    border-color: #F05F40;
+    width: 325px;
+}
+
+select {
+    background-color: #222222;
+    border-color: #F05F40;
+    overflow: hidden;
+    color: white;
+}
