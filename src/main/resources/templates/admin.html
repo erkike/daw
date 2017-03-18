@@ -74,7 +74,7 @@
                                     Descripción*
                                 </td>
                                 <td>
-                                    <textarea name='descripción'></textarea>
+                                    <textarea name='descripcion'></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -109,11 +109,17 @@
                         <table class="edit">
                             <tr>
                                 <td>
-                                    Nombre de la serie*
+                                    Serie*
                                 </td>
+                                
                                 <td>
-                                    <input type="text" size="25" maxlength="20" name='nombre'>
+                                <select name="serie">
+                                {{#series}}
+                                    <option value="{{nombre}}">{{nombre}}</option>
+                                    {{/series}}
+                                </select>
                                 </td>
+                                
                             </tr>
                             <td>
                                 Nº Temporada

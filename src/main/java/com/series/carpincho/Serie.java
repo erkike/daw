@@ -1,6 +1,7 @@
 package com.series.carpincho;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,7 +15,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.Type;
 
 @Entity
-public class Serie {
+public class Serie implements Comparator {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -90,6 +91,14 @@ public class Serie {
 		this.trailer = trailer;
 	}
 
+	public int getAño() {
+		return año;
+	}
+
+	public void setAño(int año) {
+		this.año = año;
+	}
+
 	public List<Temporada> getTemporadas() {
 		return temporadas;
 	}
@@ -104,6 +113,11 @@ public class Serie {
 
 	public void setComentarios(List<Comentario> comentarios) {
 		this.comentarios = comentarios;
+	}
+
+	@Override
+	public int compare(Object s1, Object s2) {
+		return ((Serie) s1).getNombre().compareTo(((Serie) s2).getNombre());
 	}
 
 }

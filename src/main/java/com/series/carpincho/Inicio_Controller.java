@@ -1,6 +1,7 @@
 package com.series.carpincho;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -88,23 +89,25 @@ public class Inicio_Controller {
 		series.save(juegoTronos);
 		series.save(new Serie("Narcos", descripcion, 3, 2015, "https://www.youtube.com/embed/U7elNhHwgBU"));
 		series.save(new Serie("Westworld", descripcion, 2, 2016, "https://www.youtube.com/embed/IuS5huqOND4"));
-		series.save(new Serie("Shameless", descripcion,5,2011,"https://www.youtube.com/embed/nu9mslgDcR4"));
-		series.save(new Serie("The Wire", descripcion,5,2002,"https://www.youtube.com/embed/apZQlqPp6Hs"));
-		series.save(new Serie("El último hombre en la tierra", descripcion,3,2015,"https://www.youtube.com/embed/xf0YgnV0mdg"));
-		series.save(new Serie("Arrow", descripcion,2,2012,"https://www.youtube.com/embed/XQS7JkQmlx8"));
-		series.save(new Serie("Big Bang Theory", descripcion,3,2012,"https://www.youtube.com/embed/WBb3fojgW0Q"));
-		series.save(new Serie("Los Simpsons", descripcion,4,1989,"https://www.youtube.com/embed/DX1iplQQJTo"));
-		series.save(new Serie("Padre de familia", descripcion,4,1999,"https://www.youtube.com/embed/HhAN-L0EzCI"));
-		series.save(new Serie("Vikings", descripcion,4,2013,"https://www.youtube.com/embed/KxMBNLgUamk"));
-		series.save(new Serie("Black Mirror", descripcion,5,2011,"https://www.youtube.com/embed/jROLrhQkK78"));
-		series.save(new Serie("Sherlock", descripcion,5,2010,"https://www.youtube.com/embed/FOXZgRTfSUA"));
-		series.save(new Serie("Cómo conocí a vuestra madre", descripcion,3,2005,"https://www.youtube.com/embed/ZPLOsabhQSM"));
-		series.save(new Serie("Daredevil", descripcion,3,2015,"https://www.youtube.com/embed/jAy6NJ_D5vU"));
-		series.save(new Serie("Los Soprano", descripcion,4,1999,"https://www.youtube.com/embed/RLxSUKA--Dg"));
-		series.save(new Serie("The walking dead", descripcion,4,2010,"https://www.youtube.com/embed/O4xrJ_r6PUs"));
-		series.save(new Serie("True detective", descripcion,4,2014,"https://www.youtube.com/embed/Xyu_MdKBXic"));
-		series.save(new Serie("Utopia", descripcion,4,2013,"https://www.youtube.com/embed/uJnN3WMwDsk"));
-		
+		series.save(new Serie("Shameless", descripcion, 5, 2011, "https://www.youtube.com/embed/nu9mslgDcR4"));
+		series.save(new Serie("The Wire", descripcion, 5, 2002, "https://www.youtube.com/embed/apZQlqPp6Hs"));
+		series.save(new Serie("El último hombre en la tierra", descripcion, 3, 2015,
+				"https://www.youtube.com/embed/xf0YgnV0mdg"));
+		series.save(new Serie("Arrow", descripcion, 2, 2012, "https://www.youtube.com/embed/XQS7JkQmlx8"));
+		series.save(new Serie("Big Bang Theory", descripcion, 3, 2012, "https://www.youtube.com/embed/WBb3fojgW0Q"));
+		series.save(new Serie("Los Simpsons", descripcion, 4, 1989, "https://www.youtube.com/embed/DX1iplQQJTo"));
+		series.save(new Serie("Padre de familia", descripcion, 4, 1999, "https://www.youtube.com/embed/HhAN-L0EzCI"));
+		series.save(new Serie("Vikings", descripcion, 4, 2013, "https://www.youtube.com/embed/KxMBNLgUamk"));
+		series.save(new Serie("Black Mirror", descripcion, 5, 2011, "https://www.youtube.com/embed/jROLrhQkK78"));
+		series.save(new Serie("Sherlock", descripcion, 5, 2010, "https://www.youtube.com/embed/FOXZgRTfSUA"));
+		series.save(new Serie("Cómo conocí a vuestra madre", descripcion, 3, 2005,
+				"https://www.youtube.com/embed/ZPLOsabhQSM"));
+		series.save(new Serie("Daredevil", descripcion, 3, 2015, "https://www.youtube.com/embed/jAy6NJ_D5vU"));
+		series.save(new Serie("Los Soprano", descripcion, 4, 1999, "https://www.youtube.com/embed/RLxSUKA--Dg"));
+		series.save(new Serie("The walking dead", descripcion, 4, 2010, "https://www.youtube.com/embed/O4xrJ_r6PUs"));
+		series.save(new Serie("True detective", descripcion, 4, 2014, "https://www.youtube.com/embed/Xyu_MdKBXic"));
+		series.save(new Serie("Utopia", descripcion, 4, 2013, "https://www.youtube.com/embed/uJnN3WMwDsk"));
+
 		carpinchote.getSeriesFavoritas().add(cien);
 		carpinchote.getSeriesFavoritas().add(juegoTronos);
 		usuarios.save(carpinchote);
@@ -112,14 +115,14 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/")
-	public String indice(Model model, @PageableDefault(value = 2) Pageable page) {
+	public String indice(Model model, @PageableDefault(value = 8) Pageable page) {
 
 		Page<Serie> paginas = series.findAll(page);
 
 		model.addAttribute("series", paginas);
 		model.addAttribute("siguiente", !paginas.isLast());
 		model.addAttribute("numero", paginas.getNumberOfElements());
-		model.addAttribute("next", paginas.getNumberOfElements() + 2);
+		model.addAttribute("next", paginas.getNumberOfElements() + 8);
 
 		return "index";
 	}
@@ -203,6 +206,25 @@ public class Inicio_Controller {
 		usuarios.save(usuario);
 
 		return "redirect:/";
+	}
+
+	@RequestMapping("/admin")
+	public String admin(Model model) {
+
+		List<Serie> lista = series.findAll();
+		Collections.sort(lista, new Serie());
+
+		model.addAttribute("series", lista);
+
+		return "admin";
+	}
+
+	@RequestMapping("/admin/publicar")
+	public String publicar(Model model, Serie serie) {
+
+		series.save(serie);
+
+		return "redirect:admin";
 	}
 
 	@RequestMapping("/login")
