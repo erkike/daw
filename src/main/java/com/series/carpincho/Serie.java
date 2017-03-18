@@ -26,6 +26,7 @@ public class Serie implements Comparator {
 	private String trailer;
 	private int valoracion;
 	private int año;
+	private String img = "default";
 
 	@Lob
 	@Type(type = "org.hibernate.type.TextType")
@@ -48,6 +49,7 @@ public class Serie implements Comparator {
 		this.valoracion = valoracion;
 		this.año = año;
 		this.trailer = trailer;
+		this.img = nombre;
 	}
 
 	public void Valorar(int valoracion) {

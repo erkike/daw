@@ -26,6 +26,7 @@ public class Usuario {
 	private String user;
 	private String email;
 	private String passwordHash;
+	private String img = "default";
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
@@ -42,6 +43,7 @@ public class Usuario {
 
 	public Usuario(String user) {
 		this.user = user;
+		this.img = user;
 	}
 
 	public Usuario(String nombre, String user, String email, String password) {
@@ -49,6 +51,7 @@ public class Usuario {
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.user = user;
 		this.email = email;
+		this.img = user;
 	}
 
 	public List<String> getRoles() {
