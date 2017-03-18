@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -60,8 +60,24 @@
             <div class="row">
                 <div class="col-lg-6 text-center" id="info-profile">
                     <img style="border-radius:100%" src=../../img/perfil/{{user}}.png>
-                    <a href="#page-top" class="btn btn-primary btn-xl">Cambiar imagen</a>
+                    
+                    	<form action= "/perfil/editar" method="post" enctype="multipart/form-data">
+                    		<input type='hidden' name='_csrf' value='{{token}}'/>
+                    		<p>
+								<input type='hidden' name='imageTitle' />
+							</p>
+							<p>
+								<input type="file" name="file" />
+							</p>
+							<input type='submit' name='imagen' value='Cambiar imagen' />
+							
+						</form>
+			
                 </div>
+ 				<p th:each="imageTitle, it : ${imageTitles}">
+					<span th:text="${imageTitle}"></span><br /> <img th:src="@{/perfil/editar/image-{numImage}.jpg(numImage=${it.index})}" />
+				</p>
+				
                 <div class="col-lg-6 text-center" id="{{user}}">
                 	<form action="/perfil/editar/guardar" method="post">
                     <table class="edit">
