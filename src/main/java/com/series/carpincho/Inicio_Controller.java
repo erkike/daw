@@ -71,7 +71,7 @@ public class Inicio_Controller {
 		usuarios.save(carpinchote);
 		usuarios.save(carpinchi);
 		usuarios.save(carpancha);
-		carpinchote.getAmigos().add(carpinchi);
+		//carpinchote.getAmigos().add(carpinchi);
 		carpinchote.getAmigos().add(carpancha);
 
 		Comentario caca = new Comentario("Vaya caca", carpinchote);
@@ -260,5 +260,22 @@ public class Inicio_Controller {
 
 		return "redirect:/perfil";
 	}
+	@RequestMapping("/perfil/buscar")
+	public String buscar(Model model, String user) {
 
+		if (userComponent.getLoggedUser() != null) {
+			Usuario usuario = usuarios.findByUser(userComponent.getLoggedUser().getUser());
+			Usuario amigo = usuarios.findByUser(user);
+			if (usuario.getAmigos().contains(amigo)) {
+				usuario.getAmigos().remove(amigo);
+			} else {
+				usuario.getAmigos().add(amigo);
+			}
+
+			usuarios.save(usuario);
+			userComponent.setLoggedUser(usuario);
+		}
+
+		return "redirect:/perfil";
+	}
 }
