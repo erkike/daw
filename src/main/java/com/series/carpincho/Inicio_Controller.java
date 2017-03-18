@@ -224,7 +224,7 @@ public class Inicio_Controller {
 
 		series.save(serie);
 
-		return "redirect:admin";
+		return "redirect:/admin";
 	}
 
 	@RequestMapping("/login")
