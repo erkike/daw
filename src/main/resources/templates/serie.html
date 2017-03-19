@@ -101,12 +101,12 @@
 						<div id="valoracion" class="col-lg-12 text-center">
 							<hr class="light">
 							<form action="/{{url}}/valoracion" method="post">
-							<button value='1'  name='n' class='{{valoraciones.0}}'></button>
-							<button value='2'  name='n' class='{{valoraciones.1}}'></button>
-							<button value='3'  name='n' class='{{valoraciones.2}}'></button>
-							<button value='4'  name='n' class='{{valoraciones.3}}'></button>
-							<button value='5'  name='n' class='{{valoraciones.4}}'></button>
-							<input type='hidden' name='_csrf' value='{{token}}'/>
+								<button value='1'  name='n' class='{{valoraciones.0}}' type="button" data-toggle="modal" data-target="#myModal"></button>
+								<button value='2'  name='n' class='{{valoraciones.1}}' type="button" data-toggle="modal" data-target="#myModal"></button>
+								<button value='3'  name='n' class='{{valoraciones.2}}' type="button" data-toggle="modal" data-target="#myModal"></button>
+								<button value='4'  name='n' class='{{valoraciones.3}}' type="button" data-toggle="modal" data-target="#myModal"></button>
+								<button value='5'  name='n' class='{{valoraciones.4}}' type="button" data-toggle="modal" data-target="#myModal"></button>
+								<input type='hidden' name='_csrf' value='{{token}}'/>
 							</form>
 						</div>
 					</div>
@@ -114,6 +114,18 @@
 			</div>
 		</div>
 	</section>
+	
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Votación realizada</h4>
+      </div>
+
+    </div>
+  </div>
+</div>
 	
 	<section class="bg-dark" id="capitulos">
 		<div class="container">
@@ -189,7 +201,12 @@
 	<!-- Theme JavaScript -->
 	<script src="js/creative.min.js"></script>
 	<!--<script id="dsq-count-scr" src="//seriescarpincho.disqus.com/count.js" async></script>-->
-
+	<script>
+	$('#myModal').on('shown.bs.modal', function () {
+	   $('#myInput').focus()
+	})
+	
+	</script>
 </body>
 
 </html>
