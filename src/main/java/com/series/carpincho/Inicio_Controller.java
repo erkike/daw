@@ -29,9 +29,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Inicio_Controller {
-	private static final Path FILES_FOLDER = Paths.get( "target/classes/static/img/perfil");
+	private static final Path FILES_FOLDER = Paths.get("target/classes/static/img/perfil");
 	private List<String> images = new ArrayList<>();
-	
+
 	@Autowired
 	private SeriesRepository series;
 
@@ -49,43 +49,43 @@ public class Inicio_Controller {
 		Usuario carpancha = new Usuario("Carpancha");
 
 		List<Capitulo> capitulos = new ArrayList<Capitulo>();
-		capitulos.add(new Capitulo("Piloto"));
-		capitulos.add(new Capitulo("Earth Skills"));
-		capitulos.add(new Capitulo("Earth Kills"));
-		capitulos.add(new Capitulo("Murphy's Law"));
-		capitulos.add(new Capitulo("Twilight's Last Gleaming"));
-		capitulos.add(new Capitulo("His Sister's Keeper"));
-		capitulos.add(new Capitulo("Contents Under Pressure"));
-		capitulos.add(new Capitulo("Day Trip"));
-		capitulos.add(new Capitulo("Unity Day"));
-		capitulos.add(new Capitulo("I Am Become Death"));
-		capitulos.add(new Capitulo("The Calm"));
-		capitulos.add(new Capitulo("We Are Grounders - Part 1"));
-		capitulos.add(new Capitulo("We Are Grounders - Part 2"));
-		Temporada uno = new Temporada(capitulos);
+		capitulos.add(new Capitulo("Piloto", 1));
+		capitulos.add(new Capitulo("Earth Skills", 2));
+		capitulos.add(new Capitulo("Earth Kills", 3));
+		capitulos.add(new Capitulo("Murphy's Law", 4));
+		capitulos.add(new Capitulo("Twilight's Last Gleaming", 5));
+		capitulos.add(new Capitulo("His Sister's Keeper", 6));
+		capitulos.add(new Capitulo("Contents Under Pressure", 7));
+		capitulos.add(new Capitulo("Day Trip", 8));
+		capitulos.add(new Capitulo("Unity Day", 9));
+		capitulos.add(new Capitulo("I Am Become Death", 10));
+		capitulos.add(new Capitulo("The Calm", 11));
+		capitulos.add(new Capitulo("We Are Grounders - Part 1", 12));
+		capitulos.add(new Capitulo("We Are Grounders - Part 2", 13));
+		Temporada uno = new Temporada(capitulos, 1);
 		List<Capitulo> capitulosdos = new ArrayList<Capitulo>();
-		capitulosdos.add(new Capitulo("The 48"));
-		capitulosdos.add(new Capitulo("Inclement Weather"));
-		capitulosdos.add(new Capitulo("Reapercussions"));
-		capitulosdos.add(new Capitulo("Many Happy Returns"));
-		capitulosdos.add(new Capitulo("Human Trials"));
-		capitulosdos.add(new Capitulo("Fog of War"));
-		capitulosdos.add(new Capitulo("Long Into an Abyss"));
-		capitulosdos.add(new Capitulo("Spacewalker"));
-		capitulosdos.add(new Capitulo("Remember Me"));
-		capitulosdos.add(new Capitulo("Survival of the Fittest"));
-		capitulosdos.add(new Capitulo("Coup de Grace"));
-		capitulosdos.add(new Capitulo("Rubicon"));
-		capitulosdos.add(new Capitulo("Resurrection"));
-		capitulosdos.add(new Capitulo("Bodyguard of Lies"));
-		capitulosdos.add(new Capitulo("Blood Must Have Blood - Part 1"));
-		capitulosdos.add(new Capitulo("Blood Must Have Blood - Part 2"));
-		Temporada dos = new Temporada(capitulosdos);
+		capitulosdos.add(new Capitulo("The 48", 1));
+		capitulosdos.add(new Capitulo("Inclement Weather", 2));
+		capitulosdos.add(new Capitulo("Reapercussions", 3));
+		capitulosdos.add(new Capitulo("Many Happy Returns", 4));
+		capitulosdos.add(new Capitulo("Human Trials", 5));
+		capitulosdos.add(new Capitulo("Fog of War", 6));
+		capitulosdos.add(new Capitulo("Long Into an Abyss", 7));
+		capitulosdos.add(new Capitulo("Spacewalker", 8));
+		capitulosdos.add(new Capitulo("Remember Me", 9));
+		capitulosdos.add(new Capitulo("Survival of the Fittest", 10));
+		capitulosdos.add(new Capitulo("Coup de Grace", 11));
+		capitulosdos.add(new Capitulo("Rubicon", 12));
+		capitulosdos.add(new Capitulo("Resurrection", 13));
+		capitulosdos.add(new Capitulo("Bodyguard of Lies", 14));
+		capitulosdos.add(new Capitulo("Blood Must Have Blood - Part 1", 15));
+		capitulosdos.add(new Capitulo("Blood Must Have Blood - Part 2", 16));
+		Temporada dos = new Temporada(capitulosdos, 2);
 
 		usuarios.save(carpinchote);
 		usuarios.save(carpinchi);
 		usuarios.save(carpancha);
-		//carpinchote.getAmigos().add(carpinchi);
+		// carpinchote.getAmigos().add(carpinchi);
 		carpinchote.getAmigos().add(carpancha);
 
 		Comentario caca = new Comentario("Vaya caca", carpinchote);
@@ -234,9 +234,33 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/admin/publicar")
-	public String publicar(Model model, Serie serie) {
+	public String publicar(Serie serie) {
 
 		series.save(serie);
+
+		return "redirect:/admin";
+	}
+
+	@RequestMapping("/admin/editar")
+	public String editar(String serie, int temporada, Capitulo capitulo) {
+
+		Serie ser = series.findByNombre(serie);
+		List<Temporada> lista = ser.getTemporadas();
+		int i = 0;
+		for (Temporada tem : lista) {
+			if (tem.getNum() == temporada) {
+				tem.getCapitulos().add(capitulo);
+			}
+			i++;
+		}
+		if (temporada > i) {
+			List<Capitulo> capitulos = new ArrayList<>();
+			capitulos.add(capitulo);
+			lista.add(new Temporada(capitulos, temporada));
+
+		}
+		ser.setTemporadas(lista);
+		series.save(ser);
 
 		return "redirect:/admin";
 	}
@@ -274,6 +298,7 @@ public class Inicio_Controller {
 
 		return "redirect:/perfil";
 	}
+
 	@RequestMapping("/perfil/buscar")
 	public String buscar(Model model, String user) {
 
@@ -292,38 +317,43 @@ public class Inicio_Controller {
 
 		return "redirect:/perfil";
 	}
+
 	@RequestMapping(value = "/perfil/editar", method = RequestMethod.POST)
-	public ModelAndView handleFileUpload(@RequestParam("imageTitle") String imageTitle,@RequestParam("file") MultipartFile file) {
+	public ModelAndView handleFileUpload(@RequestParam("imageTitle") String imageTitle,
+			@RequestParam("file") MultipartFile file) {
 
 		if (userComponent.getLoggedUser() != null) {
 			Usuario usuario = usuarios.findByUser(userComponent.getLoggedUser().getUser());
 			String fileName = usuario.getUser() + ".png";
-			
+
 			if (!file.isEmpty()) {
-	
+
 				try {
-	
+
 					if (!Files.exists(FILES_FOLDER)) {
 						Files.createDirectories(FILES_FOLDER);
 					}
-	
+
 					File uploadedFile = new File(FILES_FOLDER.toAbsolutePath().toString(), fileName);
 					file.transferTo(uploadedFile);
-	
+
 					images.add(imageTitle);
-	
+
 					return new ModelAndView("editar-perfil").addObject("imageTitle", images);
-	
+
 				} catch (Exception e) {
 					e.printStackTrace();
-					return new ModelAndView("editar-perfil").addObject("fileName", fileName).addObject("error",e.getClass().getName() + ":" + e.getMessage());
-				}} else {
-					return new ModelAndView("editar-perfil").addObject("error", "The file is empty");
-				}}
+					return new ModelAndView("editar-perfil").addObject("fileName", fileName).addObject("error",
+							e.getClass().getName() + ":" + e.getMessage());
+				}
+			} else {
+				return new ModelAndView("editar-perfil").addObject("error", "The file is empty");
+			}
+		}
 		return new ModelAndView("editar-perfil").addObject("imageTitle", images);
-		
+
 	}
-	
+
 	@RequestMapping("/perfil/editar/{fileName:.+}")
 	public void handleFileDownload(@PathVariable String fileName, HttpServletResponse res)
 			throws FileNotFoundException, IOException {

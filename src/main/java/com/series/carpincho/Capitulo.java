@@ -13,13 +13,15 @@ public class Capitulo {
 	private long id;
 
 	private String titulo;
+	private int num;
 
 	public Capitulo() {
 
 	}
 
-	public Capitulo(String titulo) {
+	public Capitulo(String titulo, int num) {
 		this.titulo = titulo;
+		this.num = num;
 	}
 
 	public String getTitulo() {
@@ -28,6 +30,14 @@ public class Capitulo {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public long getId() {

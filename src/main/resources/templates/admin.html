@@ -116,7 +116,7 @@
                                 <select name="serie">
                                 {{#series}}
                                     <option value="{{nombre}}">{{nombre}}</option>
-                                    {{/series}}
+                                {{/series}}
                                 </select>
                                 </td>
                                 
@@ -140,7 +140,7 @@
                                 Nº Capítulo
                             </td>
                             <td style="float:left">
-                                <select name="capitulo">
+                                <select name="num">
                                     <option value="1" selected="selected">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -168,21 +168,9 @@
                                     Título del capítulo
                                 </td>
                                 <td>
-                                    <input type="text" size="25" maxlength="20" name='trailer'>
+                                    <input type="text" size="25" maxlength="20" name='titulo'>
                                 </td>
                             </tr>
-                            <!--  
-                        <tr>
-                            <td>
-                                Fecha de nacimiento
-                            </td>
-                            <td>
-                            	{{#fecha}}
-                                <input type="text" size="4" maxlength="2" value="{{.}}" name="nombre">
-								{{/fecha}}
-                            </td>
-                        </tr>
-                        -->
                         </table>
                         <input type="submit" value="Guardar" class="btn btn-primary btn-xl" />
                         <input type='hidden' name='_csrf' value='{{token}}' />

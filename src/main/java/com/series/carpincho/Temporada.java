@@ -17,6 +17,8 @@ public class Temporada {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	private int num;
+
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Capitulo> capitulos = new ArrayList<>();
 
@@ -24,12 +26,21 @@ public class Temporada {
 
 	}
 
-	public Temporada(List<Capitulo> capitulos) {
+	public Temporada(List<Capitulo> capitulos, int num) {
 		this.capitulos = capitulos;
+		this.num = num;
 	}
 
 	public long getId() {
 		return id;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public List<Capitulo> getCapitulos() {
