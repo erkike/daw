@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -57,8 +57,8 @@
                     <li>
                     <form action="/logout" method="post">
                         <input class="page-scroll" type="submit" value="Cerrar Sesión" />
-		<input type="hidden" name="_csrf" value="{{token}}"/>
-                        </form>
+						<input type="hidden" name="_csrf" value="{{token}}"/>
+                    </form>
                     </li>
                 </ul>
             </div>
@@ -83,9 +83,9 @@
             <div class="row">
             <form action="/perfil/buscar" method="post">
                 <div class="col-lg-12 text-center" id="friend">
-                    <h1>Mis amigos</h1> 
-                    <textarea placeholder='Buscar amigos...' class='buscar' name='user'></textarea> 
+                    <h1>Mis amigos</h1>
 					<input class='comentar' type='submit' value='Buscar' />
+					<textarea placeholder='Buscar amigos...' class='buscar' name='user'></textarea>
 					<input type='hidden' name='_csrf' value='{{token}}'/>
                 </div>
            </form>
@@ -93,9 +93,6 @@
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">{{user}}</h2>
                     <img style="border-radius:100%" src="../img/perfil/{{user}}.png" width='200' height='200'>
-                    <a type="button" class="mas-info">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
                     <hr class="light">
                 </div>
                 {{/amigos}}
@@ -106,22 +103,7 @@
     <section class="bg-dark" id="series">
         <div class="col-lg-12 text-center" id="friend">
             <h1>Series favoritas</h1>
-        </div>
-        <div class="order-by">
-            <ul class="nav nav-tabs">
-                <li>
-                    <p>Ordenar por:</p>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#series">Nombre</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#series">Valoración</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#series">Año</a>
-                </li>
-            </ul>
+            <hr>
         </div>
         <div class="container">
             <div class="row">
@@ -129,10 +111,9 @@
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">{{nombre}}</h2>
                     <img src="../img/series_icon/{{nombre}}.jpg" width='200' height='200'>
-                    <a type="button" class="mas-info">
+                    <a type="button" class="mas-info" href="/{{url}}">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
-
                 </div>
             {{/seriesFavoritas}}
 
