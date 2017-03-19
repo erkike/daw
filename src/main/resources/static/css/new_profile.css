@@ -680,4 +680,12 @@ body {
     float: right;
 }
 
+.logout {
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	border: none;
+	margin-top: 13.5px;
+	color: #F05F40;
+	background: none;
+}
+
 }

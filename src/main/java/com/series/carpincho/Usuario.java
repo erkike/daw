@@ -29,7 +29,7 @@ public class Usuario {
 	private String img = "default";
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	private List<String> roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
+	private List<String> roles;
 
 	@OneToMany
 	private List<Usuario> amigos = new ArrayList<>();
@@ -41,17 +41,13 @@ public class Usuario {
 
 	}
 
-	public Usuario(String user) {
-		this.user = user;
-		this.img = user;
-	}
-
-	public Usuario(String nombre, String user, String email, String password) {
+	public Usuario(String nombre, String user, String email, String password, String... roles) {
 		this.nombre = nombre;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.user = user;
 		this.email = email;
 		this.img = user;
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 	public List<String> getRoles() {

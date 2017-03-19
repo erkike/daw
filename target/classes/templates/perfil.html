@@ -51,12 +51,12 @@
                     <li>
                         <a class="page-scroll" href="#series">Mis series</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#mail">Mensajes</a>
-                    </li>
+                    {{#admin}}
+					<li><a class="page-scroll" href="/admin">Administrar series</a></li>
+					{{/admin}}
                     <li>
                     <form action="/logout" method="post">
-                        <input class="page-scroll" type="submit" value="Cerrar Sesión" />
+                        <input class="logout" type="submit" value="Cerrar Sesión" />
 						<input type="hidden" name="_csrf" value="{{token}}"/>
                     </form>
                     </li>
@@ -110,7 +110,7 @@
             {{#seriesFavoritas}}
                 <div class="col-lg-3 text-center">
                     <h2 class="section-heading">{{nombre}}</h2>
-                    <img src="../img/series_icon/{{nombre}}.jpg" width='200' height='200'>
+                    <img src="../img/series_icon/{{img}}.jpg" width='200' height='200'>
                     <a type="button" class="mas-info" href="/{{url}}">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>

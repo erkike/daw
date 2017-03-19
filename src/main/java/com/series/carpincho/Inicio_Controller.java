@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +45,11 @@ public class Inicio_Controller {
 	@PostConstruct
 	public void init() {
 		String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis euismod pretium. Sed aliquet risus sed ante laoreet luctus. In dapibus massa eu mauris euismod gravida. Donec tempus, orci eu tempor viverra, ex metus vulputate leo, et sodales odio nisi nec massa. Proin quis neque nec sem finibus elementum. Praesent ultrices ante sit amet suscipit blandit. Praesent vulputate nibh est, vitae fringilla odio mattis eget. Aenean congue orci et leo placerat, nec semper ipsum convallis. Cras vestibulum volutpat lectus sed efficitur.";
-		Usuario carpinchote = new Usuario("Enrique", "Carpinchote", "budweisert0102@gmail.com", "pass");
-		Usuario carpinchi = new Usuario("Carpinchi");
-		Usuario carpancha = new Usuario("Carpancha");
+		Usuario carpinchote = new Usuario("Enrique", "Carpinchote", "budweisert0102@gmail.com", "pass", "ROLE_USER");
+		Usuario carpinchi = new Usuario("Carpinchi", "Carpinchi", "carpinchi@gmail.com", "1234", "ROLE_USER");
+		Usuario carpancha = new Usuario("Carpancha", "Carpancha", "carpancha@gmail.com", "1234", "ROLE_USER");
+		Usuario admin = new Usuario("Administrador", "admin", "admin@carpincheria.es", "admin", "ROLE_USER",
+				"ROLE_ADMIN");
 
 		List<Capitulo> capitulos = new ArrayList<Capitulo>();
 		capitulos.add(new Capitulo("Piloto", 1));
@@ -85,6 +88,7 @@ public class Inicio_Controller {
 		usuarios.save(carpinchote);
 		usuarios.save(carpinchi);
 		usuarios.save(carpancha);
+		usuarios.save(admin);
 		// carpinchote.getAmigos().add(carpinchi);
 		carpinchote.getAmigos().add(carpancha);
 
@@ -103,6 +107,9 @@ public class Inicio_Controller {
 		series.save(juegoTronos);
 		series.save(new Serie("Narcos", descripcion, 3, 2015, "https://www.youtube.com/embed/U7elNhHwgBU"));
 		series.save(new Serie("Westworld", descripcion, 2, 2016, "https://www.youtube.com/embed/IuS5huqOND4"));
+		series.save(new Serie("Misfits", descripcion, 4, 2009, "https://www.youtube.com/embed/VsBYXLYNZlE"));
+		series.save(new Serie("Cyanide & Happiness Show", descripcion, 5, 2014,
+				"https://www.youtube.com/embed/i7b7N3leRQU"));
 		series.save(new Serie("Shameless", descripcion, 5, 2011, "https://www.youtube.com/embed/nu9mslgDcR4"));
 		series.save(new Serie("The Wire", descripcion, 5, 2002, "https://www.youtube.com/embed/apZQlqPp6Hs"));
 		series.save(new Serie("El último hombre en la tierra", descripcion, 3, 2015,
@@ -272,12 +279,13 @@ public class Inicio_Controller {
 	}
 
 	@RequestMapping("/perfil")
-	public String usuario(Model model) {
+	public String usuario(Model model, HttpServletRequest request) {
 
 		if (userComponent.getLoggedUser() == null) {
 			return "login";
 		} else {
 			model.addAttribute("usuario", usuarios.findByUser(userComponent.getLoggedUser().getUser()));
+			model.addAttribute("admin", request.isUserInRole("ADMIN"));
 
 			return "perfil";
 		}
