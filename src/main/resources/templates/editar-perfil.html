@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html >
 
 <head>
 
@@ -74,9 +74,7 @@
 						</form>
 			
                 </div>
- 				<p th:each="imageTitle, it : ${imageTitles}">
-					<span th:text="${imageTitle}"></span><br /> <img th:src="@{/perfil/editar/image-{numImage}.jpg(numImage=${it.index})}" />
-				</p>
+
 				
                 <div class="col-lg-6 text-center" id="{{user}}">
                 	<form action="/perfil/editar/guardar" method="post">
