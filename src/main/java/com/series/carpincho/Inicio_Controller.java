@@ -46,8 +46,8 @@ public class Inicio_Controller {
 	public void init() {
 		String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis euismod pretium. Sed aliquet risus sed ante laoreet luctus. In dapibus massa eu mauris euismod gravida. Donec tempus, orci eu tempor viverra, ex metus vulputate leo, et sodales odio nisi nec massa. Proin quis neque nec sem finibus elementum. Praesent ultrices ante sit amet suscipit blandit. Praesent vulputate nibh est, vitae fringilla odio mattis eget. Aenean congue orci et leo placerat, nec semper ipsum convallis. Cras vestibulum volutpat lectus sed efficitur.";
 		Usuario carpinchote = new Usuario("Enrique", "Carpinchote", "budweisert0102@gmail.com", "pass", "ROLE_USER");
-		Usuario carpinchi = new Usuario("Carpinchi", "Carpinchi", "carpinchi@gmail.com", "1234", "ROLE_USER");
-		Usuario carpancha = new Usuario("Carpancha", "Carpancha", "carpancha@gmail.com", "1234", "ROLE_USER");
+		Usuario carpinchi = new Usuario("Carpinchi");
+		Usuario carpancha = new Usuario("Carpancha");
 		Usuario admin = new Usuario("Administrador", "admin", "admin@carpincheria.es", "admin", "ROLE_USER",
 				"ROLE_ADMIN");
 
@@ -108,12 +108,10 @@ public class Inicio_Controller {
 		series.save(new Serie("Narcos", descripcion, 3, 2015, "https://www.youtube.com/embed/U7elNhHwgBU"));
 		series.save(new Serie("Westworld", descripcion, 2, 2016, "https://www.youtube.com/embed/IuS5huqOND4"));
 		series.save(new Serie("Misfits", descripcion, 4, 2009, "https://www.youtube.com/embed/VsBYXLYNZlE"));
-		series.save(new Serie("Cyanide & Happiness Show", descripcion, 5, 2014,
-				"https://www.youtube.com/embed/i7b7N3leRQU"));
+		series.save(
+				new Serie("Cyanide & Happiness", descripcion, 5, 2014, "https://www.youtube.com/embed/i7b7N3leRQU"));
 		series.save(new Serie("Shameless", descripcion, 5, 2011, "https://www.youtube.com/embed/nu9mslgDcR4"));
 		series.save(new Serie("The Wire", descripcion, 5, 2002, "https://www.youtube.com/embed/apZQlqPp6Hs"));
-		series.save(new Serie("El último hombre en la tierra", descripcion, 3, 2015,
-				"https://www.youtube.com/embed/xf0YgnV0mdg"));
 		series.save(new Serie("Arrow", descripcion, 2, 2012, "https://www.youtube.com/embed/XQS7JkQmlx8"));
 		series.save(new Serie("Big Bang Theory", descripcion, 3, 2012, "https://www.youtube.com/embed/WBb3fojgW0Q"));
 		series.save(new Serie("Los Simpsons", descripcion, 4, 1989, "https://www.youtube.com/embed/DX1iplQQJTo"));
@@ -121,8 +119,6 @@ public class Inicio_Controller {
 		series.save(new Serie("Vikings", descripcion, 4, 2013, "https://www.youtube.com/embed/KxMBNLgUamk"));
 		series.save(new Serie("Black Mirror", descripcion, 5, 2011, "https://www.youtube.com/embed/jROLrhQkK78"));
 		series.save(new Serie("Sherlock", descripcion, 5, 2010, "https://www.youtube.com/embed/FOXZgRTfSUA"));
-		series.save(new Serie("Cómo conocí a vuestra madre", descripcion, 3, 2005,
-				"https://www.youtube.com/embed/ZPLOsabhQSM"));
 		series.save(new Serie("Daredevil", descripcion, 3, 2015, "https://www.youtube.com/embed/jAy6NJ_D5vU"));
 		series.save(new Serie("Los Soprano", descripcion, 4, 1999, "https://www.youtube.com/embed/RLxSUKA--Dg"));
 		series.save(new Serie("The walking dead", descripcion, 4, 2010, "https://www.youtube.com/embed/O4xrJ_r6PUs"));
@@ -323,7 +319,7 @@ public class Inicio_Controller {
 			userComponent.setLoggedUser(usuario);
 		}
 
-		return "redirect:/perfil";
+		return "redirect:/perfil#amigos";
 	}
 
 	@RequestMapping(value = "/perfil/editar", method = RequestMethod.POST)
