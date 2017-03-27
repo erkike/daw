@@ -111,25 +111,12 @@
                                 <input type="text" size="25" maxlength="20" value="{{email}}" name='email'>
                             </td>
                         </tr>
-                        <!--  
-                        <tr>
-                            <td>
-                                Fecha de nacimiento
-                            </td>
-                            <td>
-                            	{{#fecha}}
-                                <input type="text" size="4" maxlength="2" value="{{.}}" name="nombre">
-								{{/fecha}}
-                            </td>
-                        </tr>
-                        -->	
                     </table>
                     <input type="submit" value="Guardar" href="/perfil/editar" class="btn btn-primary btn-xl"/>
                     <input type='hidden' name='_csrf' value='{{token}}'/>
                     <input type='hidden' name='passwordHash' value='{{passwordHash}}'/>
                     <input type='hidden' name='id' value='{{id}}'/>
-                    <input type='hidden' name='amigos' value='{{#amigos}}{{/amigos}}'/>
-                    <input type='hidden' name='seriesFavoritas' value='{{#seriesFavoritas}}{{/seriesFavoritas}}'/>
+                    <input type='hidden' name='img' value='{{img}}'/>
                     <input type='hidden' name='roles' value='{{roles}}'/>
                     </form>
                     <a href="/perfil" class="btn btn-primary btn-xl">Cancelar</a>

@@ -298,7 +298,12 @@ public class Inicio_Controller {
 	@RequestMapping("/perfil/editar/guardar")
 	public String guardar(Model model, Usuario usuario) {
 
-		usuarios.save(usuario);
+		if (userComponent.getLoggedUser().getId() == usuario.getId()) {
+			usuario.setAmigos(userComponent.getLoggedUser().getAmigos());
+			usuario.setSeriesFavoritas(userComponent.getLoggedUser().getSeriesFavoritas());
+			usuarios.save(usuario);
+			userComponent.setLoggedUser(usuario);
+		}
 
 		return "redirect:/perfil";
 	}
