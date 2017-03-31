@@ -57,7 +57,6 @@
                     <li>
                     <form action="/logout" method="post">
                         <input class="logout" type="submit" value="Cerrar Sesión" />
-						<input type="hidden" name="_csrf" value="{{token}}"/>
                     </form>
                     </li>
                 </ul>
@@ -86,7 +85,6 @@
                     <h1>Mis amigos</h1>
 					<input class='comentar' type='submit' value='Buscar' />
 					<textarea placeholder='Buscar amigos...' class='buscar' name='user'></textarea>
-					<input type='hidden' name='_csrf' value='{{token}}'/>
                 </div>
            </form>
                 {{#amigos}}

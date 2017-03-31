@@ -87,7 +87,6 @@
 						<h1 class="section-heading">
 							{{nombre}}
 							<input type='submit' name='fav' class='{{favorito}}'>
-							<input type='hidden' name='_csrf' value='{{token}}'/>
 							
 							<button class='recomendar'></button>
 						</h1>
@@ -106,7 +105,7 @@
 								<button value='3'  name='n' class='{{valoraciones.2}}' type="button" data-toggle="modal" data-target="#myModal"></button>
 								<button value='4'  name='n' class='{{valoraciones.3}}' type="button" data-toggle="modal" data-target="#myModal"></button>
 								<button value='5'  name='n' class='{{valoraciones.4}}' type="button" data-toggle="modal" data-target="#myModal"></button>
-								<input type='hidden' name='_csrf' value='{{token}}'/>
+								
 							</form>
 						</div>
 					</div>
@@ -157,7 +156,6 @@
 				</div>
 				<div class="row">
 					<input class='comentar' type='submit' value='Comentar' />
-					<input type='hidden' name='_csrf' value='{{token}}'/>
 					<!-- <button class='comentar' id='cancelar'>Cancelar</button> -->
 				</div>
 			</form>
