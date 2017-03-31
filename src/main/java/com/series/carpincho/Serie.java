@@ -14,27 +14,44 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Type;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Serie implements Comparator {
 
+	interface Basico {
+	}
+
+	interface Concreto {
+	}
+
+	@JsonView(Basico.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonView(Basico.class)
 	private String nombre;
+	@JsonView(Basico.class)
 	private String url;
+	@JsonView(Basico.class)
 	private String trailer;
+	@JsonView(Basico.class)
 	private int valoracion;
+	@JsonView(Basico.class)
 	private int año;
 	private String img = "default";
 
+	@JsonView(Basico.class)
 	@Lob
 	@Type(type = "org.hibernate.type.TextType")
 	private String descripcion;
 
+	@JsonView(Concreto.class)
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Temporada> temporadas = new ArrayList<>();
 
+	@JsonView(Concreto.class)
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Comentario> comentarios = new ArrayList<>();
 

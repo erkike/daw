@@ -14,26 +14,44 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Usuario {
 
+	interface Basico {
+	}
+
+	interface Concreto {
+	}
+
+	@JsonView(Basico.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonView(Basico.class)
 	private String nombre;
+	@JsonView(Basico.class)
 	private String apellido;
+	@JsonView(Basico.class)
 	private String user;
+	@JsonView(Basico.class)
 	private String email;
+	@JsonView(Basico.class)
 	private String passwordHash;
+	@JsonView(Basico.class)
 	private String img = "default";
 
+	@JsonView(Concreto.class)
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
+	@JsonView(Concreto.class)
 	@OneToMany
 	private List<Usuario> amigos = new ArrayList<>();
 
+	@JsonView(Concreto.class)
 	@OneToMany
 	private List<Serie> seriesFavoritas = new ArrayList<>();
 

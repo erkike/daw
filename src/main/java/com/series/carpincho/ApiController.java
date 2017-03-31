@@ -1,6 +1,6 @@
 package com.series.carpincho;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @RestController
 public class ApiController {
@@ -24,6 +26,9 @@ public class ApiController {
 	@Autowired
 	private UserComponent userComponent;
 
+	interface UsuarioDetalle extends Usuario.Basico, Usuario.Concreto, Serie.Basico {
+	}
+
 	@PostMapping(value = "/usuario")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario nuevoUsuario(@RequestBody Usuario usuario) {
@@ -33,15 +38,17 @@ public class ApiController {
 		return usuario;
 	}
 
+	@JsonView(Usuario.Basico.class)
 	@GetMapping(value = "/usuarios")
-	public Collection<Usuario> getUsuarios() {
+	public List<Usuario> getUsuarios() {
 		return usuarios.findAll();
 	}
 
+	@JsonView(UsuarioDetalle.class)
 	@GetMapping(value = "/usuario/{id}")
 	public ResponseEntity<Usuario> getUsuario(@PathVariable long id) {
 
-		Usuario usuario = usuarios.findById(id);
+		Usuario usuario = usuarios.findOne(id);
 
 		if (usuario != null) {
 			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
@@ -50,8 +57,21 @@ public class ApiController {
 		}
 	}
 
+	@JsonView(Serie.Basico.class)
 	@GetMapping(value = "/series")
-	public Collection<Serie> getSeries() {
+	public List<Serie> getSeries() {
 		return series.findAll();
+	}
+
+	@GetMapping(value = "/serie/{id}")
+	public ResponseEntity<Serie> getSerie(@PathVariable long id) {
+
+		Serie serie = series.findOne(id);
+
+		if (serie != null) {
+			return new ResponseEntity<Serie>(serie, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Serie>(HttpStatus.NOT_FOUND);
+		}
 	}
 }
