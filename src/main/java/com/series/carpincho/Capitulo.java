@@ -5,14 +5,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Capitulo {
+
+	interface Basico {
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonView(Basico.class)
 	private String titulo;
+	@JsonView(Basico.class)
 	private int num;
 
 	public Capitulo() {

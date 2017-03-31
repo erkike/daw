@@ -6,15 +6,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Comentario {
+
+	interface Basico {
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonView(Basico.class)
 	private String texto;
 
+	@JsonView(Basico.class)
 	@OneToOne
 	private Usuario usuario;
 

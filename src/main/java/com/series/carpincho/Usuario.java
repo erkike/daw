@@ -40,10 +40,9 @@ public class Usuario {
 	private String email;
 	@JsonView(Basico.class)
 	private String passwordHash;
-	@JsonView(Basico.class)
 	private String img = "default";
 
-	@JsonView(Concreto.class)
+	@JsonView(Basico.class)
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 

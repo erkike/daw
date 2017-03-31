@@ -29,6 +29,10 @@ public class ApiController {
 	interface UsuarioDetalle extends Usuario.Basico, Usuario.Concreto, Serie.Basico {
 	}
 
+	interface SerieDetalle
+			extends Serie.Basico, Serie.Concreto, Comentario.Basico, Usuario.Basico, Temporada.Basico, Capitulo.Basico {
+	}
+
 	@PostMapping(value = "/usuario")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario nuevoUsuario(@RequestBody Usuario usuario) {
@@ -63,6 +67,7 @@ public class ApiController {
 		return series.findAll();
 	}
 
+	@JsonView(SerieDetalle.class)
 	@GetMapping(value = "/serie/{id}")
 	public ResponseEntity<Serie> getSerie(@PathVariable long id) {
 
