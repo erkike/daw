@@ -49,4 +49,9 @@ public class ApiController {
 			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@GetMapping(value = "/series")
+	public Collection<Serie> getSeries() {
+		return series.findAll();
+	}
 }
