@@ -84,4 +84,44 @@ public class UsuarioRestController {
 			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@JsonView(UsuarioDetalle.class)
+	@PutMapping(value = "/usuarios/{id}/amigo/{id2}")
+	public ResponseEntity<Usuario> amigoUsuario(@PathVariable long id, @PathVariable long id2) {
+
+		Usuario usuario = usuarios.findOne(id);
+		Usuario amigo = usuarios.findOne(id2);
+
+		if (usuario != null && amigo != null) {
+			if (usuario.getAmigos().contains(amigo)) {
+				usuario.getAmigos().remove(amigo);
+			} else {
+				usuario.getAmigos().add(amigo);
+			}
+			usuarios.save(usuario);
+			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@JsonView(UsuarioDetalle.class)
+	@PutMapping(value = "/usuarios/{id}/favorita/{id2}")
+	public ResponseEntity<Usuario> favoritaUsuario(@PathVariable long id, @PathVariable long id2) {
+
+		Usuario usuario = usuarios.findOne(id);
+		Serie serie = series.findOne(id2);
+
+		if (usuario != null && serie != null) {
+			if (usuario.getSeriesFavoritas().contains(serie)) {
+				usuario.getSeriesFavoritas().remove(serie);
+			} else {
+				usuario.getSeriesFavoritas().add(serie);
+			}
+			usuarios.save(usuario);
+			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+		}
+	}
 }

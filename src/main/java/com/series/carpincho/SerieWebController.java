@@ -97,7 +97,6 @@ public class SerieWebController {
 			} else {
 				usuario.getSeriesFavoritas().add(serie);
 			}
-
 			usuarios.save(usuario);
 			userComponent.setLoggedUser(usuario);
 		}

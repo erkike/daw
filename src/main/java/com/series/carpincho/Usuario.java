@@ -10,7 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -47,11 +47,11 @@ public class Usuario {
 	private List<String> roles;
 
 	@JsonView(Concreto.class)
-	@OneToMany
+	@ManyToMany
 	private List<Usuario> amigos = new ArrayList<>();
 
 	@JsonView(Concreto.class)
-	@OneToMany
+	@ManyToMany
 	private List<Serie> seriesFavoritas = new ArrayList<>();
 
 	public Usuario() {
