@@ -59,6 +59,7 @@ public class UsuarioRestController {
 		}
 	}
 
+	@JsonView(UsuarioDetalle.class)
 	@DeleteMapping(value = "/usuarios/{id}")
 	public ResponseEntity<Usuario> borrarUsuario(@PathVariable long id) {
 
@@ -72,14 +73,24 @@ public class UsuarioRestController {
 		}
 	}
 
+	@JsonView(UsuarioDetalle.class)
 	@PutMapping(value = "/usuarios/{id}")
 	public ResponseEntity<Usuario> modificarUsuario(@PathVariable long id, @RequestBody Usuario modificado) {
 
 		Usuario usuario = usuarios.findOne(id);
 
 		if (usuario != null) {
-			usuarios.save(modificado);
-			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
+				List<Usuario> amigos = usuario.getAmigos();
+				List<Serie> favoritas = usuario.getSeriesFavoritas();
+				modificado.setAmigos(amigos);
+				modificado.setSeriesFavoritas(favoritas);
+				usuarios.save(modificado);
+				userComponent.setLoggedUser(usuario);
+				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<Usuario>(HttpStatus.FORBIDDEN);
+			}
 		} else {
 			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
 		}
@@ -93,13 +104,18 @@ public class UsuarioRestController {
 		Usuario amigo = usuarios.findOne(id2);
 
 		if (usuario != null && amigo != null) {
-			if (usuario.getAmigos().contains(amigo)) {
-				usuario.getAmigos().remove(amigo);
+			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
+				if (usuario.getAmigos().contains(amigo)) {
+					usuario.getAmigos().remove(amigo);
+				} else {
+					usuario.getAmigos().add(amigo);
+				}
+				usuarios.save(usuario);
+				userComponent.setLoggedUser(usuario);
+				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 			} else {
-				usuario.getAmigos().add(amigo);
+				return new ResponseEntity<Usuario>(HttpStatus.FORBIDDEN);
 			}
-			usuarios.save(usuario);
-			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
 		}
@@ -113,13 +129,18 @@ public class UsuarioRestController {
 		Serie serie = series.findOne(id2);
 
 		if (usuario != null && serie != null) {
-			if (usuario.getSeriesFavoritas().contains(serie)) {
-				usuario.getSeriesFavoritas().remove(serie);
+			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
+				if (usuario.getSeriesFavoritas().contains(serie)) {
+					usuario.getSeriesFavoritas().remove(serie);
+				} else {
+					usuario.getSeriesFavoritas().add(serie);
+				}
+				usuarios.save(usuario);
+				userComponent.setLoggedUser(usuario);
+				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 			} else {
-				usuario.getSeriesFavoritas().add(serie);
+				return new ResponseEntity<Usuario>(HttpStatus.FORBIDDEN);
 			}
-			usuarios.save(usuario);
-			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
 		}
