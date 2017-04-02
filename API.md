@@ -4,7 +4,7 @@
 Aqui se encuentran todas las funciones relacionadas con usuarios
 
 ### GET "/usuarios"
-Devuelve información básica de todos los usuarios de la aplicación
+Devuelve información básica de todos los usuarios de la aplicación  
 {
     "id": 1,
     "nombre": "Enrique",
@@ -17,7 +17,7 @@ Devuelve información básica de todos los usuarios de la aplicación
     ]
   }
 ### GET "/usuarios/{id}"
-Devuelve información detallada del usuario con id = {id}
+Devuelve información detallada del usuario con id = {id}  
 {
     "id": 1,
     "nombre": "Enrique",
@@ -64,8 +64,8 @@ Devuelve información detallada del usuario con id = {id}
         }
     ]
 }
-### POST "/usuarios/nuevo"
-Crea un nuevo usuario con la información del body:	
+### POST "/usuarios"
+Crea un nuevo usuario con la información del body:  	
 	{
         "nombre": "Demostración",
         "user": "demo",
@@ -88,7 +88,7 @@ Añade al usuario con {id} la serie favorita con {id2}, si ya era favortia la el
 Aqui se encuentran todas las funciones relacionadas con series
 
 ### GET "/series"
-Devuelve información básica de todas las series de la aplicación
+Devuelve información básica de todas las series de la aplicación  
  {
     "id": 1,
     "nombre": "Los 100",
@@ -99,7 +99,7 @@ Devuelve información básica de todas las series de la aplicación
     "descripcion": "En un futuro post apocalíptico, 97 años después de un desastre nuclear que destruyó la civilización, los humanos que sobreviven en una estación espacial envían una avanzadilla de 100 jóvenes delincuentes para tratar de averiguar si es posible reconquistar la Tierra."
   }
 ### GET "/series/{id}"
-Devuelve información detallada de la serie con {id}
+Devuelve información detallada de la serie con {id}  
 {
     "id": 1,
     "nombre": "Los 100",
@@ -274,14 +274,14 @@ Elimina la serie con {id}, requiere permisos de administrador
 ### PUT "/series/{id}"
 Modifica la información de la serie con {id} con el body, requiere permisos de administrador
 ### PUT "/series/{id}/comentario"
-Añade a la serie con {id} el comentario del body, requiere estar logueado
+Añade a la serie con {id} el comentario del body, requiere estar logueado  
 {
 	"texto": "Un comentario"
 }
 ### PUT "/series/{id}/valoracion/{val}
 Añade a la serie con {id} la valoracion {val}, requiere estar logueado
 ### PUT "/series/{id}/temporada/{num}/capitulo"
-Añade a la serie con {id}, en la temporada {num}, el capitulo del body, requiere permisos de administrador
+Añade a la serie con {id}, en la temporada {num}, el capitulo del body, requiere permisos de administrador  
 {
           "titulo": "Demo",
           "num": 1

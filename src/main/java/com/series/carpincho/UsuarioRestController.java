@@ -31,7 +31,7 @@ public class UsuarioRestController {
 	interface UsuarioDetalle extends Usuario.Basico, Usuario.Concreto, Serie.Basico {
 	}
 
-	@PostMapping(value = "/usuarios/nuevo")
+	@PostMapping(value = "/usuarios")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario nuevoUsuario(@RequestBody Usuario usuario) {
 

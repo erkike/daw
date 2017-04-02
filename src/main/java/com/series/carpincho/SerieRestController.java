@@ -33,7 +33,7 @@ public class SerieRestController {
 			extends Serie.Basico, Serie.Concreto, Comentario.Basico, Usuario.Basico, Temporada.Basico, Capitulo.Basico {
 	}
 
-	@PostMapping(value = "/series/nueva")
+	@PostMapping(value = "/series")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Serie nuevaSerie(@RequestBody Serie serie) {
 
