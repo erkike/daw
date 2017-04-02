@@ -67,22 +67,33 @@ public class DatabaseLoader {
 		// carpinchote.getAmigos().add(carpinchi);
 		carpinchote.getAmigos().add(carpancha);
 
-		Comentario caca = new Comentario("Vaya caca", carpinchote);
-		Comentario buena = new Comentario("wowowowowwowowowowowowowwowo", carpinchi);
+		Comentario caca = new Comentario("Esta serie es mi favorita, porque es la última que he visto", carpinchote);
+		Comentario buena = new Comentario("Me gustó más el libro", carpinchi);
 
-		Serie cien = new Serie("Los 100", descripcion, 5, 2014, "https://www.youtube.com/embed/ia1Fbg96vL0");
+		Serie cien = new Serie("Los 100",
+				"En un futuro post apocalíptico, 97 años después de un desastre nuclear que destruyó la civilización, los humanos que sobreviven en una estación espacial envían una avanzadilla de 100 jóvenes delincuentes para tratar de averiguar si es posible reconquistar la Tierra.",
+				5, 2014, "https://www.youtube.com/embed/ia1Fbg96vL0");
 		cien.getComentarios().add(caca);
 		cien.getComentarios().add(buena);
 		cien.getTemporadas().add(uno);
 		cien.getTemporadas().add(dos);
-		Serie juegoTronos = new Serie("Juego de Tronos", descripcion, 4, 2011,
-				"https://www.youtube.com/embed/iGp_N3Ir7Do");
+		Serie juegoTronos = new Serie("Juego de Tronos",
+				"En una tierra donde los veranos duran décadas y los inviernos pueden durar toda una vida, los problemas acechan. Desde las maquinaciones del sur a las salvajes tierras del este, pasando por el helado norte y el milenario Muro que protege el reino de las fuerzas tenebrosas, dos poderosas familias mantienen un enfrentamiento letal por gobernar los Siete Reinos de Poniente. Mientras la traición, la lujuria y las fuerzas sobrenaturales sacuden los pilares de los Reinos, la sangrienta batalla por el Trono de Hierro tendrá consecuencias imprevistas y trascendentales. El invierno se acerca. Que empiece Juego de Tronos.",
+				4, 2011, "https://www.youtube.com/embed/iGp_N3Ir7Do");
 		series.save(cien);
-		series.save(new Serie("Breaking Bad", descripcion, 4, 2008, "https://www.youtube.com/embed/ceqOTZnhgY8"));
+		series.save(new Serie("Breaking Bad",
+				"Tras cumplir 50 años, Walter White, un profesor de química de un instituto de Albuquerque, Nuevo México, se entera de que tiene un cáncer de pulmón incurable. Casado con Skyler y con un hijo discapacitado, la brutal noticia lo impulsa a dar un drástico cambio a su vida: decide, con la ayuda de un antiguo alumno, fabricar anfetaminas y ponerlas a la venta. Lo que pretende es liberar a su familia de problemas económicos cuando se produzca el fatal desenlace.",
+				4, 2008, "https://www.youtube.com/embed/ceqOTZnhgY8"));
 		series.save(juegoTronos);
-		series.save(new Serie("Narcos", descripcion, 3, 2015, "https://www.youtube.com/embed/U7elNhHwgBU"));
-		series.save(new Serie("Westworld", descripcion, 2, 2016, "https://www.youtube.com/embed/IuS5huqOND4"));
-		series.save(new Serie("Misfits", descripcion, 4, 2009, "https://www.youtube.com/embed/VsBYXLYNZlE"));
+		series.save(new Serie("Narcos",
+				"La verdadera historia de los poderosos y violentos cárteles colombianos sirve de hilo conductor en esta serie dramática de mafiosos de gran realismo.",
+				3, 2015, "https://www.youtube.com/embed/U7elNhHwgBU"));
+		series.save(new Serie("Westworld",
+				"Westworld es la nueva serie de ciencia ficción de HBO que narra una oscura odisea sobre el amanecer de la conciencia artificial y el futuro del pecado. La serie cuenta la historia de un parque temático futurista llamado Westworld donde los turistas pueden satisfacer todos sus deseos sin temer la revancha de los habitantes del parque.",
+				2, 2016, "https://www.youtube.com/embed/IuS5huqOND4"));
+		series.save(new Serie("Misfits",
+				"Misfits cuenta la historia de cinco problemáticos chicos adolescentes que cumplen con servicios a la comunidad por actos vandálicos. Durante una tormenta, el grupo es alcanzado por un rayo y adquieren poderes especiales. A pesar de que su vida continua con normalidad, pronto sus nuevos poderes alterarán el transcurso de los acontecimientos.",
+				4, 2009, "https://www.youtube.com/embed/VsBYXLYNZlE"));
 		series.save(
 				new Serie("Cyanide & Happiness", descripcion, 5, 2014, "https://www.youtube.com/embed/i7b7N3leRQU"));
 		series.save(new Serie("Shameless", descripcion, 5, 2011, "https://www.youtube.com/embed/nu9mslgDcR4"));

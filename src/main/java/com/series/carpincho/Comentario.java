@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Type;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -19,6 +21,7 @@ public class Comentario {
 	private long id;
 
 	@JsonView(Basico.class)
+	@Type(type = "org.hibernate.type.TextType")
 	private String texto;
 
 	@JsonView(Basico.class)

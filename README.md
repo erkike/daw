@@ -1,6 +1,7 @@
 # Práctica DAW: Diseña e implementa una aplicación web
 ### Nombre de la aplicación
 Series Carpincho
+  ![REST](API.md)
 ### Descripción
 Se trata de una web para comentar y calificar series de tv, puedes añadir tus series favoritas y recomendarlas a tus amigos.
 ### Entidades

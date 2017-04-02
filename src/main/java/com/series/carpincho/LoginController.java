@@ -10,6 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.series.carpincho.UsuarioRestController.UsuarioDetalle;
+
 @RestController
 public class LoginController {
 
@@ -18,6 +21,10 @@ public class LoginController {
 	@Autowired
 	private UserComponent userComponent;
 
+	@Autowired
+	private UsuariosRepository usuarios;
+
+	@JsonView(UsuarioDetalle.class)
 	@RequestMapping("/logIn")
 	public ResponseEntity<Usuario> logIn() {
 
@@ -25,9 +32,9 @@ public class LoginController {
 			log.info("Not user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
-			Usuario loggedUser = userComponent.getLoggedUser();
+			Usuario loggedUser = usuarios.findOne(userComponent.getLoggedUser().getId());
 			log.info("Logged as " + loggedUser.getUser());
-			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
+			return new ResponseEntity<Usuario>(loggedUser, HttpStatus.OK);
 		}
 	}
 
