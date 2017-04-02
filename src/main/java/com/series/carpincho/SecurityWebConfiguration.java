@@ -8,14 +8,16 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-@EnableGlobalMethodSecurity(securedEnabled = true)
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+public class SecurityWebConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public UsuarioRepositoryAuthenticationProvider authenticationProvider;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+
+		super.configure(http);
 
 		// Public pages
 		http.authorizeRequests().antMatchers("/").permitAll();
