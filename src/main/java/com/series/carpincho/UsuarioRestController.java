@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -32,12 +31,23 @@ public class UsuarioRestController {
 	}
 
 	@PostMapping(value = "/usuarios")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Usuario nuevoUsuario(@RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> nuevoUsuario(@RequestBody Usuario usuario) {
 
-		usuarios.save(usuario);
+		List<Usuario> lista = usuarios.findAll();
+		boolean igual = false;
 
-		return usuario;
+		for (Usuario user : lista) {
+			if (!igual) {
+				igual = user.getUser().equals(usuario.getUser());
+			}
+		}
+
+		if (!igual) {
+			usuarios.save(usuario);
+			return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
+		} else {
+			return new ResponseEntity<Usuario>(HttpStatus.CONFLICT);
+		}
 	}
 
 	@JsonView(Usuario.Basico.class)
@@ -106,10 +116,31 @@ public class UsuarioRestController {
 		if (usuario != null && amigo != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
 				if (usuario.getAmigos().contains(amigo)) {
-					usuario.getAmigos().remove(amigo);
+					return new ResponseEntity<Usuario>(HttpStatus.CONFLICT);
 				} else {
 					usuario.getAmigos().add(amigo);
+					usuarios.save(usuario);
+					userComponent.setLoggedUser(usuario);
+					return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 				}
+			} else {
+				return new ResponseEntity<Usuario>(HttpStatus.FORBIDDEN);
+			}
+		} else {
+			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@JsonView(UsuarioDetalle.class)
+	@DeleteMapping(value = "/usuarios/{id}/amigo/{id2}")
+	public ResponseEntity<Usuario> borrarAmigoUsuario(@PathVariable long id, @PathVariable long id2) {
+
+		Usuario usuario = usuarios.findOne(id);
+		Usuario amigo = usuarios.findOne(id2);
+
+		if (usuario != null && amigo != null) {
+			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
+				usuario.getAmigos().remove(amigo);
 				usuarios.save(usuario);
 				userComponent.setLoggedUser(usuario);
 				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
@@ -131,10 +162,31 @@ public class UsuarioRestController {
 		if (usuario != null && serie != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
 				if (usuario.getSeriesFavoritas().contains(serie)) {
-					usuario.getSeriesFavoritas().remove(serie);
+					return new ResponseEntity<Usuario>(HttpStatus.CONFLICT);
 				} else {
 					usuario.getSeriesFavoritas().add(serie);
+					usuarios.save(usuario);
+					userComponent.setLoggedUser(usuario);
+					return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 				}
+			} else {
+				return new ResponseEntity<Usuario>(HttpStatus.FORBIDDEN);
+			}
+		} else {
+			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@JsonView(UsuarioDetalle.class)
+	@DeleteMapping(value = "/usuarios/{id}/favorita/{id2}")
+	public ResponseEntity<Usuario> borrarFavoritaUsuario(@PathVariable long id, @PathVariable long id2) {
+
+		Usuario usuario = usuarios.findOne(id);
+		Serie serie = series.findOne(id2);
+
+		if (usuario != null && serie != null) {
+			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
+				usuario.getSeriesFavoritas().remove(serie);
 				usuarios.save(usuario);
 				userComponent.setLoggedUser(usuario);
 				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);

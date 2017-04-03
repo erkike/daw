@@ -38,7 +38,6 @@ public class Usuario {
 	private String user;
 	@JsonView(Basico.class)
 	private String email;
-	@JsonView(Basico.class)
 	private String passwordHash;
 	private String img = "default";
 

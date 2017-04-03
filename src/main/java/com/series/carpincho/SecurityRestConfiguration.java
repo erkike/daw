@@ -23,12 +23,14 @@ public class SecurityRestConfiguration extends WebSecurityConfigurerAdapter {
 
 		// URLs that need authentication to access to it
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/usuarios/{id}/amigo/{id2}").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/usuarios/{id}/amigo/{id2}").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/usuarios/{id}/favorita/{id2}").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/usuarios/{id}/favorita/{id2}").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/usuarios/{id}").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/series/{id}/comentario").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/series/{id}/valoracion/{val}").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/usuarios/{id}").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/series/nueva").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/series").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/series/{id}").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/series/{id}").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/series/{id}/temporada/{num}/capitulo").hasRole("ADMIN");
