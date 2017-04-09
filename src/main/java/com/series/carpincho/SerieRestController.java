@@ -96,9 +96,7 @@ public class SerieRestController {
 
 		if (serie != null && !comentario.esVacio()) {
 			if (userComponent.getLoggedUser() != null) {
-				comentario.setUsuario(userComponent.getLoggedUser());
-				serie.getComentarios().add(comentario);
-				service.save(serie);
+				service.addComentario(serie, comentario);
 				return new ResponseEntity<Serie>(serie, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<Serie>(HttpStatus.FORBIDDEN);

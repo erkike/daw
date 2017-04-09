@@ -61,9 +61,7 @@ public class SerieWebController {
 
 		if (!comentario.esVacio()) {
 			Serie serie = service.findByUrl(url);
-			comentario.setUsuario(userComponent.getLoggedUser());
-			serie.getComentarios().add(comentario);
-			service.save(serie);
+			service.addComentario(serie, comentario);
 		}
 
 		return "redirect:/{url}#comentarios";
