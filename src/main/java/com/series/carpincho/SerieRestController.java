@@ -19,12 +19,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @RestController
 public class SerieRestController {
-
 	@Autowired
-	private SeriesRepository series;
-
-	@Autowired
-	private UsuariosRepository usuarios;
+	private SerieService service;
 
 	@Autowired
 	private UserComponent userComponent;
@@ -37,7 +33,7 @@ public class SerieRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Serie nuevaSerie(@RequestBody Serie serie) {
 
-		series.save(serie);
+		service.save(serie);
 
 		return serie;
 	}
@@ -45,14 +41,14 @@ public class SerieRestController {
 	@JsonView(Serie.Basico.class)
 	@GetMapping(value = "/series")
 	public List<Serie> getSeries() {
-		return series.findAll();
+		return service.findAll();
 	}
 
 	@JsonView(SerieDetalle.class)
 	@GetMapping(value = "/series/{id}")
 	public ResponseEntity<Serie> getSerie(@PathVariable long id) {
 
-		Serie serie = series.findOne(id);
+		Serie serie = service.findOne(id);
 
 		if (serie != null) {
 			return new ResponseEntity<Serie>(serie, HttpStatus.OK);
@@ -64,10 +60,10 @@ public class SerieRestController {
 	@JsonView(SerieDetalle.class)
 	@DeleteMapping(value = "/series/{id}")
 	public ResponseEntity<Serie> borrarSerie(@PathVariable long id) {
-		Serie serie = series.findOne(id);
+		Serie serie = service.findOne(id);
 
 		if (serie != null) {
-			series.delete(serie);
+			service.delete(serie);
 			return new ResponseEntity<Serie>(serie, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Serie>(HttpStatus.NOT_FOUND);
@@ -78,14 +74,14 @@ public class SerieRestController {
 	@PutMapping(value = "/series/{id}")
 	public ResponseEntity<Serie> modificarSerie(@PathVariable long id, @RequestBody Serie modificada) {
 
-		Serie serie = series.findOne(id);
+		Serie serie = service.findOne(id);
 
 		if (serie != null) {
 			List<Temporada> temporadas = serie.getTemporadas();
 			List<Comentario> comentarios = serie.getComentarios();
 			modificada.setComentarios(comentarios);
 			modificada.setTemporadas(temporadas);
-			series.save(modificada);
+			service.save(modificada);
 			return new ResponseEntity<Serie>(serie, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Serie>(HttpStatus.NOT_FOUND);
@@ -96,13 +92,13 @@ public class SerieRestController {
 	@PutMapping(value = "/series/{id}/comentario")
 	public ResponseEntity<Serie> comentarSerie(@PathVariable long id, @RequestBody Comentario comentario) {
 
-		Serie serie = series.findOne(id);
+		Serie serie = service.findOne(id);
 
 		if (serie != null && !comentario.esVacio()) {
 			if (userComponent.getLoggedUser() != null) {
 				comentario.setUsuario(userComponent.getLoggedUser());
 				serie.getComentarios().add(comentario);
-				series.save(serie);
+				service.save(serie);
 				return new ResponseEntity<Serie>(serie, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<Serie>(HttpStatus.FORBIDDEN);
@@ -117,7 +113,7 @@ public class SerieRestController {
 	public ResponseEntity<Serie> capituloSerie(@PathVariable long id, @PathVariable int num,
 			@RequestBody Capitulo capitulo) {
 
-		Serie serie = series.findOne(id);
+		Serie serie = service.findOne(id);
 		List<Temporada> lista = serie.getTemporadas();
 
 		if (serie != null && capitulo != null) {
@@ -135,7 +131,7 @@ public class SerieRestController {
 
 			}
 			serie.setTemporadas(lista);
-			series.save(serie);
+			service.save(serie);
 			return new ResponseEntity<Serie>(serie, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Serie>(HttpStatus.NOT_FOUND);
@@ -146,12 +142,12 @@ public class SerieRestController {
 	@PutMapping(value = "/series/{id}/valoracion/{val}")
 	public ResponseEntity<Serie> valorarSerie(@PathVariable long id, @PathVariable int val) {
 
-		Serie serie = series.findOne(id);
+		Serie serie = service.findOne(id);
 
 		if (serie != null && val <= 5 && val >= 0) {
 			if (userComponent.getLoggedUser() != null) {
 				serie.Valorar(val);
-				series.save(serie);
+				service.save(serie);
 				return new ResponseEntity<Serie>(serie, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<Serie>(HttpStatus.FORBIDDEN);

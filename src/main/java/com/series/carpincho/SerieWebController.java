@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SerieWebController {
+	
 	@Autowired
-	private SeriesRepository series;
-
+	private SerieService service;
 	@Autowired
-	private UsuariosRepository usuarios;
+	private UsuarioService uService;
 
 	@Autowired
 	private UserComponent userComponent;
 
 	@RequestMapping("/")
 	public String indice(Model model, @PageableDefault(value = 8) Pageable page) {
+		//model.addAttribute("series", service.findAll());
+		Page<Serie> paginas = service.findAll(page);
 
-		Page<Serie> paginas = series.findAll(page);
-
-		model.addAttribute("series", paginas);
+		model.addAttribute("series", paginas);		
 		model.addAttribute("siguiente", !paginas.isLast());
 		model.addAttribute("numero", paginas.getNumberOfElements());
 		model.addAttribute("next", paginas.getNumberOfElements() + 8);
@@ -36,18 +36,18 @@ public class SerieWebController {
 	@RequestMapping("/{url}")
 	public String serie(Model model, @PathVariable String url) {
 
-		model.addAttribute("serie", series.findByUrl(url));
+		model.addAttribute("serie", service.findByUrl(url));
 
 		String[] valoracion = { "desmarcado", "desmarcado", "desmarcado", "desmarcado", "desmarcado" };
-		for (int i = 0; i < series.findByUrl(url).getValoracion(); i++) {
+		for (int i = 0; i < service.findByUrl(url).getValoracion(); i++) {
 			valoracion[i] = "marcado";
 		}
 		model.addAttribute("valoraciones", valoracion);
 
 		String favorito = "nofavorito";
 		if (userComponent.getLoggedUser() != null) {
-			if (usuarios.findByUser(userComponent.getLoggedUser().getUser()).getSeriesFavoritas()
-					.contains(series.findByUrl(url))) {
+			if (uService.findByUser(userComponent.getLoggedUser().getUser()).getSeriesFavoritas() 
+					.contains(service.findByUrl(url))) {
 				favorito = "favorito";
 			}
 		}
@@ -60,10 +60,10 @@ public class SerieWebController {
 	public String comentarios(Model model, Comentario comentario, @PathVariable String url) {
 
 		if (!comentario.esVacio()) {
-			Serie serie = series.findByUrl(url);
+			Serie serie = service.findByUrl(url);
 			comentario.setUsuario(userComponent.getLoggedUser());
 			serie.getComentarios().add(comentario);
-			series.save(serie);
+			service.save(serie);
 		}
 
 		return "redirect:/{url}#comentarios";
@@ -73,11 +73,11 @@ public class SerieWebController {
 	@RequestMapping("/{url}/valoracion")
 	public String valoracion(Model model, int n, @PathVariable String url) {
 
-		Serie serie = series.findByUrl(url);
+		Serie serie = service.findByUrl(url);
 		serie.Valorar(n);
-		series.save(serie);
+		service.save(serie);
 		String[] valoracion = { "desmarcado", "desmarcado", "desmarcado", "desmarcado", "desmarcado" };
-		for (int i = 0; i < series.findByUrl(url).getValoracion(); i++) {
+		for (int i = 0; i < service.findByUrl(url).getValoracion(); i++) {
 			valoracion[i] = "marcado";
 		}
 		model.addAttribute("valoraciones", valoracion);
@@ -90,14 +90,14 @@ public class SerieWebController {
 	public String favorito(Model model, @PathVariable String url) {
 
 		if (userComponent.getLoggedUser() != null) {
-			Usuario usuario = usuarios.findByUser(userComponent.getLoggedUser().getUser());
-			Serie serie = series.findByUrl(url);
+			Usuario usuario = uService.findByUser(userComponent.getLoggedUser().getUser()); 
+			Serie serie = service.findByUrl(url);
 			if (usuario.getSeriesFavoritas().contains(serie)) {
 				usuario.getSeriesFavoritas().remove(serie);
 			} else {
 				usuario.getSeriesFavoritas().add(serie);
 			}
-			usuarios.save(usuario);
+			uService.save(usuario);								
 			userComponent.setLoggedUser(usuario);
 		}
 

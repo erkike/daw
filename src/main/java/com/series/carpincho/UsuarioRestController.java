@@ -19,10 +19,9 @@ import com.fasterxml.jackson.annotation.JsonView;
 public class UsuarioRestController {
 
 	@Autowired
-	private SeriesRepository series;
-
+	private SerieService service;
 	@Autowired
-	private UsuariosRepository usuarios;
+	private UsuarioService uService;
 
 	@Autowired
 	private UserComponent userComponent;
@@ -33,7 +32,7 @@ public class UsuarioRestController {
 	@PostMapping(value = "/usuarios")
 	public ResponseEntity<Usuario> nuevoUsuario(@RequestBody Usuario usuario) {
 
-		List<Usuario> lista = usuarios.findAll();
+		List<Usuario> lista = uService.findAll();
 		boolean igual = false;
 
 		for (Usuario user : lista) {
@@ -43,7 +42,7 @@ public class UsuarioRestController {
 		}
 
 		if (!igual) {
-			usuarios.save(usuario);
+			uService.save(usuario);
 			return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<Usuario>(HttpStatus.CONFLICT);
@@ -53,14 +52,14 @@ public class UsuarioRestController {
 	@JsonView(Usuario.Basico.class)
 	@GetMapping(value = "/usuarios")
 	public List<Usuario> getUsuarios() {
-		return usuarios.findAll();
+		return uService.findAll();	
 	}
 
 	@JsonView(UsuarioDetalle.class)
 	@GetMapping(value = "/usuarios/{id}")
 	public ResponseEntity<Usuario> getUsuario(@PathVariable long id) {
 
-		Usuario usuario = usuarios.findOne(id);
+		Usuario usuario = uService.findOne(id);
 
 		if (usuario != null) {
 			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
@@ -73,10 +72,10 @@ public class UsuarioRestController {
 	@DeleteMapping(value = "/usuarios/{id}")
 	public ResponseEntity<Usuario> borrarUsuario(@PathVariable long id) {
 
-		Usuario usuario = usuarios.findOne(id);
+		Usuario usuario = uService.findOne(id);
 
 		if (usuario != null) {
-			usuarios.delete(usuario);
+			uService.delete(usuario); 	
 			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
@@ -87,7 +86,7 @@ public class UsuarioRestController {
 	@PutMapping(value = "/usuarios/{id}")
 	public ResponseEntity<Usuario> modificarUsuario(@PathVariable long id, @RequestBody Usuario modificado) {
 
-		Usuario usuario = usuarios.findOne(id);
+		Usuario usuario = uService.findOne(id);
 
 		if (usuario != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
@@ -95,7 +94,7 @@ public class UsuarioRestController {
 				List<Serie> favoritas = usuario.getSeriesFavoritas();
 				modificado.setAmigos(amigos);
 				modificado.setSeriesFavoritas(favoritas);
-				usuarios.save(modificado);
+				uService.save(modificado);
 				userComponent.setLoggedUser(usuario);
 				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 			} else {
@@ -110,8 +109,8 @@ public class UsuarioRestController {
 	@PutMapping(value = "/usuarios/{id}/amigo/{id2}")
 	public ResponseEntity<Usuario> amigoUsuario(@PathVariable long id, @PathVariable long id2) {
 
-		Usuario usuario = usuarios.findOne(id);
-		Usuario amigo = usuarios.findOne(id2);
+		Usuario usuario = uService.findOne(id);
+		Usuario amigo = uService.findOne(id2);
 
 		if (usuario != null && amigo != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
@@ -119,7 +118,7 @@ public class UsuarioRestController {
 					return new ResponseEntity<Usuario>(HttpStatus.CONFLICT);
 				} else {
 					usuario.getAmigos().add(amigo);
-					usuarios.save(usuario);
+					uService.save(usuario);
 					userComponent.setLoggedUser(usuario);
 					return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 				}
@@ -135,13 +134,13 @@ public class UsuarioRestController {
 	@DeleteMapping(value = "/usuarios/{id}/amigo/{id2}")
 	public ResponseEntity<Usuario> borrarAmigoUsuario(@PathVariable long id, @PathVariable long id2) {
 
-		Usuario usuario = usuarios.findOne(id);
-		Usuario amigo = usuarios.findOne(id2);
+		Usuario usuario = uService.findOne(id);
+		Usuario amigo = uService.findOne(id2);
 
 		if (usuario != null && amigo != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
 				usuario.getAmigos().remove(amigo);
-				usuarios.save(usuario);
+				uService.save(usuario);
 				userComponent.setLoggedUser(usuario);
 				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 			} else {
@@ -156,8 +155,8 @@ public class UsuarioRestController {
 	@PutMapping(value = "/usuarios/{id}/favorita/{id2}")
 	public ResponseEntity<Usuario> favoritaUsuario(@PathVariable long id, @PathVariable long id2) {
 
-		Usuario usuario = usuarios.findOne(id);
-		Serie serie = series.findOne(id2);
+		Usuario usuario = uService.findOne(id);
+		Serie serie = service.findOne(id2);
 
 		if (usuario != null && serie != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
@@ -165,7 +164,7 @@ public class UsuarioRestController {
 					return new ResponseEntity<Usuario>(HttpStatus.CONFLICT);
 				} else {
 					usuario.getSeriesFavoritas().add(serie);
-					usuarios.save(usuario);
+					uService.save(usuario);
 					userComponent.setLoggedUser(usuario);
 					return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 				}
@@ -181,13 +180,13 @@ public class UsuarioRestController {
 	@DeleteMapping(value = "/usuarios/{id}/favorita/{id2}")
 	public ResponseEntity<Usuario> borrarFavoritaUsuario(@PathVariable long id, @PathVariable long id2) {
 
-		Usuario usuario = usuarios.findOne(id);
-		Serie serie = series.findOne(id2);
+		Usuario usuario = uService.findOne(id);
+		Serie serie = service.findOne(id2);
 
 		if (usuario != null && serie != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
 				usuario.getSeriesFavoritas().remove(serie);
-				usuarios.save(usuario);
+				uService.save(usuario);
 				userComponent.setLoggedUser(usuario);
 				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 			} else {

@@ -38,7 +38,7 @@ public class LoginController {
 		}
 	}
 
-	@RequestMapping("/logOut")
+	@RequestMapping("/logout")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
 		if (!userComponent.isLoggedUser()) {
@@ -47,7 +47,8 @@ public class LoginController {
 		} else {
 			session.invalidate();
 			log.info("Logged out");
-			return new ResponseEntity<>(true, HttpStatus.OK);
+			return (new ResponseEntity<>(true, HttpStatus.OK));
+
 		}
 	}
 

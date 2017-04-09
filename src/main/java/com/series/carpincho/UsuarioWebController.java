@@ -30,18 +30,16 @@ public class UsuarioWebController {
 	private List<String> images = new ArrayList<>();
 
 	@Autowired
-	private SeriesRepository series;
-
+	private SerieService service;
 	@Autowired
-	private UsuariosRepository usuarios;
-
+	private UsuarioService uService;
 	@Autowired
 	private UserComponent userComponent;
 
 	@RequestMapping("/registro")
 	public String registro(Model model, Usuario usuario) {
 
-		usuarios.save(usuario);
+		uService.save(usuario);
 
 		return "redirect:/";
 	}
@@ -49,7 +47,7 @@ public class UsuarioWebController {
 	@RequestMapping("/admin")
 	public String admin(Model model) {
 
-		List<Serie> lista = series.findAll();
+		List<Serie> lista = service.findAll();
 		Collections.sort(lista, new Serie());
 
 		model.addAttribute("series", lista);
@@ -60,7 +58,7 @@ public class UsuarioWebController {
 	@RequestMapping("/admin/publicar")
 	public String publicar(Serie serie) {
 
-		series.save(serie);
+		service.save(serie);
 
 		return "redirect:/admin";
 	}
@@ -68,7 +66,7 @@ public class UsuarioWebController {
 	@RequestMapping("/admin/editar")
 	public String editar(String serie, int temporada, Capitulo capitulo) {
 
-		Serie ser = series.findByNombre(serie);
+		Serie ser = service.findByNombre(serie);
 		List<Temporada> lista = ser.getTemporadas();
 		int i = 0;
 		for (Temporada tem : lista) {
@@ -84,7 +82,7 @@ public class UsuarioWebController {
 
 		}
 		ser.setTemporadas(lista);
-		series.save(ser);
+		service.save(ser);
 
 		return "redirect:/admin";
 	}
@@ -101,7 +99,7 @@ public class UsuarioWebController {
 		if (userComponent.getLoggedUser() == null) {
 			return "login";
 		} else {
-			model.addAttribute("usuario", usuarios.findByUser(userComponent.getLoggedUser().getUser()));
+			model.addAttribute("usuario", uService.findByUser(userComponent.getLoggedUser().getUser()));
 			model.addAttribute("admin", request.isUserInRole("ADMIN"));
 
 			return "perfil";
@@ -111,7 +109,7 @@ public class UsuarioWebController {
 	@RequestMapping("/perfil/editar")
 	public String editar(Model model, Usuario u) {
 
-		model.addAttribute("usuario", usuarios.findByUser(userComponent.getLoggedUser().getUser()));
+		model.addAttribute("usuario", uService.findByUser(userComponent.getLoggedUser().getUser()));
 
 		return "editar-perfil";
 	}
@@ -122,7 +120,7 @@ public class UsuarioWebController {
 		if (userComponent.getLoggedUser().getId() == usuario.getId()) {
 			usuario.setAmigos(userComponent.getLoggedUser().getAmigos());
 			usuario.setSeriesFavoritas(userComponent.getLoggedUser().getSeriesFavoritas());
-			usuarios.save(usuario);
+			uService.save(usuario);
 			userComponent.setLoggedUser(usuario);
 		}
 
@@ -133,15 +131,15 @@ public class UsuarioWebController {
 	public String buscar(Model model, String user) {
 
 		if (userComponent.getLoggedUser() != null) {
-			Usuario usuario = usuarios.findByUser(userComponent.getLoggedUser().getUser());
-			Usuario amigo = usuarios.findByUser(user);
+			Usuario usuario = uService.findByUser(userComponent.getLoggedUser().getUser());
+			Usuario amigo = uService.findByUser(user);
 			if (usuario.getAmigos().contains(amigo)) {
 				usuario.getAmigos().remove(amigo);
 			} else {
 				usuario.getAmigos().add(amigo);
 			}
 
-			usuarios.save(usuario);
+			uService.save(usuario);
 			userComponent.setLoggedUser(usuario);
 		}
 
@@ -153,7 +151,7 @@ public class UsuarioWebController {
 			@RequestParam("file") MultipartFile file) {
 
 		if (userComponent.getLoggedUser() != null) {
-			Usuario usuario = usuarios.findByUser(userComponent.getLoggedUser().getUser());
+			Usuario usuario = uService.findByUser(userComponent.getLoggedUser().getUser());
 			String fileName = usuario.getUser() + ".png";
 
 			if (!file.isEmpty()) {
