@@ -22,9 +22,11 @@ public class DatabaseLoader {
 		String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis euismod pretium. Sed aliquet risus sed ante laoreet luctus. In dapibus massa eu mauris euismod gravida. Donec tempus, orci eu tempor viverra, ex metus vulputate leo, et sodales odio nisi nec massa. Proin quis neque nec sem finibus elementum. Praesent ultrices ante sit amet suscipit blandit. Praesent vulputate nibh est, vitae fringilla odio mattis eget. Aenean congue orci et leo placerat, nec semper ipsum convallis. Cras vestibulum volutpat lectus sed efficitur.";
 		Usuario carpinchote = new Usuario("Enrique", "Carpinchote", "budweisert0102@gmail.com", "pass", "ROLE_USER");
 		Usuario carpinchi = new Usuario("Carpinchi");
-		Usuario carpancha = new Usuario("Carpancha");
 		Usuario admin = new Usuario("Administrador", "admin", "admin@carpincheria.es", "admin", "ROLE_USER",
 				"ROLE_ADMIN");
+		Usuario carpancha = new Usuario("Carpancha");
+		Usuario prueba= new Usuario("Para borrar en la prueba");
+
 
 		List<Capitulo> capitulos = new ArrayList<Capitulo>();
 		capitulos.add(new Capitulo("Piloto", 1));
@@ -62,8 +64,10 @@ public class DatabaseLoader {
 
 		usuarios.save(carpinchote);
 		usuarios.save(carpinchi);
-		usuarios.save(carpancha);
 		usuarios.save(admin);
+		usuarios.save(carpancha);
+		usuarios.save(prueba);
+		
 		// carpinchote.getAmigos().add(carpinchi);
 		carpinchote.getAmigos().add(carpancha);
 

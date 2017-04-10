@@ -77,10 +77,12 @@ public class SerieRestController {
 		Serie serie = service.findOne(id);
 
 		if (serie != null) {
-			List<Temporada> temporadas = serie.getTemporadas();
-			List<Comentario> comentarios = serie.getComentarios();
-			modificada.setComentarios(comentarios);
-			modificada.setTemporadas(temporadas);
+			//List<Temporada> temporadas = serie.getTemporadas();
+			//List<Comentario> comentarios = serie.getComentarios();
+			//modificada.setComentarios(comentarios);
+			//modificada.setTemporadas(temporadas);
+			serie.setNombre(modificada.getNombre());
+			serie.setDescripcion(modificada.getDescripcion());
 			service.save(modificada);
 			return new ResponseEntity<Serie>(serie, HttpStatus.OK);
 		} else {

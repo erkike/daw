@@ -90,10 +90,14 @@ public class UsuarioRestController {
 
 		if (usuario != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
-				List<Usuario> amigos = usuario.getAmigos();
-				List<Serie> favoritas = usuario.getSeriesFavoritas();
-				modificado.setAmigos(amigos);
-				modificado.setSeriesFavoritas(favoritas);
+				//List<Usuario> amigos = usuario.getAmigos();
+				//List<Serie> favoritas = usuario.getSeriesFavoritas();
+				//modificado.setAmigos(amigos);
+				//modificado.setSeriesFavoritas(favoritas);
+				usuario.setNombre(modificado.getNombre());
+				usuario.setEmail(modificado.getEmail());
+				usuario.setApellido(modificado.getApellido());
+				//usuario.setUser(modificado.getUser());
 				uService.save(modificado);
 				userComponent.setLoggedUser(usuario);
 				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
