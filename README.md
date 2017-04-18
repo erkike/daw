@@ -20,21 +20,21 @@ Se trata de una web para comentar y calificar series de tv, puedes añadir tus s
 
 ### Capturas
 #### Página Principal:
- ![Sin titulo](pictures/principal.png)
+ ![Sin titulo](/spring/pictures/principal.png)
 #### Información: en la página principal
- ![Sin titulo](pictures/carpincho.png)
+ ![Sin titulo](/spring/pictures/carpincho.png)
 #### Listado Series:
- ![Sin titulo](pictures/series.png)
+ ![Sin titulo](/spring/pictures/series.png)
 #### Contacto:
- ![Sin titulo](pictures/contacto.png)
+ ![Sin titulo](/spring/pictures/contacto.png)
 #### Login:
- ![Sin titulo](pictures/cuenta.png)
+ ![Sin titulo](/spring/pictures/cuenta.png)
 #### Página de una Serie: información
- ![Sin titulo](pictures/100.png)
+ ![Sin titulo](/spring/pictures/100.png)
 #### Página de una Serie: lista de capítulos
- ![Sin titulo](pictures/100+.png)
+ ![Sin titulo](/spring/pictures/100+.png)
 #### Página de una Serie: comentarios
- ![Sin titulo](pictures/100++.png)
+ ![Sin titulo](/spring/pictures/100++.png)
   
 ### Fuentes:
   - https://startbootstrap.com/template-overviews/creative/ Plantilla utilizada para toda la página.
