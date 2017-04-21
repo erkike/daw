@@ -175,7 +175,7 @@ header {
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-image: url('/img/header.png');
+    background-image: url('/assets/header.png');
     text-align: center;
     color: white;
 }
