@@ -1,10 +1,10 @@
-import { PracticaDawPage } from './app.po';
+import { Fase4Page } from './app.po';
 
-describe('practica-daw App', function() {
-  let page: PracticaDawPage;
+describe('fase4 App', () => {
+  let page: Fase4Page;
 
   beforeEach(() => {
-    page = new PracticaDawPage();
+    page = new Fase4Page();
   });
 
   it('should display message saying app works', () => {

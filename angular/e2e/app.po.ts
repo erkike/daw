@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class PracticaDawPage {
+export class Fase4Page {
   navigateTo() {
     return browser.get('/');
   }
