@@ -19,9 +19,18 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "assets/css/new_index.css",
+        "assets/vendor/bootstrap/css/bootstrap.min.css",
+        "assets/vendor/font-awesome/css/font-awesome.min.css",
+        "assets/vendor/magnific-popup/magnific-popup.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/vendor/jquery/jquery.min.js",
+        "assets/vendor/bootstrap/js/bootstrap.min.js",
+        "assets/js/creative.min.js",
+        "assets/vendor/scrollreveal/scrollreveal.min.js",
+        "assets/vendor/magnific-popup/jquery.magnific-popup.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
