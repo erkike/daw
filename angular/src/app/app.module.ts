@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SerieComponent } from './serie/serie.component';
 import { routing } from './app.routing';
+import {PerfilComponent} from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SerieComponent
+    SerieComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

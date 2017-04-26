@@ -6,6 +6,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: 'perfil.component.html'
+
 })
 
 export class PerfilComponent{
@@ -13,6 +14,7 @@ export class PerfilComponent{
     private usuario;
     private nombre;
     private apellidos;
+    private user;
     private email;
     private pass;
     private amigos=[];
@@ -28,6 +30,7 @@ export class PerfilComponent{
       response => {
         this.usuario = response.json();
         this.nombre = this.usuario.nombre;
+        this.user= this.usuario.user;
         this.apellidos = this.usuario.apellidos;
         this.email=this.usuario.email;
       },
