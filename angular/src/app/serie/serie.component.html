@@ -52,7 +52,7 @@
 						<hr class="light">
 					</div>
 					<div class="col-lg-6 text-center">
-						 <youtube-player  *ngIf="trailer != null"
+						 <youtube-player width="560" height="315"  *ngIf="trailer != null"
 									[videoId]="trailer"
 									(ready)="savePlayer($event)"
 									(change)="onStateChange($event)"
