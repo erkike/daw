@@ -13,6 +13,7 @@ export class SerieComponent{
   private serie;
   private comentarios = [];
   private temporadas = [];
+  private trailer;
 
   constructor(private http: Http, private router: Router, activatedRoute: ActivatedRoute){
 
@@ -24,6 +25,7 @@ export class SerieComponent{
         this.serie = response.json();
         this.comentarios = this.serie.comentarios;
         this.temporadas = this.serie.temporadas;
+        this.trailer=this.serie.trailer.substr(30);
       },
       error => console.error(error)
     );
