@@ -555,3 +555,165 @@ body {
 .glyphicon-plus:hover {
     color: white
 }
+
+.desmarcado {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: url("/img/logo-hover.png") no-repeat;
+    border: none;
+    color: transparent;
+}
+
+.desmarcado:hover{
+	background-position: 0 -40px;
+}
+
+.marcado{
+	width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: url("/img/logo-hover.png") no-repeat;
+    border: none;
+    background-position: 0 -40px;
+    color: transparent;
+}
+
+.valorar{
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    color: white;
+    background: transparent;
+}
+
+.valorar:hover{
+	background: white;
+    color: #F05F40;
+    text-decoration: none;
+}
+
+.favorito {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: url("/img/favorito-blanco.png") no-repeat;
+    border: none;
+    position: absolute;
+    margin-left: 5px;
+    background-position: 0 -30px;
+    color: transparent;
+}
+
+.nofavorito {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: url("/img/favorito-blanco.png") no-repeat;
+    border: none;
+    position: absolute;
+    margin-left: 5px;
+    color: transparent;
+}
+
+.nofavorito:hover {
+    background-position: 0 -30px;
+}
+
+.visto {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    color: white;
+    background: transparent;
+}
+
+.visto:hover {
+    background: white;
+    color: #F05F40;
+    text-decoration: none;
+}
+
+.temporadas {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: #F05F40;
+    text-align: left;
+    width: 380px;
+}
+
+.capitulos {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    background: none;
+}
+
+.capitulos:hover {
+    color: black;
+    background: #F05F40;
+    text-decoration: none;
+}
+
+.perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: #F05F40;
+    position: absolute;
+}
+
+.nombre-perfil {
+    width: 100px;
+    text-align: center;
+    float: left;
+    margin-top: 105px;
+}
+
+.comentarios {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    width: 100%;
+    height: 120px;
+    background: transparent;
+    border-style: solid;
+    border-color: #F05F40;
+    color: black;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.div-comentarios {
+    position: relative;
+    margin-left: 110px;
+}
+
+.comentar {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    width: 100px;
+    height: 50px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: transparent;
+    border-style: solid;
+    border-color: #F05F40;
+    color: black;
+    float: right;
+}
+
+.comentar:hover {
+    color: #F05F40;
+}
+
+.fondos {
+	width: 100%;
+    min-height: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    text-align: center;
+}

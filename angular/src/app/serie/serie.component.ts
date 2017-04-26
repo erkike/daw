@@ -1,25 +1,33 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './home.component.html'
+  templateUrl: 'serie.component.html'
 })
 
 export class SerieComponent{
-private serie: string="";
 
-  constructor(private http: Http){
+  private serie;
+  private comentarios = [];
+  private temporadas = [];
 
-    let url = "https://localhost:8443/series/1";
+  constructor(private http: Http, private router: Router, activatedRoute: ActivatedRoute){
+
+    let id = activatedRoute.snapshot.params['id'];
+    let url = "https://localhost:8443/series/"+id;
 
     this.http.get(url).subscribe(
       response => {
-        let data = response.json();
-          this.serie = data;
+        this.serie = response.json();
+        this.comentarios = this.serie.comentarios;
+        this.temporadas = this.serie.temporadas;
       },
       error => console.error(error)
     );
   }
+
+  goHome() { this.router.navigate(['/home'])};
 }
