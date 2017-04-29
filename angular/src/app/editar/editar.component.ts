@@ -5,30 +5,26 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'perfil.component.html'
-
+  templateUrl: 'editar.component.html'
 })
 
-export class PerfilComponent{
+export class editarComponent{
 
-    private usuario;
+  private usuario;
 
 
-
-     constructor(private http: Http, private router: Router, activatedRoute: ActivatedRoute){
+  constructor(private http: Http, private router: Router, activatedRoute: ActivatedRoute){
 
     let id = activatedRoute.snapshot.params['id'];
     let url = "https://localhost:8443/usuarios/"+id;
 
     this.http.get(url).subscribe(
       response => {
-        this.usuario = response.json();
-
+        this.usuario=response.json();
       },
       error => console.error(error)
     );
   }
 
   goHome() { this.router.navigate(['/home'])};
-
 }

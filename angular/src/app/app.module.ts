@@ -9,13 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { SerieComponent } from './serie/serie.component';
 import { routing } from './app.routing';
 import {PerfilComponent} from './perfil/perfil.component';
+import {editarComponent} from './editar/editar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SerieComponent,
-    PerfilComponent
+    PerfilComponent,
+    editarComponent
   ],
   imports: [
     BrowserModule,

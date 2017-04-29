@@ -1,0 +1,93 @@
+ <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img class="navbar-brand page-scroll" src="/src/assets/img/logo.png"> Series Carpincho
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="/perfil">Mi cuenta</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div *ngIf="usuario != null">
+    <section class="bg-dark" id='usuario'>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center" id="info-profile">
+                    <img style="border-radius:100%" src='src/assets/img/perfil/{{usuario.user}}.png'/>
+                    
+                    	<form action= "/perfil/{{usuario.id}}/editar" method="post" enctype="multipart/form-data">
+                    		<p>
+								<input type='hidden' name='imageTitle' />
+							</p>
+							<p>
+								<input type="file" name="file" />
+							</p>
+							<input type='submit' name='imagen' value='Cambiar imagen' />
+							
+						</form>
+			
+                </div>
+
+				
+                <div class="col-lg-6 text-center" id="{{usuario.user}}">
+                	<form action="/perfil/editar/guardar" method="post">
+                    <table class="edit">
+                        <tr>
+                            <td>
+                                Nombre
+                            </td>
+                            <td>
+                                <input type="text" size="25" maxlength="20" value="{{usuario.nombre}}" name='nombre'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Apellidos
+                            </td>
+                            <td>
+                                <input type="text" size="25" maxlength="30" value="" name='{{usuario.apellido}}'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Usuario*
+                            </td>
+                            <td>
+                                <input type="text" size="25" maxlength="20" value="{{usuario.user}}" name='user'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email*
+                            </td>
+                            <td>
+                                <input type="text" size="25" maxlength="20" value="{{usuario.email}}" name='email'>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Guardar" href="/perfil/editar" class="btn btn-primary btn-xl"/>
+                    <input type='hidden' name='passwordHash' value='{{usuario.passwordHash}}'/>
+                    <input type='hidden' name='id' value='{{usuario.id}}'/>
+                    <input type='hidden' name='img' value='{{usuario.img}}'/>
+                    <input type='hidden' name='roles' value='{{usuario.roles}}'/>
+                    </form>
+                    <a href="/perfil" class="btn btn-primary btn-xl">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
