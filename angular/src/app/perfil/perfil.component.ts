@@ -29,10 +29,7 @@ export class PerfilComponent{
     this.http.get(url).subscribe(
       response => {
         this.usuario = response.json();
-        this.nombre = this.usuario.nombre;
-        this.user= this.usuario.user;
-        this.apellidos = this.usuario.apellidos;
-        this.email=this.usuario.email;
+
       },
       error => console.error(error)
     );

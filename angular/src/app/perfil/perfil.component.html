@@ -60,8 +60,8 @@
                 </div>
            </form>
                 <div *ngFor="let usuario of usuario.amigos" id={{usuario.user}} class="col-lg-3 text-center">
-                    <h2 class="section-heading">{{usuario.amigos.user}}</h2>
-                    <img style="border-radius:100%" src='src/assets/img/perfil/{{usuario.user}}.jpg' width='200' height='200'>
+                    <h2 class="section-heading">{{usuario.user}}</h2>
+                    <img style="border-radius:100%" src='src/assets/img/perfil/{{usuario.user}}.png' width='200' height='200'>
                     <hr class="light">
                 </div>
                 
@@ -77,9 +77,9 @@
         <div class="container">
             <div class="row">
                 
-            <div *ngFor="let series of usuario.favoritas" id={{series.id}} class="col-lg-3 text-center">
-                    <h2 class="section-heading">{{usuario.favoritas.nombre}}</h2>
-                    <img src='src/assets/img/fondos/{{usuario.favorita.nombre}}.jpg' width='200' height='200'>
+            <div *ngFor="let series of usuario.seriesFavoritas" id={{series.id}} class="col-lg-3 text-center">
+                    <h2 class="section-heading">{{series.nombre}}</h2>
+                    <img src='src/assets/img/fondos/{{series.nombre}}.jpg' width='200' height='200'>
                     <a type="button" class="mas-info" [routerLink]="['/',series.id]">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
