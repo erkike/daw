@@ -47,25 +47,21 @@
             <div id="login">
                 <h1>Bienvenido a Series Carpincho</h1>
 
-                <form action="/login" method="post">
-
                     <div class="field-wrap">
                         <label>
                             Usuario<span class="req">*</span>
                         </label>
-                        <input type="text" name="user" />
+                        <input type="text" [(ngModel)]="user" />
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Contraseña<span class="req">*</span>
                         </label>
-                        <input type="password" name="passwordHash" />
+                        <input type="password" [(ngModel)]="pass" />
                     </div>
 
-                    <input class="button button-block" type='submit' value='Confirmar'/>
-
-                </form>
+                    <input class="button button-block" type='button' value='Confirmar' (click)="autenticacion()"/>
 
             </div>
 
