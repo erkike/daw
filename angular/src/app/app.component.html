@@ -20,7 +20,7 @@
 					<li><a class="page-scroll" href="#about">Información</a></li>
 					<li><a class="page-scroll" href="#series">Series</a></li>
 					<li><a class="page-scroll" href="#contact">Contacto</a></li>
-					<li><a class="page-scroll" href="/perfil">Mi cuenta</a></li>
+					<li><a class="page-scroll" [routerLink]="['/','login']">Mi cuenta</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -73,7 +73,7 @@
 				<div *ngFor="let series of series" id={{series.id}} class="col-lg-3 text-center">
 					<h2 class="section-heading">{{series.nombre}}</h2>
 					<img src="src/assets/img/series_icon/{{series.nombre}}.jpg" width='200' height='200'>
-						<a type="button" class="mas-info" [routerLink]="['/',series.id]"> <span
+						<a type="button" class="mas-info" [routerLink]="['/','series',series.id]"> <span
 						class="glyphicon glyphicon-plus"></span>
 					</a>
 					<div class="col-lg-12 text-center">

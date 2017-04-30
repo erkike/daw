@@ -10,6 +10,7 @@ import { SerieComponent } from './serie/serie.component';
 import { routing } from './app.routing';
 import {PerfilComponent} from './perfil/perfil.component';
 import {editarComponent} from './editar/editar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {editarComponent} from './editar/editar.component';
     HomeComponent,
     SerieComponent,
     PerfilComponent,
-    editarComponent
+    editarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

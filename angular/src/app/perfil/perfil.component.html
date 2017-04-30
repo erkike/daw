@@ -34,11 +34,11 @@
         </div>
        
     </nav>
-    <header>
-		<img class='fondos' position: 'relative' src='src/assets/img/header.jpg' />
-	</header>
-   
+
     <div *ngIf="usuario != null">
+    <header>
+		<img class='fondos' src='src/assets/img/header.jpg' />
+	</header>
 
         <div class="header-content">
             <div class="col-lg-12 text-center" id="info-profile">
@@ -79,7 +79,7 @@
                 
             <div *ngFor="let series of usuario.seriesFavoritas" id={{series.id}} class="col-lg-3 text-center">
                     <h2 class="section-heading">{{series.nombre}}</h2>
-                    <img src='src/assets/img/fondos/{{series.nombre}}.jpg' width='200' height='200'>
+                    <img src='src/assets/img/series_icon/{{series.nombre}}.jpg' width='200' height='200'>
                     <a type="button" class="mas-info" [routerLink]="['/',series.id]">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>

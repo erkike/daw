@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent {
   private series: string[] = [];
 
-  constructor(private http: Http){
+  constructor(private http: Http, private router: Router){
     this.series = [];
 
     let url = "https://localhost:8443/series";
@@ -26,4 +27,8 @@ export class AppComponent {
       error => console.error(error)
     );
   }
+
+  goHome() { this.router.navigate(['/home#page-top'])};
+
+  login() { this.router.navigate(['/login'])};
 }

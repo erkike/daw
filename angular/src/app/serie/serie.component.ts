@@ -25,7 +25,7 @@ export class SerieComponent{
         this.serie = response.json();
         this.comentarios = this.serie.comentarios;
         this.temporadas = this.serie.temporadas;
-        this.trailer=this.serie.trailer.substr(30);
+        this.trailer = this.serie.trailer;
       },
       error => console.error(error)
     );

@@ -651,12 +651,6 @@ body {
     background: none;
 }
 
-.capitulos:hover {
-    color: black;
-    background: #F05F40;
-    text-decoration: none;
-}
-
 .perfil {
     width: 100px;
     height: 100px;
@@ -716,4 +710,209 @@ body {
     -o-background-size: cover;
     background-position: center;
     text-align: center;
+}
+
+.navbar-default .navbar-header .navbar-brand > img {
+    margin-top: -22px;
+    margin-left: -8px;
+    height: 65px
+}
+
+.order-by {
+    width: 84%;
+    margin-top: -40px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.nav-tabs > li > p {
+    color: #F05F40;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: -5px;
+    margin-right: 10px;
+}
+
+.favourite {
+    position: absolute;
+    top: 40px;
+    left: 206px;
+}
+
+.valoration {
+    margin-top: 5px;
+}
+
+.pagination {
+    margin-top: 60px;
+    margin-bottom: -40px;
+}
+
+.favorito {
+    position: absolute;
+    color: gray;
+    margin-top: 2px;
+    margin-left: -36px;
+    background: transparent;
+    border: 0px;
+}
+
+.glyphicon-star {
+    color: #ffeb00;
+    position: absolute;
+    font-size: 30px;
+}
+
+.glyphicon-star:hover {
+    color: gray;
+}
+
+.mas-info {
+    position: absolute;
+    margin-top: 167px;
+    margin-left: -35px;
+    color: #F05F40;
+    background: transparent;
+    border: 0px;
+}
+
+.glyphicon-plus {
+    font-size: 28px;
+}
+
+.glyphicon-plus:hover {
+    color: white
+}
+
+#info-profile > img {
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #F05F40;
+    width: 30%;
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+#info-profile > h1 {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    background: #313030;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #F05F40;
+    width: 30%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+}
+
+#friend {
+    margin-top: -40px;
+    margin-bottom: 50px;
+}
+
+#mail_carp {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #dedede;
+}
+
+#mail_carp > li > h1 {
+    margin-top: 11px;
+    font-size: 15px;
+    margin-left: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+#mail_carp > li > p {
+    margin-left: 30px;
+    color: grey;
+}
+
+#mail_carp > li > img {
+    margin: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b5b5b5;
+    border-radius: 5px;
+}
+
+#mail_jon > li > h1 {
+    margin-top: 11px;
+    font-size: 15px;
+    margin-left: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+#mail_jon > li > p {
+    margin-left: 104px;
+    color: grey;
+}
+
+#mail_jon > li > img {
+    margin: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b5b5b5;
+    border-radius: 5px;
+}
+
+#mail_ww > li > h1 {
+    margin-top: 11px;
+    font-size: 15px;
+    margin-left: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+#mail_ww > li > p {
+    margin-left: 76px;
+    color: grey;
+}
+
+#mail_ww > li > img {
+    margin: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b5b5b5;
+    border-radius: 5px;
+}
+
+.vermas{
+	position:absolute;
+	align:center;	
+	}
+
+.buscar {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    width: 160px;
+    height: 40px;
+    border-style: solid;
+    border-color: white;
+    color: black;
+    resize: none;
+    float: right;
+}
+.comentar {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    width: 80px;
+    height: 40px;
+    background: none;
+    border-color: white;
+    color: white;
+    float: right;
+}
+
+.logout {
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	border: none;
+	margin-top: 13.5px;
+	color: #F05F40;
+	background: none;
 }

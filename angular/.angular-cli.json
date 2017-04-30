@@ -22,7 +22,8 @@
         "assets/css/carpincho.css",
         "assets/vendor/bootstrap/css/bootstrap.min.css",
         "assets/vendor/font-awesome/css/font-awesome.min.css",
-        "assets/vendor/magnific-popup/magnific-popup.css"
+        "assets/vendor/magnific-popup/magnific-popup.css",
+        "assets/css/style.css"
       ],
       "scripts": [
         "assets/vendor/jquery/jquery.min.js",
