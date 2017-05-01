@@ -3,58 +3,66 @@
         <div class="row">
             <div class="col-lg-6 text-center">
                 <h1>Regístrate en Series Carpincho</h1>
-                    <div class="top-row">
-                        <div class="field-wrap">
-                            <label>
-                                Nombre<span class="req">*</span>
-                            </label>
-                            <input type="text" [(ngModel)]="nombre" />
-                        </div>
+                <table class="edit">
+                    <tr>
+                        <td>
+                            Nombre*
+                        </td>
+                        <td>
+                            <input type="text" size="25" maxlength="20" [(ngModel)]="nombre">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Username*
+                        </td>
+                        <td>
+                            <input type="text" size="25" maxlength="20" [(ngModel)]="user">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email*
+                        </td>
+                        <td>
+                            <input type="text" size="25" maxlength="20" [(ngModel)]="email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Contraseña*
+                        </td>
+                        <td>
+                            <input type="text" size="25" maxlength="20" [(ngModel)]="passwordHash">
+                        </td>
+                    </tr>
+                </table>
 
-                        <div class="field-wrap">
-                            <label>
-                                Username<span class="req">*</span>
-                            </label>
-                            <input type="text" [(ngModel)]="user" />
-                        </div>
-                    </div>
-
-                    <div class="field-wrap">
-                        <label>
-                            Email<span class="req">*</span>
-                        </label>
-                        <input type="text" [(ngModel)]="email" />
-                    </div>
-
-                    <div class="field-wrap">
-                        <label>
-                            Contraseña<span class="req">*</span>
-                        </label>
-                        <input type="text" [(ngModel)]="passwordHash" />
-                    </div>
-
-                    <input class="button button-block" type='submit' value='Confirmar' (click)="registro()" />
-                    <a [routerLink]="['/','home']" class="button button-block">Cancelar</a>
+                    <a class="btn btn-primary btn-xl" (click)="registro()">Confirmar</a>
+                    <a [routerLink]="['/','home']" class="btn btn-primary btn-xl">Cancelar</a>
             </div>
             <div class="col-lg-6 text-center">
                 <h1>Bienvenido a Series Carpincho</h1>
-
-                <div class="field-wrap">
-                    <label>
-                            Usuario<span class="req">*</span>
-                        </label>
-                    <input type="text" [(ngModel)]="userlog" />
-                </div>
-
-                <div class="field-wrap">
-                    <label>
-                            Contraseña<span class="req">*</span>
-                        </label>
-                    <input type="password" [(ngModel)]="passlog" />
-                </div>
-
-                <input class="button button-block" type='button' value='Confirmar' (click)="autenticacion()" />
-                <a [routerLink]="['/','home']" class="button button-block">Cancelar</a>
+                <table class="edit">
+                    <tr>
+                        <td>
+                            Username*
+                        </td>
+                        <td>
+                            <input type="text" size="25" maxlength="20" [(ngModel)]="userlog">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Contraseña*
+                        </td>
+                        <td>
+                            <input type="text" size="25" maxlength="20" [(ngModel)]="passlog">
+                        </td>
+                    </tr>
+                </table>
+                <a class="btn btn-primary btn-xl" (click)="autenticacion()" >Confirmar</a>
+                <a [routerLink]="['/','home']" class="btn btn-primary btn-xl">Cancelar</a>
             </div>
         </div>
     </div>

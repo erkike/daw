@@ -37,12 +37,18 @@ export class LoginComponent {
         );
     }
 
-    autenticacion(user: string, pass: string): Observable<any> {
+    autenticacion(){
 
-        var headers = new Headers();
-        headers.append('Authorization', 'Basic ' + btoa(user + ':' + pass));
+        let headers = new Headers();
+        headers.append('Authorization', 'Basic ' + btoa(this.userlog + ':' + this.passlog));
 
-        return this.http.get(this.login, headers);
+        this.http.get(this.login, {headers: headers}).subscribe(
+            response => { 
+                let usuario = response.json();
+                let id = usuario.id;
+                this.router.navigate(['/perfil/'+id]); },
+            error => console.log(error)
+        );
     }
 
 }

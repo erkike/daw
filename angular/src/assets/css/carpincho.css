@@ -916,3 +916,63 @@ body {
 	color: #F05F40;
 	background: none;
 }
+
+.navbar-default .navbar-header .navbar-brand > img {
+    margin-top: -22px;
+    margin-left: -8px;
+    height: 65px
+}
+
+#info-profile > img {
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #F05F40;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+#info-profile > h1 {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    background: #313030;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #F05F40;
+    width: 30%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+}
+
+.edit {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 20px;
+}
+
+td {
+    padding-right: 30px;
+    padding-bottom: 33px;
+    text-align: left;
+}
+
+input {
+    background-color: transparent;
+    border-color: #F05F40;
+}
+
+textarea {
+    background-color: transparent;
+    border-color: #F05F40;
+    width: 325px;
+}
+
+select {
+    background-color: #222222;
+    border-color: #F05F40;
+    overflow: hidden;
+    color: white;
+}
