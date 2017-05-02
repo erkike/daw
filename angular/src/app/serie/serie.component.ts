@@ -20,7 +20,7 @@ export class SerieComponent{
   constructor(private http: Http, private router: Router, activatedRoute: ActivatedRoute){
 
     let id = activatedRoute.snapshot.params['id'];
-    this.url = "https://localhost:8443/series/"+id;
+    this.url = "http://localhost:4200/series/"+id;
 
     this.http.get(this.url).subscribe(
       response => {
@@ -34,7 +34,7 @@ export class SerieComponent{
   }
 
   comentar(){
-    
+
     const headers = new Headers({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'

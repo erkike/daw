@@ -8,7 +8,7 @@
 						class="fa fa-bars"></i>
 				</button>
 				<a class="navbar-brand page-scroll" [routerLink]="['/','home']"> <img
-					class="navbar-brand page-scroll" src="/src/assets/img/logo.png"> Series
+					class="navbar-brand page-scroll" src="../../assets/img/logo.png"> Series
 					Carpincho
 				</a>
 			</div>
@@ -22,7 +22,7 @@
 					<li><a class="page-scroll" href="#capitulos">Capítulos</a></li>
 					<li><a class="page-scroll" href="#comentarios">Comentarios</a>
 					</li>
-					<li><a class="page-scroll" href="/perfil">Mi cuenta</a></li>
+					<li><a class="page-scroll" [routerLink]="['/','login']">Mi cuenta</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -32,7 +32,7 @@
 
 	<div *ngIf="serie != null">
 	<header>
-		<img class='fondos' src='src/assets/img/fondos/{{serie.nombre}}.jpg' />
+		<img class='fondos' src='../../assets/img/fondos/{{serie.url}}.jpg' />
 	</header>
 
 	<section class="bg-primary" id="informacion">
@@ -116,7 +116,7 @@
 
 			<div *ngFor="let comentario of comentarios">
 				<div class="row">
-					<img class='perfil' src="/src/assets/img/perfil/{{comentario.usuario.user}}.png" />
+					<img class='perfil' src="../../assets/img/perfil/{{comentario.usuario.user}}.png" />
 					<h5 class='nombre-perfil'>{{comentario.usuario.user}}</h5>
 					<div class='div-comentarios'>
 						<textarea readonly class='comentarios'>{{comentario.texto}}</textarea>

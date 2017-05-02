@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private http: Http, private router: Router){
     this.series = [];
 
-    let url = "https://localhost:8443/series";
+    let url = "http://localhost:4200/series";
 
     this.http.get(url).subscribe(
       response => {

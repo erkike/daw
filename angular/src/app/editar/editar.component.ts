@@ -16,7 +16,7 @@ export class editarComponent{
   constructor(private http: Http, private router: Router, activatedRoute: ActivatedRoute){
 
     let id = activatedRoute.snapshot.params['id'];
-    let url = "https://localhost:8443/usuarios/"+id;
+    let url = "http://localhost:4200/usuarios/"+id;
 
     this.http.get(url).subscribe(
       response => {

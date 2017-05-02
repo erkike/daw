@@ -24,8 +24,8 @@ export class LoginComponent {
     userlog = '';
     passlog = '';
 
-    private login = "https://localhost:8443/logIn";
-    private registroUrl = "https://localhost:8443/usuarios";
+    private login = "http://localhost:4200/logIn";
+    private registroUrl = "http://localhost:4200/usuarios";
 
     constructor(private http: Http, private router: Router) {
 

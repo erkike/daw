@@ -6,7 +6,7 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" [routerLink]="['/','home']">
-                    <img class="navbar-brand page-scroll" src="/src/assets/img/logo.png"> Series Carpincho
+                    <img class="navbar-brand page-scroll" src="../../assets/img/logo.png"> Series Carpincho
                 </a>
             </div>
 
@@ -37,13 +37,13 @@
 
     <div *ngIf="usuario != null">
     <header>
-		<img class='fondos' src='src/assets/img/header.jpg' />
+		<img class='fondos' src='../../assets/img/header.jpg' />
 	</header>
 
         <div class="header-content">
             <div class="col-lg-12 text-center" id="info-profile">
                 <h1>{{usuario.user}}</h1>
-                <img style="border-radius:100%" src='src/assets/img/perfil/{{usuario.user}}.png'>
+                <img style="border-radius:100%" src='../../assets/img/perfil/{{usuario.user}}.png'>
                 <a [routerLink]="['/','perfil',usuario.id,'editar']" class="btn btn-primary btn-xl">Editar perfil</a>
             </div>
         </div>
@@ -61,7 +61,7 @@
            </form>
                 <div *ngFor="let usuario of usuario.amigos" id={{usuario.user}} class="col-lg-3 text-center">
                     <h2 class="section-heading">{{usuario.user}}</h2>
-                    <img style="border-radius:100%" src='src/assets/img/perfil/{{usuario.user}}.png' width='200' height='200'>
+                    <img style="border-radius:100%" src='../../assets/img/perfil/{{usuario.user}}.png' width='200' height='200'>
                     <hr class="light">
                 </div>
                 
@@ -79,7 +79,7 @@
                 
             <div *ngFor="let series of usuario.seriesFavoritas" id={{series.id}} class="col-lg-3 text-center">
                     <h2 class="section-heading">{{series.nombre}}</h2>
-                    <img src='src/assets/img/series_icon/{{series.nombre}}.jpg' width='200' height='200'>
+                    <img src='../../assets/img/series_icon/{{series.url}}.jpg' width='200' height='200'>
                     <a type="button" class="mas-info" [routerLink]="['/','series',series.id]">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>

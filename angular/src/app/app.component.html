@@ -72,12 +72,12 @@
 			<div class="row">
 				<div *ngFor="let series of series" id={{series.id}} class="col-lg-3 text-center">
 					<h2 class="section-heading">{{series.nombre}}</h2>
-					<img src="src/assets/img/series_icon/{{series.nombre}}.jpg" width='200' height='200'>
+					<img src="../assets/img/series_icon/{{series.url}}.jpg" width='200' height='200'>
 						<a type="button" class="mas-info" [routerLink]="['/','series',series.id]"> <span
 						class="glyphicon glyphicon-plus"></span>
 					</a>
 					<div class="col-lg-12 text-center">
-					<img src="src/assets/img/{{series.valoracion}}.png" width='200' height='40' style='margin-top:10px'>
+					<img src="../assets/img/{{series.valoracion}}.png" width='200' height='40' style='margin-top:10px'>
 					<hr class="light">
 					</div>
 				</div>
