@@ -5,7 +5,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/">
+                <a class="navbar-brand page-scroll" [routerLink]="['/','home']">
                     <img class="navbar-brand page-scroll" src="/src/assets/img/logo.png"> Series Carpincho
                 </a>
             </div>
@@ -85,7 +85,7 @@
                     <input type='hidden' name='img' value='{{usuario.img}}'/>
                     <input type='hidden' name='roles' value='{{usuario.roles}}'/>
                     </form>
-                    <a href="/perfil" class="btn btn-primary btn-xl">Cancelar</a>
+                    <a [routerLink]="['/','perfil',usuario.id]" class="btn btn-primary btn-xl">Cancelar</a>
                 </div>
             </div>
         </div>

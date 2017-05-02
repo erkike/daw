@@ -40,14 +40,12 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="col-lg-6 text-center">
-					<form action="/{{url}}/favorito" method="post">
 						<h1 class="section-heading">
 							{{serie.nombre}}
-							<input type='submit' name='fav' class='{{favorito}}'>
+							<input type='submit' name='fav' class='nofavorito'>
 							
 							<!-- <button class='recomendar'></button>  -->
 						</h1>
-						</form>
 						<p class="text-faded">{{serie.descripcion}}</p>
 						<hr class="light">
 					</div>
@@ -109,10 +107,10 @@
 		<div class="container">
 				<div class="row">
 					<textarea placeholder='Deja tu comentario...' class='comentarios'
-						name='texto'></textarea>
+						[(ngModel)]="texto"></textarea>
 				</div>
 				<div class="row">
-					<input class='comentar' type='submit' value='Comentar' />
+					<button class='comentar' (click)="comentar()">Comentar</button>
 					<!-- <button class='comentar' id='cancelar'>Cancelar</button> -->
 				</div>
 

@@ -7,7 +7,7 @@
 					<span class="sr-only">Toggle navigation</span> Menu <i
 						class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top"> <img
+				<a class="navbar-brand page-scroll"> <img
 					class="navbar-brand page-scroll" src="/assets/img/logo.png"> Series
 					Carpincho
 				</a>
@@ -17,9 +17,9 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="page-scroll" href="#about">Información</a></li>
-					<li><a class="page-scroll" href="#series">Series</a></li>
-					<li><a class="page-scroll" href="#contact">Contacto</a></li>
+					<li><a class="page-scroll" (click)="goAbout()">Información</a></li>
+					<li><a class="page-scroll" (click)="goSeries()">Series</a></li>
+					<li><a class="page-scroll" (click)="goContact()">Contacto</a></li>
 					<li><a class="page-scroll" [routerLink]="['/','login']">Mi cuenta</a></li>
 				</ul>
 			</div>
@@ -49,7 +49,7 @@
 					<p class="text-faded">Además, si te registras podrás disfrutar
 						de los comentarios libres de spoilers, añadir a tu perfil tus
 						series favoritas y recomendarlas a tus amigos.</p>
-					<a href="/perfil"
+					<a [routerLink]="['/','login']"
 						class="page-scroll btn btn-default btn-xl sr-button">¡Únete
 						ya!</a>
 				</div>

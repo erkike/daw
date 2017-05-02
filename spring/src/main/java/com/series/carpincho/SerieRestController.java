@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -77,10 +78,10 @@ public class SerieRestController {
 		Serie serie = service.findOne(id);
 
 		if (serie != null) {
-			//List<Temporada> temporadas = serie.getTemporadas();
-			//List<Comentario> comentarios = serie.getComentarios();
-			//modificada.setComentarios(comentarios);
-			//modificada.setTemporadas(temporadas);
+			// List<Temporada> temporadas = serie.getTemporadas();
+			// List<Comentario> comentarios = serie.getComentarios();
+			// modificada.setComentarios(comentarios);
+			// modificada.setTemporadas(temporadas);
 			serie.setNombre(modificada.getNombre());
 			serie.setDescripcion(modificada.getDescripcion());
 			service.save(modificada);
@@ -90,6 +91,7 @@ public class SerieRestController {
 		}
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@JsonView(SerieDetalle.class)
 	@PutMapping(value = "/series/{id}/comentario")
 	public ResponseEntity<Serie> comentarSerie(@PathVariable long id, @RequestBody Comentario comentario) {

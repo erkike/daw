@@ -520,15 +520,6 @@ body {
     margin-bottom: -40px;
 }
 
-.favorito {
-    position: absolute;
-    color: gray;
-    margin-top: 2px;
-    margin-left: -36px;
-    background: transparent;
-    border: 0px;
-}
-
 .glyphicon-star {
     color: gray;
     position: absolute;
@@ -598,7 +589,7 @@ body {
     width: 30px;
     height: 30px;
     display: inline-block;
-    background: url("/img/favorito-blanco.png") no-repeat;
+    background: url("../img/favorito-blanco.png") no-repeat;
     border: none;
     position: absolute;
     margin-left: 5px;
@@ -610,7 +601,7 @@ body {
     width: 30px;
     height: 30px;
     display: inline-block;
-    background: url("/img/favorito-blanco.png") no-repeat;
+    background: url("../img/favorito-blanco.png") no-repeat;
     border: none;
     position: absolute;
     margin-left: 5px;
@@ -734,57 +725,6 @@ body {
     margin-right: 10px;
 }
 
-.favourite {
-    position: absolute;
-    top: 40px;
-    left: 206px;
-}
-
-.valoration {
-    margin-top: 5px;
-}
-
-.pagination {
-    margin-top: 60px;
-    margin-bottom: -40px;
-}
-
-.favorito {
-    position: absolute;
-    color: gray;
-    margin-top: 2px;
-    margin-left: -36px;
-    background: transparent;
-    border: 0px;
-}
-
-.glyphicon-star {
-    color: #ffeb00;
-    position: absolute;
-    font-size: 30px;
-}
-
-.glyphicon-star:hover {
-    color: gray;
-}
-
-.mas-info {
-    position: absolute;
-    margin-top: 167px;
-    margin-left: -35px;
-    color: #F05F40;
-    background: transparent;
-    border: 0px;
-}
-
-.glyphicon-plus {
-    font-size: 28px;
-}
-
-.glyphicon-plus:hover {
-    color: white
-}
-
 #info-profile > img {
     border-width: 10px;
     border-style: solid;
@@ -899,15 +839,6 @@ body {
     resize: none;
     float: right;
 }
-.comentar {
-    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-    width: 80px;
-    height: 40px;
-    background: none;
-    border-color: white;
-    color: white;
-    float: right;
-}
 
 .logout {
 	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -951,28 +882,4 @@ body {
 .edit {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 20px;
-}
-
-td {
-    padding-right: 30px;
-    padding-bottom: 33px;
-    text-align: left;
-}
-
-input {
-    background-color: transparent;
-    border-color: #F05F40;
-}
-
-textarea {
-    background-color: transparent;
-    border-color: #F05F40;
-    width: 325px;
-}
-
-select {
-    background-color: #222222;
-    border-color: #F05F40;
-    overflow: hidden;
-    color: white;
 }

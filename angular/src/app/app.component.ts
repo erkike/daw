@@ -28,7 +28,63 @@ export class AppComponent {
     );
   }
 
-  goHome() { this.router.navigate(['/home#page-top'])};
+  goAbout() {
+    let tree = this.router.parseUrl(this.router.url);
+    if (tree.fragment == 'about') {
+      let element = document.querySelector("#" + tree.fragment);
+      if (element) {
+        element.scrollIntoView(element);
+      }
+    }
+    else {
+      this.router.navigate(['/'], {fragment: 'about'})
+        .then( () => {
+          let tree = this.router.parseUrl(this.router.url);
+          let element = document.querySelector("#" + tree.fragment);
+          if (element) {
+            element.scrollIntoView(element);
+          }
+        });
+    }
+  }
 
-  login() { this.router.navigate(['/login'])};
+    goSeries() {
+    let tree = this.router.parseUrl(this.router.url);
+    if (tree.fragment == 'series') {
+      let element = document.querySelector("#" + tree.fragment);
+      if (element) {
+        element.scrollIntoView(element);
+      }
+    }
+    else {
+      this.router.navigate(['/'], {fragment: 'series'})
+        .then( () => {
+          let tree = this.router.parseUrl(this.router.url);
+          let element = document.querySelector("#" + tree.fragment);
+          if (element) {
+            element.scrollIntoView(element);
+          }
+        });
+    }
+    }
+
+    goContact() {
+    let tree = this.router.parseUrl(this.router.url);
+    if (tree.fragment == 'contact') {
+      let element = document.querySelector("#" + tree.fragment);
+      if (element) {
+        element.scrollIntoView(element);
+      }
+    }
+    else {
+      this.router.navigate(['/'], {fragment: 'contact'})
+        .then( () => {
+          let tree = this.router.parseUrl(this.router.url);
+          let element = document.querySelector("#" + tree.fragment);
+          if (element) {
+            element.scrollIntoView(element);
+          }
+        });
+    }
+    }
 }
