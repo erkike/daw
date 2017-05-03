@@ -3,10 +3,12 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { Observable } from "rxjs/Observable";
+import { LoginService } from '../login.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: 'login.component.html',
+    providers: [LoginService],
     styles: [
         ' td { padding-right: 30px; padding-bottom: 33px; text-align: left; } ',
         'input { background-color: transparent; border-color: #F05F40; }',
@@ -27,7 +29,7 @@ export class LoginComponent {
     private login = "http://localhost:4200/logIn";
     private registroUrl = "http://localhost:4200/usuarios";
 
-    constructor(private http: Http, private router: Router) {
+    constructor(private http: Http, private router: Router, private loginService: LoginService) {
 
 
     }
@@ -44,18 +46,18 @@ export class LoginComponent {
         );
     }
 
-    autenticacion() {
+    logIn() {
 
-        let headers = new Headers();
-        headers.append('Authorization', 'Basic ' + btoa(this.userlog + ':' + this.passlog));
+        this.loginService.logIn(this.userlog, this.passlog).subscribe(
+            u => console.log(u),
+            error => alert('Invalid user or password')
+        );
+    }
 
-        this.http.get(this.login, { headers: headers }).subscribe(
-            response => {
-                let usuario = response.json();
-                let id = usuario.id;
-                this.router.navigate(['/perfil/' + id]);
-            },
-            error => console.log(error)
+    logOut() {
+        this.loginService.logOut().subscribe(
+            response => { },
+            error => console.log('Error when trying to log out: ' + error)
         );
     }
 
