@@ -20,7 +20,8 @@
 					<li><a class="page-scroll" (click)="goAbout()">Información</a></li>
 					<li><a class="page-scroll" (click)="goSeries()">Series</a></li>
 					<li><a class="page-scroll" (click)="goContact()">Contacto</a></li>
-					<li><a class="page-scroll" [routerLink]="['/','login']">Mi cuenta</a></li>
+					<li><a class="page-scroll" *ngIf="login.isLogged == false" [routerLink]="['/','login']">Mi cuenta</a></li>
+					<li><a class="page-scroll" *ngIf="login.isLogged" [routerLink]="['/','perfil','login.user.id']">Mi cuenta</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

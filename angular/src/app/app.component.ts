@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
+import { SerieService } from './services/serie.service';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  providers: [SerieService],
 })
 
 export class AppComponent {
   private series: string[] = [];
 
-  constructor(private http: Http, private router: Router){
+  constructor(private router: Router, private service: SerieService, private login: LoginService){
+
     this.series = [];
 
-    let url = "http://localhost:4200/series";
-
-    this.http.get(url).subscribe(
-      response => {
-        let data = response.json();
+    this.service.getSeries().subscribe(
+      series => {
+        let data = series;
         for (var i = 0; i < 20; i++){
           let serie = data[i];
           this.series.push(serie);

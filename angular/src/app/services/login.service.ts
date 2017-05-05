@@ -1,22 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
+import { Usuario } from './usuario.service';
 import 'rxjs/Rx';
 
 const login = "http://localhost:4200/logIn";
 const logout = "http://localhost:4200/logOut";
-
-export interface Usuario {
-    id?: number;
-    nombre: string;
-    apellido: string;
-    user: string;
-    email: string;
-    passwordHash: string;
-    img: string;
-    roles: string[];
-    amigos: string[];
-    seriesFavoritas: string[];
-}
 
 @Injectable()
 export class LoginService {
@@ -27,10 +15,6 @@ export class LoginService {
 
     constructor(private http: Http) {
         this.reqIsLogged();
-    }
-
-    getLogged() {
-        return this.user;
     }
 
     reqIsLogged() {

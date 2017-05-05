@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { Observable } from "rxjs/Observable";
-import { LoginService } from '../login.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
     selector: 'app-root',
@@ -49,7 +49,10 @@ export class LoginComponent {
     logIn() {
 
         this.loginService.logIn(this.userlog, this.passlog).subscribe(
-            u => console.log(u),
+            u => {
+                console.log(u)
+                this.router.navigate(['/perfil',u.id]);
+            },
             error => alert('Invalid user or password')
         );
     }

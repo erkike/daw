@@ -8,9 +8,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SerieComponent } from './serie/serie.component';
 import { routing } from './app.routing';
-import {PerfilComponent} from './perfil/perfil.component';
-import {editarComponent} from './editar/editar.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { editarComponent } from './editar/editar.component';
 import { LoginComponent } from './login/login.component';
+
+import { SerieService } from './services/serie.service';
+import { UsuarioService } from './services/usuario.service';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,7 @@ import { LoginComponent } from './login/login.component';
     routing,
     YoutubePlayerModule
   ],
-  providers: [],
+  providers: [SerieService, UsuarioService, LoginService],
   bootstrap: [HomeComponent]
 })
 export class AppModule { }

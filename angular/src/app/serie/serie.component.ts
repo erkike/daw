@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LoginService, Usuario } from '../login.service';
+import { LoginService} from '../services/login.service';
+import { SerieService } from '../services/serie.service';
+import { Usuario } from '../services/usuario.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'serie.component.html',
-  providers: [LoginService]
+  providers: [LoginService,
+    SerieService]
 })
 
 export class SerieComponent {
@@ -16,45 +19,30 @@ export class SerieComponent {
   private comentarios = [];
   private temporadas = [];
   private trailer;
-  private comentario = '';
+  private texto = '';
+  private id: number;
   private url;
 
-  constructor(private http: Http, private router: Router, private service: LoginService, activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private login: LoginService, private service: SerieService, activatedRoute: ActivatedRoute) {
 
-    let id = activatedRoute.snapshot.params['id'];
-    this.url = "http://localhost:4200/series/" + id;
+    this.id = activatedRoute.snapshot.params['id'];
 
-    this.http.get(this.url).subscribe(
-      response => {
-        this.serie = response.json();
+    this.service.getSerie(this.id).subscribe(
+      serie => {
+        this.serie = serie;
         this.comentarios = this.serie.comentarios;
         this.temporadas = this.serie.temporadas;
         this.trailer = this.serie.trailer;
       },
       error => console.error(error)
     );
-  }
+  };
 
-  comentar() {
+  comentar(){
+    this.login.reqIsLogged();
+    this.service.comentar(this.id, this.texto).subscribe();
+  };
+  
 
-    const usuario = this.service.getLogged();
-    this.service.logIn('Carpinchote', 'pass').subscribe(
-      response => {
-        const headers = new Headers({
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
-        });
-        const options = new RequestOptions({ withCredentials: true, headers });
-
-        this.http.put(this.url + '/comentario', { texto: this.comentario }, options).subscribe(
-          response => { response => response.json() },
-          error => console.log(error)
-        );
-      },
-      error => console.log(error)
-    );
-
-  }
-
-  goHome() { this.router.navigate(['/home']) };
+goHome() { this.router.navigate(['/home']) };
 }
