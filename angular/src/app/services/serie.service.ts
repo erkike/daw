@@ -84,6 +84,7 @@ export class SerieService {
   comentar(id: number | string, comentario: string) {
 
     const headers = new Headers({
+      'Authorization': 'Basic ' + utf8_to_b64('admin:admin'),
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     });
@@ -100,3 +101,10 @@ export class SerieService {
   }
 
 }
+
+function utf8_to_b64(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+        return String.fromCharCode(<any>'0x' + p1);
+    }));
+}
+  

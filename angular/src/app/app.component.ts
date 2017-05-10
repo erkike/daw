@@ -6,8 +6,7 @@ import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  providers: [SerieService],
+  templateUrl: 'app.component.html'
 })
 
 export class AppComponent {

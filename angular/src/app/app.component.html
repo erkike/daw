@@ -21,7 +21,7 @@
 					<li><a class="page-scroll" (click)="goSeries()">Series</a></li>
 					<li><a class="page-scroll" (click)="goContact()">Contacto</a></li>
 					<li><a class="page-scroll" *ngIf="login.isLogged == false" [routerLink]="['/','login']">Mi cuenta</a></li>
-					<li><a class="page-scroll" *ngIf="login.isLogged" [routerLink]="['/','perfil','login.user.id']">Mi cuenta</a></li>
+					<li><a class="page-scroll" *ngIf="login.isLogged" [routerLink]="['/','perfil',login.user.id]">Mi cuenta</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -59,7 +59,7 @@
 	</section>
 
 	<section class="bg-dark" id="series">
-		<div class="order-by">
+		<!-- <div class="order-by">
 			<ul class="nav nav-tabs">
 				<li>
 					<p>Ordenar por:</p>
@@ -68,7 +68,7 @@
 				<li><a class="page-scroll" href="/?size={{numero}}&sort=valoracion,desc#series">Valoración</a></li>
 				<li><a class="page-scroll" href="/?size={{numero}}&sort=año#series">Año</a></li>
 			</ul>
-		</div>
+		</div> -->
 		<div class="container">
 			<div class="row">
 				<div *ngFor="let series of series" id={{series.id}} class="col-lg-3 text-center">

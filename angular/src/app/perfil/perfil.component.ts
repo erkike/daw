@@ -20,7 +20,7 @@ export class PerfilComponent{
     let id = activatedRoute.snapshot.params['id'];
     let url = "http://localhost:4200/usuarios/"+id;
 
-    this.http.get(url).subscribe(
+    this.http.get(url, { withCredentials:true }).subscribe(
       response => {
         this.usuario = response.json();
 

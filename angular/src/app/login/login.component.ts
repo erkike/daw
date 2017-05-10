@@ -8,7 +8,6 @@ import { LoginService } from '../services/login.service';
 @Component({
     selector: 'app-root',
     templateUrl: 'login.component.html',
-    providers: [LoginService],
     styles: [
         ' td { padding-right: 30px; padding-bottom: 33px; text-align: left; } ',
         'input { background-color: transparent; border-color: #F05F40; }',
@@ -26,7 +25,6 @@ export class LoginComponent {
     userlog = '';
     passlog = '';
 
-    private login = "http://localhost:4200/logIn";
     private registroUrl = "http://localhost:4200/usuarios";
 
     constructor(private http: Http, private router: Router, private loginService: LoginService) {

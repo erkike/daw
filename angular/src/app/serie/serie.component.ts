@@ -2,15 +2,12 @@ import { Component } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LoginService} from '../services/login.service';
 import { SerieService } from '../services/serie.service';
 import { Usuario } from '../services/usuario.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'serie.component.html',
-  providers: [LoginService,
-    SerieService]
+  templateUrl: 'serie.component.html'
 })
 
 export class SerieComponent {
@@ -23,7 +20,7 @@ export class SerieComponent {
   private id: number;
   private url;
 
-  constructor(private router: Router, private login: LoginService, private service: SerieService, activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private service: SerieService, activatedRoute: ActivatedRoute) {
 
     this.id = activatedRoute.snapshot.params['id'];
 
@@ -32,15 +29,20 @@ export class SerieComponent {
         this.serie = serie;
         this.comentarios = this.serie.comentarios;
         this.temporadas = this.serie.temporadas;
-        this.trailer = this.serie.trailer;
+        this.trailer = this.serie.trailer.substr(30);
       },
       error => console.error(error)
     );
   };
 
   comentar(){
-    this.login.reqIsLogged();
     this.service.comentar(this.id, this.texto).subscribe();
+    this.service.getSerie(this.id).subscribe(
+      serie => {
+        this.comentarios = this.serie.comentarios;
+      },
+      error => console.error(error)
+    );
   };
   
 
