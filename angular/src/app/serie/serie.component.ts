@@ -3,7 +3,8 @@ import { Headers, RequestOptions } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SerieService } from '../services/serie.service';
-import { Usuario } from '../services/usuario.service';
+import { LoginService } from '../services/login.service';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ export class SerieComponent {
   private id: number;
   private url;
 
-  constructor(private router: Router, private service: SerieService, activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private service: SerieService, private usuario: LoginService, private user: UsuarioService, activatedRoute: ActivatedRoute) {
 
     this.id = activatedRoute.snapshot.params['id'];
 
@@ -39,12 +40,22 @@ export class SerieComponent {
     this.service.comentar(this.id, this.texto).subscribe();
     this.service.getSerie(this.id).subscribe(
       serie => {
-        this.comentarios = this.serie.comentarios;
+        this.comentarios = [];
+        this.comentarios = serie.comentarios;
       },
       error => console.error(error)
     );
   };
+
+  favorita(){
+      this.user.favorita(this.usuario.user.id,this.id).subscribe();
+  }
+
+  nofavorita(){
+      this.user.nofavorita(this.usuario.user.id,this.id).subscribe();
+  }
   
 
 goHome() { this.router.navigate(['/home']) };
 }
+

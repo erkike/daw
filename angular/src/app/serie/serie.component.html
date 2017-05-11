@@ -42,8 +42,7 @@
 					<div class="col-lg-6 text-center">
 						<h1 class="section-heading">
 							{{serie.nombre}}
-							<input type='submit' name='fav' class='nofavorito'>
-							
+							<input type='button' class='nofavorito' (click)="favorita()">
 							<!-- <button class='recomendar'></button>  -->
 						</h1>
 						<p class="text-faded">{{serie.descripcion}}</p>

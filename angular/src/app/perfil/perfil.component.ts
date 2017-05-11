@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {Router, ActivatedRoute} from '@angular/router';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -12,23 +13,25 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class PerfilComponent{
 
     private usuario;
+    private user;
+    private id:number;
 
 
+     constructor(private service: UsuarioService, private router: Router, activatedRoute: ActivatedRoute){
 
-     constructor(private http: Http, private router: Router, activatedRoute: ActivatedRoute){
-
-    let id = activatedRoute.snapshot.params['id'];
-    let url = "http://localhost:4200/usuarios/"+id;
-
-    this.http.get(url, { withCredentials:true }).subscribe(
-      response => {
-        this.usuario = response.json();
+    this.id = activatedRoute.snapshot.params['id'];
+    this.service.getUsuario(this.id).subscribe(
+      usuario => {
+        this.usuario = usuario;
 
       },
       error => console.error(error)
     );
-  }
+  };
 
-  goHome() { this.router.navigate(['/home'])};
+  anadirAmigo(){
+    //ni sorra de que poner
 
+  };
+   goHome() { this.router.navigate(['/home'])};
 }

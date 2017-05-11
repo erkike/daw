@@ -84,14 +84,14 @@ export class SerieService {
   comentar(id: number | string, comentario: string) {
 
     const headers = new Headers({
-      'Authorization': 'Basic ' + utf8_to_b64('admin:admin'),
+      'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     });
     const options = new RequestOptions({ withCredentials: true, headers });
 
     return this.http.put(URL + id + '/comentario', { texto: comentario }, options)
-      .map(response => response => response.json())
+      .map(response => response.json())
       .catch(error => this.handleError(error));
   }
 

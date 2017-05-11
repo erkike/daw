@@ -52,8 +52,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center" id="friend">
                     <h1 style="margin-top:60px">Mis amigos</h1>
-					<input class='comentar' type='submit' value='Añadir/Borrar' />
-					<textarea placeholder='Buscar amigos...' class='buscar' name='user'></textarea>
+					<button class='comentar' (click)="anadirAmigo()" >Añadir/Borrar</button>
+					<textarea placeholder='Buscar amigos...' class='buscar' [(ngModel)]="user"></textarea>
                 </div>
                 <div *ngFor="let usuario of usuario.amigos" id={{usuario.user}} class="col-lg-3 text-center">
                     <h2 class="section-heading">{{usuario.user}}</h2>
