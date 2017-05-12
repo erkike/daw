@@ -39,12 +39,22 @@ export class AdminComponent {
 
     altaSerie() {
 
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+        const headers = new Headers({
+      'Authorization': 'Basic ' + utf8_to_b64('admin:admin'),
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    });
+    const options = new RequestOptions({ withCredentials: true, headers });
 
         this.http.post(this.Url, { nombre: this.nombre, descripcion: this.descripcion, trailer: this.trailer }, options).subscribe(
             response => { },
             error => console.log(error)
         );
     }
+}
+
+function utf8_to_b64(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+        return String.fromCharCode(<any>'0x' + p1);
+    }));
 }
