@@ -68,7 +68,65 @@ export class SerieComponent {
   }
 
 
-  goHome() { this.router.navigate(['/home']) };
+  goInformacion() {
+    let tree = this.router.parseUrl(this.router.url);
+    if (tree.fragment == 'informacion') {
+      let element = document.querySelector("#" + tree.fragment);
+      if (element) {
+        element.scrollIntoView(element);
+      }
+    }
+    else {
+      this.router.navigate(['/series/' + this.id], { fragment: 'informacion' })
+        .then(() => {
+          let tree = this.router.parseUrl(this.router.url);
+          let element = document.querySelector("#" + tree.fragment);
+          if (element) {
+            element.scrollIntoView(element);
+          }
+        });
+    }
+  }
+
+  goCapitulos() {
+    let tree = this.router.parseUrl(this.router.url);
+    if (tree.fragment == 'capitulos') {
+      let element = document.querySelector("#" + tree.fragment);
+      if (element) {
+        element.scrollIntoView(element);
+      }
+    }
+    else {
+      this.router.navigate(['/series/' + this.id], { fragment: 'capitulos' })
+        .then(() => {
+          let tree = this.router.parseUrl(this.router.url);
+          let element = document.querySelector("#" + tree.fragment);
+          if (element) {
+            element.scrollIntoView(element);
+          }
+        });
+    }
+  }
+
+  goComentarios() {
+    let tree = this.router.parseUrl(this.router.url);
+    if (tree.fragment == 'comentarios') {
+      let element = document.querySelector("#" + tree.fragment);
+      if (element) {
+        element.scrollIntoView(element);
+      }
+    }
+    else {
+      this.router.navigate(['/series/' + this.id], { fragment: 'comentarios' })
+        .then(() => {
+          let tree = this.router.parseUrl(this.router.url);
+          let element = document.querySelector("#" + tree.fragment);
+          if (element) {
+            element.scrollIntoView(element);
+          }
+        });
+    }
+  }
 }
 
 function contains(a, obj: number) {

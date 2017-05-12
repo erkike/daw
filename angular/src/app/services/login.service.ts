@@ -4,7 +4,7 @@ import { Usuario } from './usuario.service';
 import 'rxjs/Rx';
 
 const login = "http://localhost:4200/logIn";
-const logout = "http://localhost:4200/logOut";
+const logout = "http://localhost:4200/logout";
 
 @Injectable()
 export class LoginService {
@@ -63,10 +63,17 @@ export class LoginService {
 
     logOut() {
 
-        return this.http.get(logout, { withCredentials: true }).map(
+        const headers = new Headers({
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
+
+        return this.http.get(logout, options).map(
             response => {
                 this.isLogged = false;
                 this.isAdmin = false;
+                this.user = null;
                 return response;
             }
         );

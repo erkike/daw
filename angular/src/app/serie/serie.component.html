@@ -17,10 +17,10 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="page-scroll" href="#informacion">Información</a>
+					<li><a class="page-scroll" (click)="goInformacion()">Información</a>
 					</li>
-					<li><a class="page-scroll" href="#capitulos">Capítulos</a></li>
-					<li><a class="page-scroll" href="#comentarios">Comentarios</a>
+					<li><a class="page-scroll" (click)="goCapitulos()">Capítulos</a></li>
+					<li><a class="page-scroll" (click)="goComentarios()">Comentarios</a>
 					</li>
 					<li><a class="page-scroll" *ngIf="usuario.isLogged == false" [routerLink]="['/','login']">Mi cuenta</a></li>
 					<li><a class="page-scroll" *ngIf="usuario.isLogged" [routerLink]="['/','perfil',usuario.user.id]">Mi cuenta</a></li>

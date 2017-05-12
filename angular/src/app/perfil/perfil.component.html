@@ -14,17 +14,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#amigos">Mis Amigos</a>
+                        <a class="page-scroll" (click)="goAmigos()">Mis Amigos</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#series">Mis series</a>
+                        <a class="page-scroll" (click)="goSeries()">Mis series</a>
                     </li>
                      <!-- esto lo jode 
                     <div *ngIf="usuario.admin != null">
 					    <li><a class="page-scroll" href="/admin">Administrar series</a></li>
                     </div>-->
                     <li>
-                        <a class="page-scroll" >Cerrar Sesión</a>
+                        <a class="page-scroll" (click)="desconectar()">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
