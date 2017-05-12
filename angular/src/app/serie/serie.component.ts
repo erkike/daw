@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Headers, RequestOptions } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SerieService } from '../services/serie.service';

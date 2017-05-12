@@ -11,6 +11,7 @@ import { routing } from './app.routing';
 import { PerfilComponent } from './perfil/perfil.component';
 import { editarComponent } from './editar/editar.component';
 import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { SerieService } from './services/serie.service';
 import { UsuarioService } from './services/usuario.service';
@@ -23,7 +24,8 @@ import { LoginService } from './services/login.service';
     SerieComponent,
     PerfilComponent,
     editarComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -19,10 +19,7 @@
                     <li>
                         <a class="page-scroll" (click)="goSeries()">Mis series</a>
                     </li>
-                     <!-- esto lo jode 
-                    <div *ngIf="usuario.admin != null">
-					    <li><a class="page-scroll" href="/admin">Administrar series</a></li>
-                    </div>-->
+					    <li><a class="page-scroll" *ngIf="login.isAdmin" [routerLink]="['/','admin']">Administrar series</a></li>
                     <li>
                         <a class="page-scroll" (click)="desconectar()">Cerrar Sesión</a>
                     </li>
