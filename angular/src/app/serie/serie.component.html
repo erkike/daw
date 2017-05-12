@@ -22,7 +22,8 @@
 					<li><a class="page-scroll" href="#capitulos">Capítulos</a></li>
 					<li><a class="page-scroll" href="#comentarios">Comentarios</a>
 					</li>
-					<li><a class="page-scroll" [routerLink]="['/','login']">Mi cuenta</a></li>
+					<li><a class="page-scroll" *ngIf="usuario.isLogged == false" [routerLink]="['/','login']">Mi cuenta</a></li>
+					<li><a class="page-scroll" *ngIf="usuario.isLogged" [routerLink]="['/','perfil',usuario.user.id]">Mi cuenta</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -42,7 +43,8 @@
 					<div class="col-lg-6 text-center">
 						<h1 class="section-heading">
 							{{serie.nombre}}
-							<input type='button' class='nofavorito' (click)="favorita()">
+							<input *ngIf="fav == false" type='button' class='nofavorito' (click)="favorita()">
+							<input *ngIf="fav" type='button' class='favorito' (click)="nofavorita()">
 							<!-- <button class='recomendar'></button>  -->
 						</h1>
 						<p class="text-faded">{{serie.descripcion}}</p>
