@@ -25,8 +25,7 @@ public class DatabaseLoader {
 		Usuario admin = new Usuario("Administrador", "admin", "admin@carpincheria.es", "admin", "ROLE_USER",
 				"ROLE_ADMIN");
 		Usuario carpancha = new Usuario("Carpancha");
-		Usuario prueba= new Usuario("Para borrar en la prueba");
-
+		Usuario prueba = new Usuario("Para borrar en la prueba");
 
 		List<Capitulo> capitulos = new ArrayList<Capitulo>();
 		capitulos.add(new Capitulo("Piloto", 1));
@@ -67,7 +66,7 @@ public class DatabaseLoader {
 		usuarios.save(admin);
 		usuarios.save(carpancha);
 		usuarios.save(prueba);
-		
+
 		// carpinchote.getAmigos().add(carpinchi);
 		carpinchote.getAmigos().add(carpancha);
 
@@ -113,7 +112,8 @@ public class DatabaseLoader {
 		series.save(new Serie("Los Soprano", descripcion, 4, 1999, "https://www.youtube.com/embed/RLxSUKA--Dg"));
 		series.save(new Serie("The walking dead", descripcion, 4, 2010, "https://www.youtube.com/embed/O4xrJ_r6PUs"));
 		series.save(new Serie("True detective", descripcion, 4, 2014, "https://www.youtube.com/embed/Xyu_MdKBXic"));
-		series.save(new Serie("Utopia", descripcion, 4, 2013, "https://www.youtube.com/embed/uJnN3WMwDsk"));
+		// series.save(new Serie("Utopia", descripcion, 4, 2013,
+		// "https://www.youtube.com/embed/uJnN3WMwDsk"));
 
 		carpinchote.getSeriesFavoritas().add(cien);
 		carpinchote.getSeriesFavoritas().add(juegoTronos);

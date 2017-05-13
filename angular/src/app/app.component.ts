@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {Router} from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { SerieService } from './services/serie.service';
 import { LoginService } from './services/login.service';
 
@@ -10,22 +10,18 @@ import { LoginService } from './services/login.service';
 })
 
 export class AppComponent {
-  private series: string[] = [];
+  private series: any[];
 
-  constructor(private router: Router, private service: SerieService, private login: LoginService){
-
-    this.series = [];
+  constructor(private router: Router, private service: SerieService, private login: LoginService) {
 
     this.service.getSeries().subscribe(
       series => {
-        let data = series;
-        for (var i = 0; i < data.length; i++){
-          let serie = data[i];
-          this.series.push(serie);
-        }
+        this.series = series;
       },
       error => console.error(error)
     );
+
+
   }
 
   goAbout() {
@@ -37,8 +33,8 @@ export class AppComponent {
       }
     }
     else {
-      this.router.navigate(['/'], {fragment: 'about'})
-        .then( () => {
+      this.router.navigate(['/'], { fragment: 'about' })
+        .then(() => {
           let tree = this.router.parseUrl(this.router.url);
           let element = document.querySelector("#" + tree.fragment);
           if (element) {
@@ -48,7 +44,7 @@ export class AppComponent {
     }
   }
 
-    goSeries() {
+  goSeries() {
     let tree = this.router.parseUrl(this.router.url);
     if (tree.fragment == 'series') {
       let element = document.querySelector("#" + tree.fragment);
@@ -57,8 +53,8 @@ export class AppComponent {
       }
     }
     else {
-      this.router.navigate(['/'], {fragment: 'series'})
-        .then( () => {
+      this.router.navigate(['/'], { fragment: 'series' })
+        .then(() => {
           let tree = this.router.parseUrl(this.router.url);
           let element = document.querySelector("#" + tree.fragment);
           if (element) {
@@ -66,9 +62,9 @@ export class AppComponent {
           }
         });
     }
-    }
+  }
 
-    goContact() {
+  goContact() {
     let tree = this.router.parseUrl(this.router.url);
     if (tree.fragment == 'contact') {
       let element = document.querySelector("#" + tree.fragment);
@@ -77,8 +73,8 @@ export class AppComponent {
       }
     }
     else {
-      this.router.navigate(['/'], {fragment: 'contact'})
-        .then( () => {
+      this.router.navigate(['/'], { fragment: 'contact' })
+        .then(() => {
           let tree = this.router.parseUrl(this.router.url);
           let element = document.querySelector("#" + tree.fragment);
           if (element) {
@@ -86,5 +82,5 @@ export class AppComponent {
           }
         });
     }
-    }
+  }
 }
