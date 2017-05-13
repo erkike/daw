@@ -19,7 +19,7 @@ export class AppComponent {
     this.service.getSeries().subscribe(
       series => {
         let data = series;
-        for (var i = 0; i < 20; i++){
+        for (var i = 0; i < data.length; i++){
           let serie = data[i];
           this.series.push(serie);
         }

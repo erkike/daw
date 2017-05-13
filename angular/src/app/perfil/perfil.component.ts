@@ -16,6 +16,7 @@ export class PerfilComponent {
   private usuario;
   private user;
   private id: number;
+  private id2: number;
 
 
   constructor(private service: UsuarioService, private login: LoginService, private router: Router, activatedRoute: ActivatedRoute) {
@@ -36,9 +37,57 @@ export class PerfilComponent {
   }
 
   anadirAmigo() {
-    this.usuario.amigos.push(this.service.anadirAmigo(this.id,this.usuario,this.user.id).subscribe());
-
+    this.service.getUsuarios().subscribe(
+      users => {
+        let data = users;
+        for (var i = 0; i < data.length; i++) {
+          let busqueda = data[i];
+          if (busqueda.user === this.user) {
+            this.id2 = busqueda.id;
+          }
+        }
+        this.service.anadirAmigo(this.id, this.id2).subscribe(
+          r => {
+            this.service.getUsuario(this.id).subscribe(
+              u => {
+                this.usuario = u;
+              },
+              error => console.error(error)
+            );
+          },
+          error => console.error(error),
+        );
+      },
+      error => console.error(error)
+    );
   };
+
+  borrarAmigo(){
+    this.service.getUsuarios().subscribe(
+      users => {
+        let data = users;
+        for (var i = 0; i < data.length; i++) {
+          let busqueda = data[i];
+          if (busqueda.user === this.user) {
+            this.id2 = busqueda.id;
+          }
+        }
+        this.service.borrarAmigo(this.id, this.id2).subscribe(
+          r => {
+            this.service.getUsuario(this.id).subscribe(
+              u => {
+                this.usuario = u;
+              },
+              error => console.error(error)
+            );
+          },
+          error => console.error(error),
+        );
+      },
+      error => console.error(error)
+    );
+  };
+
   goAmigos() {
     let tree = this.router.parseUrl(this.router.url);
     if (tree.fragment == 'amigos') {

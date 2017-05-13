@@ -18,8 +18,11 @@ export interface Usuario {
 
 const URL = 'http://localhost:4200/usuarios/';
 
+
 @Injectable()
 export class UsuarioService {
+
+    private u: Usuario;
 
     constructor(private http: Http) { }
 
@@ -31,7 +34,8 @@ export class UsuarioService {
 
     getUsuario(id: number | string) {
         return this.http.get(URL + id, { withCredentials: true })
-            .map(response => response.json())
+            .map(response => {this.u = response.json();
+            return this.u})
             .catch(error => this.handleError(error));
     }
 
@@ -83,46 +87,61 @@ export class UsuarioService {
             .catch(error => this.handleError(error));
     }
 
-    favorita(usuario: number, serie:  number){
+    favorita(usuario: number, serie: number) {
 
         const headers = new Headers({
-             'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
-                  'Content-Type': 'application/json',
-                                                                 'X-Requested-With': 'XMLHttpRequest'
-    });
-    const options = new RequestOptions({ withCredentials: true, headers });
+            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
 
-    return this.http.put(URL + usuario + '/favorita/' + serie,{}, options)
-      .map(response => response.json())
-      .catch(error => this.handleError(error));
+        return this.http.put(URL + usuario + '/favorita/' + serie, {}, options)
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
     }
 
-    nofavorita(usuario: number, serie:  number){
+    nofavorita(usuario: number, serie: number) {
 
         const headers = new Headers({
-             'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
-                  'Content-Type': 'application/json',
-                                                                 'X-Requested-With': 'XMLHttpRequest'
-    });
-    const options = new RequestOptions({ withCredentials: true, headers });
-    
-    return this.http.delete(URL + usuario + '/favorita/' + serie, options)
-      .map(response => response.json())
-      .catch(error => this.handleError(error));
+            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
+
+        return this.http.delete(URL + usuario + '/favorita/' + serie, options)
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
     }
-    anadirAmigo(id: number |string,usuario:Usuario,id2:number){
 
-    const headers = new Headers({
-      'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest'
-    });
-    const options = new RequestOptions({ withCredentials: true, headers });
+    anadirAmigo(id: number | string, id2: number) {
 
-    return this.http.put(URL + id + '/amigo/'+ id2,{}, options)
-      .map(response => response.json())
-      .catch(error => this.handleError(error));
-}
+        const headers = new Headers({
+            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
+
+        return this.http.put(URL + id + '/amigo/' + id2, {}, options)
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
+    }
+
+    borrarAmigo(id: number | string, id2: number) {
+
+        const headers = new Headers({
+            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
+
+        return this.http.delete(URL + id + '/amigo/' + id2, options)
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
+    }
 
     private handleError(error: any) {
         console.error(error);

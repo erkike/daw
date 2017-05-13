@@ -28,7 +28,7 @@ export class AdminComponent {
         this.service.getSeries().subscribe(
             series => {
                 let data = series;
-                for (var i = 0; i < 20; i++) {
+                for (var i = 0; i < data.length; i++) {
                     let serie = data[i];
                     this.series.push(serie);
                 }
@@ -46,8 +46,12 @@ export class AdminComponent {
     });
     const options = new RequestOptions({ withCredentials: true, headers });
 
-        this.http.post(this.Url, { nombre: this.nombre, descripcion: this.descripcion, trailer: this.trailer }, options).subscribe(
-            response => { },
+        this.http.post(this.Url, { nombre: this.nombre, descripcion: this.descripcion, trailer: this.trailer, url: 'default' }, options).subscribe(
+            response => {
+                this.nombre = '';
+                this.descripcion = '';
+                this.trailer = '';
+             },
             error => console.log(error)
         );
     }
