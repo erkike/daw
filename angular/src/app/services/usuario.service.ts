@@ -39,6 +39,7 @@ export class UsuarioService {
 
         const body = JSON.stringify(usuario);
         const headers = new Headers({
+            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
         });
@@ -71,6 +72,7 @@ export class UsuarioService {
 
         const body = JSON.stringify(usuario);
         const headers = new Headers({
+            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
         });
@@ -111,7 +113,7 @@ export class UsuarioService {
     anadirAmigo(id: number |string,usuario:Usuario,id2:number){
 
     const headers = new Headers({
-      'Authorization': 'Basic ' + utf8_to_b64('carpinchote:pass'),
+      'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     });
@@ -126,6 +128,7 @@ export class UsuarioService {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text());
     }
+
 
 }
 

@@ -39,8 +39,9 @@
             <div class="col-lg-12 text-center" id="info-profile">
                 <h1 style="margin-top:40px">{{usuario.user}}</h1>
                 <img style="border-radius:100%" src='../../assets/img/perfil/{{usuario.user}}.png' style="width:200px" height='200px'>
-                <a [routerLink]="['/','perfil',usuario.id,'editar']" class="btn btn-primary btn-xl">Editar perfil</a>
+                
             </div>
+            
         </div>
     
 
@@ -48,6 +49,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" id="friend">
+                    <a [routerLink]="['/','perfil',usuario.id,'editar']" style="margin-top:60px" class="btn btn-primary btn-xl">Editar perfil</a>
                     <h1 style="margin-top:60px">Mis amigos</h1>
 					<button class='comentar' (click)="anadirAmigo()" >Añadir/Borrar</button>
 					<textarea placeholder='Buscar amigos...' class='buscar' [(ngModel)]="user"></textarea>

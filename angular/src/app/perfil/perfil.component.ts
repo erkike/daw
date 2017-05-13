@@ -36,7 +36,7 @@ export class PerfilComponent {
   }
 
   anadirAmigo() {
-    //ni sorra de que poner
+    this.usuario.amigos.push(this.service.anadirAmigo(this.id,this.usuario,this.user.id).subscribe());
 
   };
   goAmigos() {
