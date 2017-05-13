@@ -23,6 +23,11 @@ export class AdminComponent {
     nombre = '';
     descripcion = '';
     trailer = '';
+    temporada: number;
+    titulo: string;
+    num: number;
+    serie;
+    id: number;
 
     constructor(private service: SerieService, private login: LoginService, private http: Http, private router: Router) {
         this.service.getSeries().subscribe(
@@ -51,6 +56,21 @@ export class AdminComponent {
                 this.nombre = '';
                 this.descripcion = '';
                 this.trailer = '';
+                this.series.push(response.json());
+             },
+            error => console.log(error)
+        );
+    }
+
+    altaCapitulo(){
+        for (var i = 0; i < this.series.length; i++) {
+          let busqueda = this.series[i];
+          if (busqueda.nombre === this.serie) {
+            this.id = busqueda.id;
+          }
+        }
+        this.service.nuevoCapitulo(this.id,this.temporada,this.titulo,this.num).subscribe(response => {
+                this.titulo = '';
              },
             error => console.log(error)
         );

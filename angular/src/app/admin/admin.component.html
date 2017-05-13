@@ -63,8 +63,8 @@
                                 </td>
                                 
                                 <td>
-                                <select name="serie">
-                                    <option *ngFor="let series of series" value="{{series.nombre}}">{{series.nombre}}</option>
+                                <select [(ngModel)]="serie">
+                                    <option *ngFor="let series of series" >{{series.nombre}}</option>
                                 </select>
                                 </td>
                                 
@@ -73,7 +73,7 @@
                                 Nº Temporada
                             </td>
                             <td style="float:left">
-                                <select name="temporada">
+                                <select [(ngModel)]="temporada">
                                     <option value="1" selected="selected">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -88,7 +88,7 @@
                                 Nº Capítulo
                             </td>
                             <td style="float:left">
-                                <select name="num">
+                                <select [(ngModel)]="num">
                                     <option value="1" selected="selected">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -116,11 +116,11 @@
                                     Título del capítulo
                                 </td>
                                 <td>
-                                    <input type="text" size="25" maxlength="20" name='titulo'>
+                                    <input type="text" size="25" maxlength="20" [(ngModel)]="titulo">
                                 </td>
                             </tr>
                         </table>
-                        <a class="btn btn-primary btn-xl" >Guardar</a>
+                        <a class="btn btn-primary btn-xl" (click)='altaCapitulo()'>Guardar</a>
                     <a [routerLink]="['/','perfil',login.user.id]" class="btn btn-primary btn-xl">Cancelar</a>
                 </div>
             </div>
