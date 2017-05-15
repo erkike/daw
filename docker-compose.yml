@@ -1,0 +1,22 @@
+version: '2'
+services:
+ db:
+  image: seriescarpincho-mysql
+  ports: 
+   - '8200:3306' 
+  environment:
+   - MYSQL_ROOT_PASSWORD=1234
+   - MYSQL_DATABASE=mydatabase
+   - MYSQL_USER=root
+ back:
+    image: scgvk/seriescarpincho-back
+    ports: 
+    - '8400:8400'
+    depends_on:
+       - db
+ front:
+   image: seriescarpincho-front
+   ports: 
+    - '4200:80'
+   volumes:
+      - /usr/share/ngix/html/img
