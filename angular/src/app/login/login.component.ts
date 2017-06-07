@@ -20,7 +20,7 @@ export class LoginComponent {
     nombre = '';
     user = '';
     email = '';
-    paswordHass = '';
+    passwordHash = '';
     roles = [];
     userlog = '';
     passlog = '';
@@ -38,8 +38,16 @@ export class LoginComponent {
         let options = new RequestOptions({ headers: headers });
         this.roles.push("ROLE_USER");
 
-        this.http.post(this.registroUrl, { nombre: this.nombre, user: this.user, email: this.email, passwordHash: this.paswordHass, roles: this.roles }, options).subscribe(
-            response => { this.router.navigate(['/home']); },
+        this.http.post(this.registroUrl, { nombre: this.nombre, user: this.user, email: this.email, passwordHash: this.passwordHash, roles: this.roles }, options).subscribe(
+            response => { 
+                this.loginService.logIn(this.user, this.passwordHash).subscribe(
+            u => {
+                console.log(u)
+                this.router.navigate(['/perfil',u.id]);
+            },
+            error => alert('Invalid user or password')
+        );
+             },
             error => console.log(error)
         );
     }

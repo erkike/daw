@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { LoginService} from './login.service';
 import 'rxjs/Rx';
 
 export interface Usuario {
@@ -24,7 +25,7 @@ export class UsuarioService {
 
     private u: Usuario;
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private login: LoginService) { }
 
     getUsuarios() {
         return this.http.get(URL, { withCredentials: true })
@@ -43,7 +44,7 @@ export class UsuarioService {
 
         const body = JSON.stringify(usuario);
         const headers = new Headers({
-            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
         });
@@ -76,7 +77,7 @@ export class UsuarioService {
 
         const body = JSON.stringify(usuario);
         const headers = new Headers({
-            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
         });
@@ -90,7 +91,7 @@ export class UsuarioService {
     favorita(usuario: number, serie: number) {
 
         const headers = new Headers({
-            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
         });
@@ -104,7 +105,7 @@ export class UsuarioService {
     nofavorita(usuario: number, serie: number) {
 
         const headers = new Headers({
-            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
         });
@@ -115,10 +116,25 @@ export class UsuarioService {
             .catch(error => this.handleError(error));
     }
 
+    imagen(formData: FormData, id: number) {
+
+    const headers = new Headers({
+            'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
+            'X-Requested-With': 'XMLHttpRequest'
+,            
+                    contentType: false
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
+
+    return this.http.put(URL + id + '/imagen', formData, options)
+      .map(response => response.json())
+            .catch(error => this.handleError(error));
+}
+
     anadirAmigo(id: number | string, id2: number) {
 
         const headers = new Headers({
-            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
         });
@@ -132,7 +148,7 @@ export class UsuarioService {
     borrarAmigo(id: number | string, id2: number) {
 
         const headers = new Headers({
-            'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+            'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
         });

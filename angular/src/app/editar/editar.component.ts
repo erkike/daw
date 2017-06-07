@@ -15,8 +15,9 @@ export class editarComponent {
 
   private id;
   private u: Usuario;
+  private file: any;
 
-  constructor(private service: UsuarioService, private login: LoginService, private router: Router, activatedRoute: ActivatedRoute) {
+  constructor(private service: UsuarioService,private login : LoginService, private router: Router, activatedRoute: ActivatedRoute) {
 
     this.id = activatedRoute.snapshot.params['id'];
 
@@ -29,9 +30,32 @@ export class editarComponent {
   };
 
   updateUsuario() {
-    this.service.updateUsuario(this.u).subscribe();
-    this.router.navigate(['/perfil/'+this.id]);
+    this.u.passwordHash = this.login.pass;
+    this.service.updateUsuario(this.u).subscribe(
+      r => {
+            this.router.navigate(['/perfil/' + this.id]);
+          },
+          error => console.error(error),
+        );
   };
-  
+
+  updateImagen() {
+    if (this.file !== undefined) {
+          let formData = new FormData();
+          formData.append('file', this.file, this.file.name);
+          this.service.imagen(formData, this.u.id).subscribe(
+            r => {
+            this.router.navigate(['/perfil/' + this.id]);
+          },
+          error => console.error(error),
+        );
+}
+  }
+
+  selectFile($event) {
+    this.file = $event.target.files[0];
+    console.log("Selected file: " + this.file.name + " type:" + this.file.type + " size:" + this.file.size);
+}
+
   goHome() { this.router.navigate(['/home']) };
 }

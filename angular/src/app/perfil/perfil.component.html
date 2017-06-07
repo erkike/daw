@@ -38,7 +38,7 @@
         <div class="header-content">
             <div class="col-lg-12 text-center" id="info-profile">
                 <h1 style="margin-top:40px">{{usuario.user}}</h1>
-                <img style="border-radius:100%" src='../../assets/img/perfil/{{usuario.user}}.png' style="width:200px" height='200px'>
+                <img style="border-radius:100%" src='../../assets/img/perfil/{{usuario.img}}.png' style="width:200px" height='200px'>
                 
             </div>
             
@@ -57,7 +57,7 @@
                 </div>
                 <div *ngFor="let usuario of usuario.amigos" id={{usuario.user}} class="col-lg-3 text-center">
                     <h2 class="section-heading">{{usuario.user}}</h2>
-                    <img style="border-radius:100%" src='../../assets/img/perfil/{{usuario.user}}.png' width='200' height='200'>
+                    <img style="border-radius:100%" src='../../assets/img/perfil/{{usuario.img}}.png' width='200' height='200'>
                     <hr class="light">
                 </div>
                 

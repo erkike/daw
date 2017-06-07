@@ -12,6 +12,8 @@ export class LoginService {
     isLogged = false;
     isAdmin = false;
     user: Usuario;
+    usuario: string;
+    pass: string;
 
     constructor(private http: Http) {
         this.reqIsLogged();
@@ -44,6 +46,9 @@ export class LoginService {
 
     logIn(user: string, pass: string) {
 
+        this.usuario = user;
+        this.pass = pass;
+
         const userPass = user + ':' + pass;
 
         const headers = new Headers({
@@ -62,6 +67,9 @@ export class LoginService {
     }
 
     logOut() {
+
+        this.usuario = "";
+        this.pass = "";
 
         const headers = new Headers({
             'Content-Type': 'application/json',

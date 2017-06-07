@@ -39,6 +39,7 @@ public class Usuario {
 	@JsonView(Basico.class)
 	private String email;
 	private String passwordHash;
+	@JsonView(Basico.class)
 	private String img = "default";
 
 	@JsonView(Basico.class)
@@ -85,7 +86,7 @@ public class Usuario {
 	}
 
 	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
 	}
 
 	public List<Serie> getSeriesFavoritas() {
@@ -150,6 +151,14 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 }

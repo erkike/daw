@@ -1,10 +1,10 @@
 #dentro de la carpeta docker
 
-docker build -t scgvk/seriescarpincho-mysql ./mysql
-docker run scgvk/seriescarpincho-mysq
+docker build -t seriescarpincho-mysql ./mysql
+docker run seriescarpincho-mysql
 
 # en otro terminal y en la carpeta daw
 
-docker build -t scgvk/seriescarpincho .
+docker build -t seriescarpincho .
 
-docker run -p 8080:8080 scgvk/seriescarpincho
+docker run -p 8080:8080 seriescarpincho

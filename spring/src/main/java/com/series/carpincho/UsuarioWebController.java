@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class UsuarioWebController {
 	@RequestMapping("/registro")
 	public String registro(Model model, Usuario usuario) {
 
+		usuario.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
 		uService.save(usuario);
 
 		return "redirect:/";
@@ -152,7 +154,7 @@ public class UsuarioWebController {
 
 		if (userComponent.getLoggedUser() != null) {
 			Usuario usuario = uService.findByUser(userComponent.getLoggedUser().getUser());
-			String fileName = usuario.getUser() + ".png";
+			String fileName = usuario.getImg() + ".png";
 
 			if (!file.isEmpty()) {
 

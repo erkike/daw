@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { LoginService} from './login.service';
 import 'rxjs/Rx';
 
 export interface Serie {
@@ -21,7 +22,7 @@ const URL = 'http://localhost:4200/series/';
 @Injectable()
 export class SerieService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private login: LoginService) { }
 
   getSeries() {
     return this.http.get(URL, { withCredentials: true })
@@ -84,7 +85,7 @@ export class SerieService {
   comentar(id: number | string, comentario: string) {
 
     const headers = new Headers({
-      'Authorization': 'Basic ' + utf8_to_b64('Carpinchote:pass'),
+      'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     });

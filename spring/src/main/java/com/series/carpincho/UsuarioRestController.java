@@ -1,5 +1,8 @@
 package com.series.carpincho;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +14,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 @RestController
 public class UsuarioRestController {
+
+	private static final Path FILES_FOLDER = Paths.get("../angular/src/assets/img/perfil");
 
 	@Autowired
 	private SerieService service;
@@ -52,7 +59,7 @@ public class UsuarioRestController {
 	@JsonView(Usuario.Basico.class)
 	@GetMapping(value = "/usuarios")
 	public List<Usuario> getUsuarios() {
-		return uService.findAll();	
+		return uService.findAll();
 	}
 
 	@JsonView(UsuarioDetalle.class)
@@ -75,7 +82,7 @@ public class UsuarioRestController {
 		Usuario usuario = uService.findOne(id);
 
 		if (usuario != null) {
-			uService.delete(usuario); 	
+			uService.delete(usuario);
 			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
@@ -90,14 +97,14 @@ public class UsuarioRestController {
 
 		if (usuario != null) {
 			if (usuario.getId() == userComponent.getLoggedUser().getId()) {
-				//List<Usuario> amigos = usuario.getAmigos();
-				//List<Serie> favoritas = usuario.getSeriesFavoritas();
-				//modificado.setAmigos(amigos);
-				//modificado.setSeriesFavoritas(favoritas);
+				// List<Usuario> amigos = usuario.getAmigos();
+				// List<Serie> favoritas = usuario.getSeriesFavoritas();
+				// modificado.setAmigos(amigos);
+				// modificado.setSeriesFavoritas(favoritas);
 				usuario.setNombre(modificado.getNombre());
 				usuario.setEmail(modificado.getEmail());
 				usuario.setApellido(modificado.getApellido());
-				//usuario.setUser(modificado.getUser());
+				// usuario.setUser(modificado.getUser());
 				uService.save(modificado);
 				userComponent.setLoggedUser(usuario);
 				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
@@ -193,6 +200,28 @@ public class UsuarioRestController {
 				uService.save(usuario);
 				userComponent.setLoggedUser(usuario);
 				return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<Usuario>(HttpStatus.FORBIDDEN);
+			}
+		} else {
+			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@JsonView(UsuarioDetalle.class)
+	@PutMapping(value = "/usuarios/{id}/imagen")
+	public ResponseEntity<Usuario> putUserImage(@PathVariable Integer id, @RequestParam("file") MultipartFile file)
+			throws IOException {
+
+		Usuario user = uService.findOne(id);
+
+		if (user != null) {
+			if (user.getId() == userComponent.getLoggedUser().getId()) {
+				uService.subirImagen(file, user.getUser(), FILES_FOLDER.toString());
+				user.setImg(user.getUser());
+				uService.save(user);
+				userComponent.setLoggedUser(user);
+				return new ResponseEntity<Usuario>(user, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<Usuario>(HttpStatus.FORBIDDEN);
 			}

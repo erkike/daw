@@ -27,14 +27,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center" id="info-profile">
-                    <img style="border-radius:100%" src='../../assets/img/perfil/{{u.user}}.png'/>
-                    		<p>
-								<input type='hidden' name='imageTitle' />
-							</p>
+                    <img style="border-radius:100%" src='../../assets/img/perfil/{{u.img}}.png'/>
 							<p>
-								<input type="file" name="file" />
+								<input type="file" (change)="selectFile($event)">
+                                <a (click)="updateImagen()" class="btn btn-primary btn-xl">Cambiar Imagen</a>
 							</p>
-							<input type='submit' name='imagen' value='Cambiar imagen' />
                 </div>
 
 				
