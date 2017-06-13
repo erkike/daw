@@ -1,10 +1,6 @@
 #dentro de la carpeta docker
+	# entrar a carpeta web
+	docker build -t web_server .
+	
+docker-compose up
 
-docker build -t seriescarpincho-mysql ./mysql
-docker run seriescarpincho-mysql
-
-# en otro terminal y en la carpeta daw
-
-docker build -t seriescarpincho .
-
-docker run -p 8080:8080 seriescarpincho
