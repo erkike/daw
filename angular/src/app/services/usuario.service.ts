@@ -120,8 +120,7 @@ export class UsuarioService {
 
     const headers = new Headers({
             'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
-            'X-Requested-With': 'XMLHttpRequest'
-,            
+            'X-Requested-With': 'XMLHttpRequest',            
                     contentType: false
         });
         const options = new RequestOptions({ withCredentials: true, headers });

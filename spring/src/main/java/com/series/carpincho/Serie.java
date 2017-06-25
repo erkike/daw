@@ -66,7 +66,7 @@ public class Serie implements Comparator {
 		this.valoracion = valoracion;
 		this.año = año;
 		this.trailer = trailer;
-		this.img = nombre;
+		this.img = url;
 	}
 
 	public void Valorar(int valoracion) {
@@ -132,6 +132,22 @@ public class Serie implements Comparator {
 
 	public void setComentarios(List<Comentario> comentarios) {
 		this.comentarios = comentarios;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public void setValoracion(int valoracion) {
+		this.valoracion = valoracion;
 	}
 
 	@Override

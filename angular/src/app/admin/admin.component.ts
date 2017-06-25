@@ -29,6 +29,8 @@ export class AdminComponent {
     serie;
     id: number;
 
+    private file: any;
+
     constructor(private service: SerieService, private login: LoginService, private http: Http, private router: Router) {
         this.service.getSeries().subscribe(
             series => {
@@ -45,11 +47,11 @@ export class AdminComponent {
     altaSerie() {
 
         const headers = new Headers({
-      'Authorization': 'Basic ' + utf8_to_b64('admin:admin'),
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest'
-    });
-    const options = new RequestOptions({ withCredentials: true, headers });
+            'Authorization': 'Basic ' + utf8_to_b64('admin:admin'),
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
 
         this.http.post(this.Url, { nombre: this.nombre, descripcion: this.descripcion, trailer: this.trailer, url: 'default' }, options).subscribe(
             response => {
@@ -57,21 +59,49 @@ export class AdminComponent {
                 this.descripcion = '';
                 this.trailer = '';
                 this.series.push(response.json());
-             },
+                if (this.file !== undefined) {
+                    let formData = new FormData();
+                    formData.append('file', this.file, this.file.name);
+                    this.service.imagen(formData, response.json().id).subscribe(
+                        r => {
+                            this.router.navigate(['/']);
+                        },
+                        error => console.error(error),
+                    );
+                }
+            },
             error => console.log(error)
         );
     }
 
-    altaCapitulo(){
-        for (var i = 0; i < this.series.length; i++) {
-          let busqueda = this.series[i];
-          if (busqueda.nombre === this.serie) {
-            this.id = busqueda.id;
-          }
+    updateImagen() {
+        if (this.file !== undefined) {
+            let formData = new FormData();
+            formData.append('file', this.file, this.file.name);
+            this.service.imagen(formData, this.serie.id).subscribe(
+                r => {
+                    this.router.navigate(['/perfil/' + this.id]);
+                },
+                error => console.error(error),
+            );
         }
-        this.service.nuevoCapitulo(this.id,this.temporada,this.titulo,this.num).subscribe(response => {
-                this.titulo = '';
-             },
+    }
+
+    selectFile($event) {
+        this.file = $event.target.files[0];
+        console.log("Selected file: " + this.file.name + " type:" + this.file.type + " size:" + this.file.size);
+    }
+
+    altaCapitulo() {
+        for (var i = 0; i < this.series.length; i++) {
+            let busqueda = this.series[i];
+            if (busqueda.nombre === this.serie) {
+                this.id = busqueda.id;
+            }
+        }
+        this.service.nuevoCapitulo(this.id, this.temporada, this.titulo, this.num).subscribe(response => {
+            this.titulo = '';
+        },
             error => console.log(error)
         );
     }

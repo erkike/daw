@@ -44,12 +44,20 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Trailer*
+                                    Trailer
                                 </td>
                                 <td>
                                     <input type="text" size="25" [(ngModel)]="trailer">
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    Imagen
+                                </td>
+                                <td>
+								<input type="file" (change)="selectFile($event)">
+                                </td>
+                                </tr>
                         </table>
                         <a (click)="altaSerie()" class="btn btn-primary btn-xl" >Guardar</a>
                     <a [routerLink]="['/','perfil',login.user.id]" class="btn btn-primary btn-xl">Cancelar</a>

@@ -43,7 +43,6 @@ public class UsuarioService {
 					filesFolder.mkdirs();
 				}
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), filename);
-				System.out.println("Absoulte : " + filesFolder.getAbsolutePath());
 				imageMultiPartFile.transferTo(uploadedFile);
 				return filename;
 			} catch (Exception e) {

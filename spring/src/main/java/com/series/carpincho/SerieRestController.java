@@ -1,5 +1,8 @@
 package com.series.carpincho;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +15,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 @RestController
 public class SerieRestController {
+
+	private static final Path FILES_FOLDER = Paths.get("../angular/src/assets/img/series_icon");
+
 	@Autowired
 	private SerieService service;
 
@@ -152,6 +160,23 @@ public class SerieRestController {
 			} else {
 				return new ResponseEntity<Serie>(HttpStatus.FORBIDDEN);
 			}
+		} else {
+			return new ResponseEntity<Serie>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@JsonView(SerieDetalle.class)
+	@PutMapping(value = "/series/{id}/imagen")
+	public ResponseEntity<Serie> putSerieImage(@PathVariable Integer id, @RequestParam("file") MultipartFile file)
+			throws IOException {
+
+		Serie serie = service.findOne(id);
+
+		if (serie != null) {
+			service.subirImagen(file, serie.getUrl(), FILES_FOLDER.toString());
+			serie.setImg(serie.getUrl());
+			service.save(serie);
+			return new ResponseEntity<Serie>(serie, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Serie>(HttpStatus.NOT_FOUND);
 		}

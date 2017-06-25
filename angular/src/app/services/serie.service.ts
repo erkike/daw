@@ -124,6 +124,20 @@ export class SerieService {
       .catch(error => this.handleError(error));
   }
 
+  imagen(formData: FormData, id: number) {
+
+    const headers = new Headers({
+            'Authorization': 'Basic ' + utf8_to_b64(this.login.usuario+':'+this.login.pass),
+            'X-Requested-With': 'XMLHttpRequest',            
+                    contentType: false
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
+
+    return this.http.put(URL + id + '/imagen', formData, options)
+      .map(response => response.json())
+            .catch(error => this.handleError(error));
+}
+
   private handleError(error: any) {
     console.error(error);
     return Observable.throw('Server error (' + error.status + '): ' + error.text());
